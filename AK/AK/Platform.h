@@ -22,3 +22,4 @@
 #define __builtin_isnan isnan
 #define __builtin_isinf isinf
 #define __builtin_isinf_sign isinf
+#define ssize_t size_t

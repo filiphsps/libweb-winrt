@@ -25,6 +25,8 @@ public:
         return builder.build();
     }
 
+    u32 hash() const { return 0; }
+
     char* characters() const { return (char*)""; }
     int length();
     bool is_null() { return true; }
@@ -33,6 +35,12 @@ public:
 
     template<typename... Parameters>
     static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) {}
+
+    template<typename T>
+    static String number(T value) requires IsArithmetic<T>
+    {
+        return formatted("{}", value);
+    }
 
     inline char const& operator[](size_t i) const { return ' '; }
 

@@ -24,6 +24,12 @@ class WeakLink : public RefCounted<WeakLink> {
     friend class Weakable;
     template<typename T>
     friend class WeakPtr;
+
+private:
+    template<typename T>
+    explicit WeakLink(T&)
+    {
+    }
 };
 
 template<typename T>
@@ -34,6 +40,9 @@ private:
 public:
     template<typename U = T>
     ErrorOr<WeakPtr<U>> try_make_weak_ptr() const;
+
+protected:
+    Weakable() = default;
 
 private:
     mutable RefPtr<WeakLink> m_link;

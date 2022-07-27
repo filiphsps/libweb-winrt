@@ -28,8 +28,10 @@ public:
 
     ~Vector() {}
 
-    inline void append(T&&) {}
     inline size_t size() const { return 0; }
+    inline bool is_empty() const { return size() == 0; }
+
+    inline void append(T&&) {}
 
     inline VisibleType& at(size_t i) const { }
 

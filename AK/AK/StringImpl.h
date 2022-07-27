@@ -9,7 +9,8 @@
 namespace AK {
 
 class StringImpl : public RefCounted<StringImpl> {
-
+public:
+    u32 hash() const { return 0; }
 };
 
 }
