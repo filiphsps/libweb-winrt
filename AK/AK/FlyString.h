@@ -12,7 +12,7 @@ public:
     FlyString(String const&);
     FlyString(StringView);
 
-    inline StringView view() const { }
+    inline StringView view() const;
 };
 
 }

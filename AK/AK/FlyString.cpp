@@ -11,4 +11,9 @@ FlyString::FlyString(StringView)
 {
 }
 
+inline StringView FlyString::view() const
+{
+    return StringView();
+}
+
 }
