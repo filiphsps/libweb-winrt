@@ -197,19 +197,53 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AK\Array.h" />
     <ClInclude Include="AK\Assertions.h" />
+    <ClInclude Include="AK\Badge.h" />
+    <ClInclude Include="AK\BitCast.h" />
+    <ClInclude Include="AK\ByteBuffer.h" />
     <ClInclude Include="AK\CharacterTypes.h" />
+    <ClInclude Include="AK\Concepts.h" />
+    <ClInclude Include="AK\Demangle.h" />
+    <ClInclude Include="AK\Error.h" />
     <ClInclude Include="AK\FlyString.h" />
+    <ClInclude Include="AK\Format.h" />
     <ClInclude Include="AK\Forward.h" />
+    <ClInclude Include="AK\Function.h" />
     <ClInclude Include="AK\GenericLexer.h" />
+    <ClInclude Include="AK\HashMap.h" />
+    <ClInclude Include="AK\HashTable.h" />
+    <ClInclude Include="AK\IntrusiveList.h" />
+    <ClInclude Include="AK\Iterator.h" />
+    <ClInclude Include="AK\Noncopyable.h" />
+    <ClInclude Include="AK\NonnullOwnPtr.h" />
+    <ClInclude Include="AK\NonnullOwnPtrVector.h" />
+    <ClInclude Include="AK\NonnullRefPtr.h" />
+    <ClInclude Include="AK\NonnullRefPtrVector.h" />
+    <ClInclude Include="AK\Optional.h" />
+    <ClInclude Include="AK\OwnPtr.h" />
     <ClInclude Include="AK\Platform.h" />
+    <ClInclude Include="AK\QuickSort.h" />
+    <ClInclude Include="AK\RefPtr.h" />
     <ClInclude Include="AK\Result.h" />
+    <ClInclude Include="AK\ScopeGuard.h" />
+    <ClInclude Include="AK\SinglyLinkedList.h" />
+    <ClInclude Include="AK\Span.h" />
+    <ClInclude Include="AK\StdLibExtraDetails.h" />
+    <ClInclude Include="AK\StdLibExtras.h" />
     <ClInclude Include="AK\String.h" />
     <ClInclude Include="AK\StringBuilder.h" />
     <ClInclude Include="AK\StringUtils.h" />
     <ClInclude Include="AK\StringView.h" />
+    <ClInclude Include="AK\TemporaryChange.h" />
+    <ClInclude Include="AK\Traits.h" />
+    <ClInclude Include="AK\Try.h" />
+    <ClInclude Include="AK\TypeCasts.h" />
+    <ClInclude Include="AK\TypedTransfer.h" />
     <ClInclude Include="AK\Types.h" />
+    <ClInclude Include="AK\Utf16View.h" />
     <ClInclude Include="AK\Variant.h" />
+    <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

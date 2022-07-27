@@ -23,6 +23,8 @@ public:
     constexpr int compare() { return 0; }
     size_t length() { return 0; }
 
+    constexpr char const* characters_without_null_termination() const { return (char*)""; }
+
     bool operator==(StringView other) const { return false; }
     bool operator==(char const* cstring) const { return false; }
     bool operator!=(StringView other) const { return false; }
