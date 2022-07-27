@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./AK/Assertions.h"
+#include "./AK/Format.h"
 #include "./AK/Forward.h"
 #include "./AK/StringBuilder.h"
 
@@ -17,6 +17,9 @@ public:
     bool is_null() { return true; }
     String replace(StringView, StringView, ReplaceMode) const;
     size_t count(StringView) const;
+
+    template<typename... Parameters>
+    static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) {}
 
     inline char const& operator[](size_t i) const { return ' '; }
 };

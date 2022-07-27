@@ -200,6 +200,12 @@
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\AST.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Console.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\CyclicModule.cpp" />
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\BlockAllocator.cpp" />
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\CellAllocator.cpp" />
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\Handle.cpp" />
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\Heap.cpp" />
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\HeapBlock.cpp" />
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\MarkedVector.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Interpreter.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Lexer.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\MarkupGenerator.cpp" />

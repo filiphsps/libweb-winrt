@@ -14,14 +14,25 @@ private:
 
 public:
     using ValueType = T;
+    Vector() {}
+    Vector(std::initializer_list<T>) requires(!IsLvalueReference<T>) {}
 
-    inline void append(T&& value) {}
+    Vector(Vector&&) {}
+
+    Vector(Vector const&) {}
+
+    explicit Vector(Span<T const>) requires(!IsLvalueReference<T>) {}
+
+    template<size_t other_inline_capacity>
+    Vector(Vector<T, other_inline_capacity> const&) {}
+
+    ~Vector() {}
+
+    inline void append(T&&) {}
     inline size_t size() const { return 0; }
 
-    inline VisibleType const& at(size_t i) const { }
     inline VisibleType& at(size_t i) const { }
 
-    VisibleType const& operator[](size_t i) const { return at(i); }
     VisibleType& operator[](size_t i) { return at(i); }
 };
 

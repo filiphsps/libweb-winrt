@@ -198,5 +198,26 @@
     <ClInclude Include="AK\Atomic.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="AK\Random.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\AllOf.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\DistinctNumeric.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Debug.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StackInfo.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\CheckedFormatString.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\AnyOf.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

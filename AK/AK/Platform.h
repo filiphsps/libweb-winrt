@@ -5,14 +5,15 @@
 #endif
 #define ALWAYS_INLINE __attribute__((always_inline)) inline
 
-namespace AK {
+#ifdef NEVER_INLINE
+#    undef NEVER_INLINE
+#endif
+#define NEVER_INLINE __attribute__((noinline))
 
-template<typename T>
-constexpr T&& move(T& arg)
-{
-    return static_cast<T&&>(arg);
-}
+#ifdef RETURNS_NONNULL
+#    undef RETURNS_NONNULL
+#endif
+#define RETURNS_NONNULL __attribute__((returns_nonnull))
 
-}
-
-using AK::move;
+#define ASAN_POISON_MEMORY_REGION(addr, size)
+#define ASAN_UNPOISON_MEMORY_REGION(addr, size)

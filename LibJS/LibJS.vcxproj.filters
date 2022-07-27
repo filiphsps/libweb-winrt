@@ -8,6 +8,9 @@
     <Filter Include="Runtime">
       <UniqueIdentifier>{cc5a89c8-2eab-43e9-98f7-fb86d81a2370}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Heap">
+      <UniqueIdentifier>{52c8277d-3151-440b-a6c4-fe2fe67fa823}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -428,6 +431,24 @@
     </ClCompile>
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AbstractOperations.cpp">
       <Filter>Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\BlockAllocator.cpp">
+      <Filter>Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\CellAllocator.cpp">
+      <Filter>Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\Handle.cpp">
+      <Filter>Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\Heap.cpp">
+      <Filter>Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\HeapBlock.cpp">
+      <Filter>Heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\MarkedVector.cpp">
+      <Filter>Heap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

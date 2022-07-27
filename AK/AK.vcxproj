@@ -197,6 +197,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AK\AllOf.h" />
+    <ClInclude Include="AK\AnyOf.h" />
     <ClInclude Include="AK\Array.h" />
     <ClInclude Include="AK\Assertions.h" />
     <ClInclude Include="AK\Atomic.h" />
@@ -204,8 +206,11 @@
     <ClInclude Include="AK\BitCast.h" />
     <ClInclude Include="AK\ByteBuffer.h" />
     <ClInclude Include="AK\CharacterTypes.h" />
+    <ClInclude Include="AK\CheckedFormatString.h" />
     <ClInclude Include="AK\Concepts.h" />
+    <ClInclude Include="AK\Debug.h" />
     <ClInclude Include="AK\Demangle.h" />
+    <ClInclude Include="AK\DistinctNumeric.h" />
     <ClInclude Include="AK\Error.h" />
     <ClInclude Include="AK\FlyString.h" />
     <ClInclude Include="AK\Format.h" />
@@ -226,12 +231,14 @@
     <ClInclude Include="AK\OwnPtr.h" />
     <ClInclude Include="AK\Platform.h" />
     <ClInclude Include="AK\QuickSort.h" />
+    <ClInclude Include="AK\Random.h" />
     <ClInclude Include="AK\RefCounted.h" />
     <ClInclude Include="AK\RefPtr.h" />
     <ClInclude Include="AK\Result.h" />
     <ClInclude Include="AK\ScopeGuard.h" />
     <ClInclude Include="AK\SinglyLinkedList.h" />
     <ClInclude Include="AK\Span.h" />
+    <ClInclude Include="AK\StackInfo.h" />
     <ClInclude Include="AK\StdLibExtraDetails.h" />
     <ClInclude Include="AK\StdLibExtras.h" />
     <ClInclude Include="AK\String.h" />
