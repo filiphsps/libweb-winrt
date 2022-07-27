@@ -168,6 +168,10 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <CompileAs>Default</CompileAs>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -191,11 +195,16 @@
     <ClInclude Include="AK.h" />
     <ClInclude Include="Assertions.h" />
     <ClInclude Include="CharacterTypes.h" />
+    <ClInclude Include="FlyString.h" />
+    <ClInclude Include="GenericLexer.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="String.h" />
     <ClInclude Include="StringBuilder.h" />
+    <ClInclude Include="StringUtils.h" />
+    <ClInclude Include="StringView.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Types.h" />
+    <ClInclude Include="Variant.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AK.cpp" />

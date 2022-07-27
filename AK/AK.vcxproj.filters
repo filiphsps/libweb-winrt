@@ -19,5 +19,10 @@
     <ClInclude Include="Types.h" />
     <ClInclude Include="StringBuilder.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="GenericLexer.h" />
+    <ClInclude Include="StringView.h" />
+    <ClInclude Include="Variant.h" />
+    <ClInclude Include="FlyString.h" />
+    <ClInclude Include="StringUtils.h" />
   </ItemGroup>
 </Project>
