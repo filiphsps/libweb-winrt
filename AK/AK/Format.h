@@ -328,7 +328,7 @@ template<typename T, size_t inline_capacity>
     }
     ErrorOr<void> format(FormatBuilder& builder, Vector<T> value)
     {
-        if (m_mode == Mode::Pointer) {
+        /*if (m_mode == Mode::Pointer) {
             Formatter<FlatPtr> formatter{ *this };
             TRY(formatter.format(builder, reinterpret_cast<FlatPtr>(value.data())));
             return {};
@@ -359,7 +359,7 @@ template<typename T, size_t inline_capacity>
             first = false;
             TRY(content_fmt.format(builder, content));
         }
-        TRY(builder.put_literal(" ]"sv));
+        TRY(builder.put_literal(" ]"sv));*/
         return {};
     }
 };

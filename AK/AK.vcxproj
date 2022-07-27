@@ -178,7 +178,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalIncludeDirectories>$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);NOMINMAX</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);NOMINMAX;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -207,13 +207,16 @@
     <ClInclude Include="AK\Atomic.h" />
     <ClInclude Include="AK\Badge.h" />
     <ClInclude Include="AK\BitCast.h" />
+    <ClInclude Include="AK\BultinWrappers.h" />
     <ClInclude Include="AK\ByteBuffer.h" />
     <ClInclude Include="AK\CharacterTypes.h" />
     <ClInclude Include="AK\CheckedFormatString.h" />
     <ClInclude Include="AK\Concepts.h" />
+    <ClInclude Include="AK\DateConstants.h" />
     <ClInclude Include="AK\Debug.h" />
     <ClInclude Include="AK\Demangle.h" />
     <ClInclude Include="AK\DistinctNumeric.h" />
+    <ClInclude Include="AK\Endian.h" />
     <ClInclude Include="AK\Error.h" />
     <ClInclude Include="AK\Find.h" />
     <ClInclude Include="AK\FixedPoint.h" />
@@ -227,6 +230,8 @@
     <ClInclude Include="AK\HashTable.h" />
     <ClInclude Include="AK\IntrusiveList.h" />
     <ClInclude Include="AK\Iterator.h" />
+    <ClInclude Include="AK\JsonObject.h" />
+    <ClInclude Include="AK\JsonParser.h" />
     <ClInclude Include="AK\Noncopyable.h" />
     <ClInclude Include="AK\NonnullOwnPtr.h" />
     <ClInclude Include="AK\NonnullOwnPtrVector.h" />
@@ -250,6 +255,7 @@
     <ClInclude Include="AK\String.h" />
     <ClInclude Include="AK\StringBuilder.h" />
     <ClInclude Include="AK\StringHash.h" />
+    <ClInclude Include="AK\StringImpl.h" />
     <ClInclude Include="AK\StringUtils.h" />
     <ClInclude Include="AK\StringView.h" />
     <ClInclude Include="AK\TemporaryChange.h" />
@@ -264,8 +270,11 @@
     <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="AK\Weakable.h" />
     <ClInclude Include="AK\WeakPtr.h" />
+    <ClInclude Include="Checked.h" />
+    <ClInclude Include="JsonArray.h" />
     <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
     <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="sys\time.h" />
     <ClInclude Include="targetver.h" />
@@ -276,6 +285,7 @@
     <ClCompile Include="AK\String.cpp" />
     <ClCompile Include="AK\StringBuilder.cpp" />
     <ClCompile Include="AK\StringView.cpp" />
+    <ClCompile Include="AK\Time.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -286,6 +296,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

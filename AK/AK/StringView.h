@@ -10,9 +10,25 @@ class StringView {
 public:
     inline constexpr StringView() = default;
     inline constexpr StringView(char const*, size_t) {}
-    inline constexpr StringView(unsigned char const*, size_t) {}
-    StringView(AK::String const&);
+    inline StringView(unsigned char const* characters, size_t length)
+        : m_characters((char const*)characters)
+        , m_length(length)
+    {
+        //VERIFY(!Checked<uintptr_t>::addition_would_overflow((uintptr_t)characters, length));
+    }
+    inline StringView(ReadonlyBytes bytes)
+        : m_characters(reinterpret_cast<char const*>(bytes.data()))
+        , m_length(bytes.size())
+    {
+    }
+
+    StringView(ByteBuffer const&);
+    StringView(String const&);
     StringView(FlyString const&);
+
+    explicit StringView(ByteBuffer&&) = delete;
+    explicit StringView(String&&) = delete;
+    explicit StringView(FlyString&&) = delete;
 
     bool contains(char) const { return false; }
     bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const { return false; }
@@ -35,6 +51,11 @@ public:
 
     constexpr int* begin() const { return 0; }
     constexpr int* end() const { return 0; }
+
+private:
+    friend class String;
+    char const* m_characters{ nullptr };
+    size_t m_length{ 0 };
 };
 
 }

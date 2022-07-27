@@ -12,6 +12,14 @@ public:
     FlyString(String const&);
     FlyString(StringView);
 
+    static FlyString from_fly_impl(NonnullRefPtr<StringImpl> impl)
+    {
+        //VERIFY(impl->is_fly());
+        FlyString string;
+        //string.m_impl = move(impl);
+        return string;
+    }
+
     inline StringView view() const;
 };
 

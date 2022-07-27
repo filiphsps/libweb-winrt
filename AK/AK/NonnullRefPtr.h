@@ -156,20 +156,20 @@ public:
         return *ptr;
     }
 
-    inline RETURNS_NONNULL T* ptr()
+    inline T* ptr()
     {
         return as_nonnull_ptr();
     }
-    inline RETURNS_NONNULL const T* ptr() const
+    inline const T* ptr() const
     {
         return as_nonnull_ptr();
     }
 
-    inline RETURNS_NONNULL T* operator->()
+    inline T* operator->()
     {
         return as_nonnull_ptr();
     }
-    inline RETURNS_NONNULL const T* operator->() const
+    inline const T* operator->() const
     {
         return as_nonnull_ptr();
     }
@@ -183,11 +183,11 @@ public:
         return *as_nonnull_ptr();
     }
 
-    inline RETURNS_NONNULL operator T* ()
+    inline operator T* ()
     {
         return as_nonnull_ptr();
     }
-    inline RETURNS_NONNULL operator const T* () const
+    inline operator const T* () const
     {
         return as_nonnull_ptr();
     }
@@ -226,7 +226,7 @@ private:
     NonnullRefPtr() = delete;
     // clang-format on
 
-    inline RETURNS_NONNULL T* as_nonnull_ptr() const
+    inline T* as_nonnull_ptr() const
     {
         VERIFY(m_ptr);
         return m_ptr;
@@ -241,13 +241,13 @@ inline NonnullRefPtr<T> adopt_ref(T& object)
     return NonnullRefPtr<T>(NonnullRefPtr<T>::Adopt, object);
 }
 
-/*template<typename T>
+template<typename T>
 struct Formatter<NonnullRefPtr<T>> : Formatter<const T*> {
     ErrorOr<void> format(FormatBuilder& builder, NonnullRefPtr<T> const& value)
     {
         return Formatter<const T*>::format(builder, value.ptr());
     }
-};*/
+};
 
 template<typename T, typename U>
 inline void swap(NonnullRefPtr<T>& a, NonnullRefPtr<U>& b) requires(IsConvertible<U*, T*>)

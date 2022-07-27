@@ -9,6 +9,7 @@
 #undef max
 
 #include <limits.h>
+#include <time.h>
 #include "./AK/Array.h"
 #include "./AK/Assertions.h"
 #include "./AK/Platform.h"

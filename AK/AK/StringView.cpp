@@ -3,6 +3,10 @@
 
 namespace AK {
 
+StringView::StringView(ByteBuffer const&)
+{
+}
+
 StringView::StringView(String const&)
 {
 }

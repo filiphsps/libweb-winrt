@@ -3,6 +3,9 @@
 #include "./AK/Format.h"
 #include "./AK/Forward.h"
 #include "./AK/StringBuilder.h"
+#include "./AK/StringImpl.h"
+#include "./AK/StringUtils.h"
+#include "./AK/Traits.h"
 
 namespace AK {
 
@@ -11,6 +14,15 @@ public:
     String() = default;
     String(const char*);
     String(StringView);
+    String(FlyString const&);
+
+    template<class SeparatorType, class CollectionType>
+    static String join(SeparatorType const& separator, CollectionType const& collection, StringView fmtstr = "{}"sv)
+    {
+        StringBuilder builder;
+        builder.join(separator, collection, fmtstr);
+        return builder.build();
+    }
 
     char* characters() const { return (char*)""; }
     int length();
@@ -22,6 +34,9 @@ public:
     static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) {}
 
     inline char const& operator[](size_t i) const { return ' '; }
+
+private:
+    RefPtr<StringImpl> m_impl;
 };
 
 }

@@ -35,6 +35,9 @@
     <ClCompile Include="AK\StringView.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="AK\Time.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -240,5 +243,35 @@
     <ClInclude Include="AK\Find.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonArray.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="Checked.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Endian.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\BultinWrappers.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\DateConstants.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonObject.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonParser.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringImpl.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
