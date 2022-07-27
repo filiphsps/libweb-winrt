@@ -1,5 +1,7 @@
 #pragma once
 
+#include "./AK/Forward.h"
+
 namespace AK {
 
 enum class CaseSensitivity {

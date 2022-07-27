@@ -27,7 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{55e7171f-ef24-4a3d-8b50-00ee384aeae5}</ProjectGuid>
+    <ProjectGuid>{124fa43a-a3ce-4a53-b440-01b704bbe0f3}</ProjectGuid>
     <Keyword>StaticLibrary</Keyword>
     <RootNamespace>LibJS</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -168,8 +168,10 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\filfa\libweb-winrt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../AK/;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -191,13 +193,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\serenity\Userland\Libraries\LibJS\Token.h" />
-    <ClInclude Include="LibJS.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Token.cpp" />
-    <ClCompile Include="LibJS.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -211,10 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AK\AK.vcxproj">
-      <Project>{13697b8f-0074-48fd-85da-4860abb6014b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\LibC\LibC.vcxproj">
-      <Project>{fcc97d82-42c3-43cf-b50d-6c192b445e7f}</Project>
+      <Project>{4482715a-767d-4a17-a64d-4d990654de2e}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

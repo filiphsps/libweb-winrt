@@ -27,7 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{13697b8f-0074-48fd-85da-4860abb6014b}</ProjectGuid>
+    <ProjectGuid>{4482715a-767d-4a17-a64d-4d990654de2e}</ProjectGuid>
     <Keyword>StaticLibrary</Keyword>
     <RootNamespace>AK</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -111,6 +111,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <GenerateManifest>false</GenerateManifest>
+    <IncludePath>$(WindowsSDK_IncludePath);</IncludePath>
+    <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <GenerateManifest>false</GenerateManifest>
@@ -168,10 +170,13 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-      <CompileAs>Default</CompileAs>
+      <PrecompiledHeaderOutputFile>$(ProjectDir)/../x64/Debug/AK.pch</PrecompiledHeaderOutputFile>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ConformanceMode>true</ConformanceMode>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <ShowIncludes>false</ShowIncludes>
+      <AdditionalIncludeDirectories>$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -192,22 +197,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AK.h" />
-    <ClInclude Include="Assertions.h" />
-    <ClInclude Include="CharacterTypes.h" />
-    <ClInclude Include="FlyString.h" />
-    <ClInclude Include="GenericLexer.h" />
+    <ClInclude Include="AK\Assertions.h" />
+    <ClInclude Include="AK\CharacterTypes.h" />
+    <ClInclude Include="AK\FlyString.h" />
+    <ClInclude Include="AK\Forward.h" />
+    <ClInclude Include="AK\GenericLexer.h" />
+    <ClInclude Include="AK\Platform.h" />
+    <ClInclude Include="AK\Result.h" />
+    <ClInclude Include="AK\String.h" />
+    <ClInclude Include="AK\StringBuilder.h" />
+    <ClInclude Include="AK\StringUtils.h" />
+    <ClInclude Include="AK\StringView.h" />
+    <ClInclude Include="AK\Types.h" />
+    <ClInclude Include="AK\Variant.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="String.h" />
-    <ClInclude Include="StringBuilder.h" />
-    <ClInclude Include="StringUtils.h" />
-    <ClInclude Include="StringView.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Types.h" />
-    <ClInclude Include="Variant.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AK.cpp" />
+    <ClCompile Include="AK\FlyString.cpp" />
+    <ClCompile Include="AK\GenericLexer.cpp" />
+    <ClCompile Include="AK\String.cpp" />
+    <ClCompile Include="AK\StringBuilder.cpp" />
+    <ClCompile Include="AK\StringView.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

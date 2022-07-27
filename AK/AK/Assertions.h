@@ -1,6 +1,5 @@
 #pragma once
 
-#include "pch.h"
 #include <assert.h>
 #define VERIFY assert
 

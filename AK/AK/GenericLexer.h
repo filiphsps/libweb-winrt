@@ -1,15 +1,8 @@
 #pragma once
 
-#include "StringView.h"
-
-class UnicodeEscapeError {
-public:
-    bool is_error() {
-        return true;
-    }
-    u32 value() {}
-    GenericLexer::UnicodeEscapeError error() {}
-};
+#include "./AK/Forward.h"
+#include "./AK/Result.h"
+#include "./AK/StringView.h"
 
 namespace AK {
 
@@ -17,26 +10,23 @@ class GenericLexer {
 public:
     constexpr explicit GenericLexer(StringView input) {}
 
-    bool is_eof() {
-        return true;
-    }
+    bool is_eof();
     bool next_is(char*) {
         return false;
     }
     bool next_is(char) {
         return false;
     }
+    bool next_is(const char[]) {
+        return false;
+    }
     bool next_is(StringView) {
         return false;
     }
 
-    u32 peek() {}
-    u32 peek(u32) {}
+    u32 peek() { return 0; }
+    u32 peek(u32) { return 0; }
 
-    char consume() {}
-    StringView consume(size_t) {}
-    UnicodeEscapeError consume_escaped_code_point() {}
-    char consume_escaped_character(char, StringView) {}
     void ignore() {}
     void ignore(u32) {}
     void retreat() {}
@@ -45,6 +35,11 @@ public:
         MalformedUnicodeEscape,
         UnicodeEscapeOverflow,
     };
+
+    char consume() { return ' '; }
+    StringView consume(size_t);
+    Result<u32, UnicodeEscapeError> consume_escaped_code_point() { return NULL; }
+    char consume_escaped_character(char, StringView) { return ' '; }
 };
 
 }

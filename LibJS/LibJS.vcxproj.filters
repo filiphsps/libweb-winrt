@@ -5,20 +5,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Heap">
-      <UniqueIdentifier>{a8c806c9-b935-4509-82b4-43fb7b66de31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Runtime">
-      <UniqueIdentifier>{deb7d3d9-41ab-4a6f-8416-1589d287177f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LibJS.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Token.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LibJS.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="..\serenity\Userland\Libraries\LibJS\Token.h" />

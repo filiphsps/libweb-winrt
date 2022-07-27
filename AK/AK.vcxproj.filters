@@ -5,24 +5,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="AK">
+      <UniqueIdentifier>{4e54793f-9733-4382-993c-968282743c26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AK.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AK\FlyString.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\GenericLexer.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\String.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\StringBuilder.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\StringView.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AK.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Assertions.h" />
-    <ClInclude Include="CharacterTypes.h" />
-    <ClInclude Include="Types.h" />
-    <ClInclude Include="StringBuilder.h" />
-    <ClInclude Include="String.h" />
-    <ClInclude Include="GenericLexer.h" />
-    <ClInclude Include="StringView.h" />
-    <ClInclude Include="Variant.h" />
-    <ClInclude Include="FlyString.h" />
-    <ClInclude Include="StringUtils.h" />
+    <ClInclude Include="AK\Assertions.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\CharacterTypes.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\FlyString.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\GenericLexer.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\String.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringBuilder.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringUtils.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringView.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Types.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Variant.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Forward.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Result.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Platform.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,15 +1,14 @@
 #pragma once
 
-#include "pch.h"
-#include "StringView.h"
-#include "Types.h"
+#include "./AK/Forward.h"
+#include "./AK/StringView.h"
 
 namespace AK {
 
 class StringBuilder {
 public:
-    StringBuilder() {};
-    StringBuilder(size_t initial_capacity) {};
+    StringBuilder() = default;
+    StringBuilder(size_t initial_capacity);
     ~StringBuilder() = default;
 
     void append(StringView) {}
@@ -17,7 +16,8 @@ public:
     void append_code_point(u32) {}
     void append(char const*, size_t) {}
 
-    String to_string() const {}
+    String build() const;
+    String to_string() const;
 
     void clear() {}
 
