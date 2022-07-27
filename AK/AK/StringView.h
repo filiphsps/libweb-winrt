@@ -35,9 +35,6 @@ public:
 
     constexpr int* begin() const { return 0; }
     constexpr int* end() const { return 0; }
-
-private:
-    friend class String;
 };
 
 }

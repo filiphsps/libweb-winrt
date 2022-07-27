@@ -9,12 +9,15 @@
 #include <stdlib.h>
 #include "./AK/Platform.h"
 #include "./AK/Types.h"
+#include "./AK/NumericLimits.h"
 
 namespace AK {
 
 namespace Detail {
-    template<size_t inline_capacity>
-    class ByteBuffer;
+
+template<size_t inline_capacity>
+class ByteBuffer;
+
 }
 
 class Bitmap;
@@ -28,7 +31,6 @@ class JsonValue;
 class StackInfo;
 class String;
 class StringBuilder;
-class StringImpl;
 class StringView;
 class Time;
 class URL;
@@ -126,8 +128,8 @@ class OwnPtr;
 template<typename T>
 class WeakPtr;
 
-//template<typename T, size_t inline_capacity = 0>
-//    requires(!IsRvalueReference<T>) class Vector;
+template<typename T, size_t inline_capacity = 0>
+requires(!IsRvalueReference<T>) class Vector;
 
 template<typename T, typename ErrorType = Error>
 class [[nodiscard]] ErrorOr;
@@ -176,7 +178,6 @@ using AK::Span;
 using AK::StackInfo;
 using AK::String;
 using AK::StringBuilder;
-using AK::StringImpl;
 using AK::StringView;
 using AK::Time;
 using AK::Traits;

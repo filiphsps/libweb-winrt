@@ -17,3 +17,8 @@
 
 #define ASAN_POISON_MEMORY_REGION(addr, size)
 #define ASAN_UNPOISON_MEMORY_REGION(addr, size)
+
+// built-ins
+#define __builtin_isnan isnan
+#define __builtin_isinf isinf
+#define __builtin_isinf_sign isinf

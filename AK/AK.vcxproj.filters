@@ -11,6 +11,12 @@
     <Filter Include="sys">
       <UniqueIdentifier>{3f7b064d-8eb8-43b1-abd4-c2537ff2000c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LibCrypto">
+      <UniqueIdentifier>{1eb34466-6832-4d41-a2ca-f8b1bd31250d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LibCrypto\BigInt">
+      <UniqueIdentifier>{f50d2597-c69c-488a-9fd1-1f63bb8fee6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -217,6 +223,15 @@
       <Filter>AK</Filter>
     </ClInclude>
     <ClInclude Include="AK\AnyOf.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h">
+      <Filter>LibCrypto\BigInt</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h">
+      <Filter>LibCrypto\BigInt</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NumericLimits.h">
       <Filter>AK</Filter>
     </ClInclude>
   </ItemGroup>

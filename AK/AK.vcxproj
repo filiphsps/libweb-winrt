@@ -37,6 +37,7 @@
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <ProjectName>LibC-Shim</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -177,6 +178,7 @@
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalIncludeDirectories>$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);NOMINMAX</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -189,6 +191,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions);NOMINMAX</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -227,6 +230,7 @@
     <ClInclude Include="AK\NonnullOwnPtrVector.h" />
     <ClInclude Include="AK\NonnullRefPtr.h" />
     <ClInclude Include="AK\NonnullRefPtrVector.h" />
+    <ClInclude Include="AK\NumericLimits.h" />
     <ClInclude Include="AK\Optional.h" />
     <ClInclude Include="AK\OwnPtr.h" />
     <ClInclude Include="AK\Platform.h" />
@@ -258,6 +262,8 @@
     <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="AK\Weakable.h" />
     <ClInclude Include="AK\WeakPtr.h" />
+    <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
+    <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="sys\time.h" />
     <ClInclude Include="targetver.h" />

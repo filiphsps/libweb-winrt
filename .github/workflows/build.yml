@@ -5,7 +5,7 @@ jobs:
   build:
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Debug]
         platform: [arm64, x86, x64]
 
     runs-on: windows-latest
