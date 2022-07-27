@@ -215,6 +215,8 @@
     <ClInclude Include="AK\Demangle.h" />
     <ClInclude Include="AK\DistinctNumeric.h" />
     <ClInclude Include="AK\Error.h" />
+    <ClInclude Include="AK\Find.h" />
+    <ClInclude Include="AK\FixedPoint.h" />
     <ClInclude Include="AK\FlyString.h" />
     <ClInclude Include="AK\Format.h" />
     <ClInclude Include="AK\Forward.h" />

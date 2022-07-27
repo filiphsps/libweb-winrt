@@ -234,5 +234,11 @@
     <ClInclude Include="AK\NumericLimits.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="AK\FixedPoint.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Find.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

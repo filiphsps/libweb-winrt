@@ -11,8 +11,13 @@ struct Array {
     constexpr T const* data() const { return __data; }
     constexpr T* data() { return __data; }
 
+    constexpr T& operator[](size_t index) { return at(index); }
+
     T __data[Size];
 };
+
+template<typename T, typename... Types>
+Array(T, Types...)->Array<T, sizeof...(Types) + 1>;
 
 }
 

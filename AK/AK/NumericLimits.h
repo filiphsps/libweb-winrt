@@ -1,5 +1,6 @@
 #pragma once
-#define NOMINMAX
+#undef min
+#undef max
 
 #include <limits.h>
 #include <float.h>
