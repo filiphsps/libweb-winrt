@@ -18,11 +18,11 @@ public:
     inline void append(T&& value) {}
     inline size_t size() const { return 0; }
 
-    VisibleType const& operator[](size_t i) const { return at(i); }
-    VisibleType& operator[](size_t i) { return at(i); }
-
     inline VisibleType const& at(size_t i) const { }
     inline VisibleType& at(size_t i) const { }
+
+    VisibleType const& operator[](size_t i) const { return at(i); }
+    VisibleType& operator[](size_t i) { return at(i); }
 };
 
 }

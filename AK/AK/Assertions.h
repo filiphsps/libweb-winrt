@@ -1,6 +1,7 @@
 #pragma once
 
 #include <assert.h>
+#include "./Platform.h"
 #define VERIFY assert
 
 #define VERIFY_NOT_REACHED() VERIFY(false)

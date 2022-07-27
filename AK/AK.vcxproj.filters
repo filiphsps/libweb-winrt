@@ -8,6 +8,9 @@
     <Filter Include="AK">
       <UniqueIdentifier>{4e54793f-9733-4382-993c-968282743c26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sys">
+      <UniqueIdentifier>{3f7b064d-8eb8-43b1-abd4-c2537ff2000c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -181,6 +184,18 @@
       <Filter>AK</Filter>
     </ClInclude>
     <ClInclude Include="AK\StringHash.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="sys\time.h">
+      <Filter>sys</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\RefCounted.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Weakable.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Atomic.h">
       <Filter>AK</Filter>
     </ClInclude>
   </ItemGroup>
