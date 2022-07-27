@@ -8,7 +8,10 @@
 namespace AK {
 
 template<typename T, size_t inline_capacity>
-class Vector {
+requires(!IsRvalueReference<T>) class Vector {
+private:
+    using VisibleType = RemoveReference<T>;
+
 public:
     using ValueType = T;
 
@@ -18,8 +21,8 @@ public:
     VisibleType const& operator[](size_t i) const { return at(i); }
     VisibleType& operator[](size_t i) { return at(i); }
 
-private:
-    using VisibleType = RemoveReference<T>;
+    inline VisibleType const& at(size_t i) const { }
+    inline VisibleType& at(size_t i) const { }
 };
 
 }

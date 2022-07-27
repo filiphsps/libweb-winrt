@@ -171,5 +171,17 @@
     <ClInclude Include="AK\NonnullOwnPtr.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="AK\WeakPtr.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Time.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\HashFunctions.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringHash.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

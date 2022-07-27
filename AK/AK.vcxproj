@@ -211,6 +211,7 @@
     <ClInclude Include="AK\Forward.h" />
     <ClInclude Include="AK\Function.h" />
     <ClInclude Include="AK\GenericLexer.h" />
+    <ClInclude Include="AK\HashFunctions.h" />
     <ClInclude Include="AK\HashMap.h" />
     <ClInclude Include="AK\HashTable.h" />
     <ClInclude Include="AK\IntrusiveList.h" />
@@ -233,9 +234,11 @@
     <ClInclude Include="AK\StdLibExtras.h" />
     <ClInclude Include="AK\String.h" />
     <ClInclude Include="AK\StringBuilder.h" />
+    <ClInclude Include="AK\StringHash.h" />
     <ClInclude Include="AK\StringUtils.h" />
     <ClInclude Include="AK\StringView.h" />
     <ClInclude Include="AK\TemporaryChange.h" />
+    <ClInclude Include="AK\Time.h" />
     <ClInclude Include="AK\Traits.h" />
     <ClInclude Include="AK\Try.h" />
     <ClInclude Include="AK\TypeCasts.h" />
@@ -244,6 +247,7 @@
     <ClInclude Include="AK\Utf16View.h" />
     <ClInclude Include="AK\Variant.h" />
     <ClInclude Include="AK\Vector.h" />
+    <ClInclude Include="AK\WeakPtr.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
