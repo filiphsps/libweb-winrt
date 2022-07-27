@@ -38,6 +38,9 @@
     <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
   </PropertyGroup>
+  <PropertyGroup>
+	<ReadOnlyProject>true</ReadOnlyProject>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -192,165 +195,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\serenity\Userland\Libraries\LibJS\SourceRange.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\AST.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Console.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\CyclicModule.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\BlockAllocator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\CellAllocator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\Handle.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\Heap.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\HeapBlock.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\MarkedVector.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Interpreter.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Lexer.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\MarkupGenerator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Module.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Parser.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AbstractOperations.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AggregateError.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AggregateErrorConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AggregateErrorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArgumentsObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Array.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayBuffer.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayBufferConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayBufferPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayIterator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ArrayPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncFromSyncIterator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncFromSyncIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncFunctionConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncFunctionDriverWrapper.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncFunctionPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncGenerator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncGeneratorFunctionConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncGeneratorFunctionPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncGeneratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AsyncIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\AtomicsObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BigInt.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BigIntConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BigIntObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BigIntPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BooleanConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BooleanObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BooleanPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\BoundFunction.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Completion.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ConsoleObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\DataView.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\DataViewConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\DataViewPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Date.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\DateConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\DatePrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\DeclarativeEnvironment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ECMAScriptFunctionObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Environment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Error.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ErrorConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ErrorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ErrorTypes.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FinalizationRegistry.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FinalizationRegistryConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FinalizationRegistryPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FunctionConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FunctionEnvironment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FunctionObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\FunctionPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\GeneratorFunctionConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\GeneratorFunctionPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\GeneratorObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\GeneratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\GlobalEnvironment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\GlobalObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\IndexedProperties.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\IteratorOperations.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\IteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\JSONObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Map.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\MapConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\MapIterator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\MapIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\MapPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\MathObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ModuleEnvironment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ModuleNamespaceObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\NativeFunction.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\NumberConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\NumberObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\NumberPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Object.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ObjectConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ObjectEnvironment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PrimitiveString.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PrivateEnvironment.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Promise.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PromiseConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PromiseJobs.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PromisePrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PromiseReaction.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PromiseResolvingElementFunctions.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PromiseResolvingFunction.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\PropertyDescriptor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ProxyConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ProxyObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Realm.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Reference.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ReflectObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\RegExpConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\RegExpObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\RegExpPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\RegExpStringIterator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\RegExpStringIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Set.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SetConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SetIterator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SetIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SetPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ShadowRealm.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ShadowRealmConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\ShadowRealmPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Shape.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\StringConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\StringIterator.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\StringIteratorPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\StringObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\StringPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Symbol.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SymbolConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SymbolObject.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\SymbolPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\TypedArray.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\TypedArrayConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\TypedArrayPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Utf16String.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\Value.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\VM.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakContainer.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakMap.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakMapConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakMapPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakRef.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakRefConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakRefPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakSet.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakSetConstructor.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WeakSetPrototype.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\WrappedFunction.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Script.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\SourceTextModule.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\SyntaxHighlighter.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\SyntheticModule.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Token.cpp" />
+	<ClCompile Include="..\serenity\Userland\Libraries\LibJS\*.cpp" />
+	<ClCompile Include="..\serenity\Userland\Libraries\LibJS\*\*.cpp" />
+	<ClCompile Include="..\serenity\Userland\Libraries\LibJS\Tests\*.cpp">
+		<ExcludedFromBuild>true</ExcludedFromBuild>
+	</ClCompile>
+	<ClCompile Include="..\serenity\Userland\Libraries\LibJS\Contrib\*.cpp">
+		<ExcludedFromBuild>true</ExcludedFromBuild>
+	</ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

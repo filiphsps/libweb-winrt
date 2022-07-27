@@ -11,6 +11,7 @@ struct Array {
     constexpr T const* data() const { return __data; }
     constexpr T* data() { return __data; }
 
+    constexpr T const& at(size_t index);
     constexpr T& operator[](size_t index) { return at(index); }
 
     T __data[Size];
