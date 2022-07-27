@@ -24,8 +24,8 @@ public:
 
     inline void ref() const
     {
-        VERIFY(m_ref_count > 0);
-        VERIFY(!Checked<RefCountType>::addition_would_overflow(m_ref_count, 1));
+        //VERIFY(m_ref_count > 0);
+        //VERIFY(!Checked<RefCountType>::addition_would_overflow(m_ref_count, 1));
         ++m_ref_count;
     }
 
@@ -41,11 +41,11 @@ public:
 
 protected:
     RefCountedBase() = default;
-    ~RefCountedBase() { VERIFY(!m_ref_count); }
+    ~RefCountedBase() { /*VERIFY(!m_ref_count);*/ }
 
-    ALWAYS_INLINE RefCountType deref_base() const
+    inline RefCountType deref_base() const
     {
-        VERIFY(m_ref_count);
+        //VERIFY(m_ref_count);
         return --m_ref_count;
     }
 

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "./AK/Forward.h"
 #include "./AK/String.h"
 #include "./AK/StringUtils.h"
 
@@ -16,11 +15,20 @@ public:
     {
         //VERIFY(impl->is_fly());
         FlyString string;
-        //string.m_impl = move(impl);
+        string.m_impl = move(impl);
         return string;
     }
 
+    bool operator==(FlyString const& other) const { return m_impl == other.m_impl; }
+
+    StringImpl const* impl() const { return m_impl; }
+    char const* characters() const { return nullptr; }
+    size_t length() const { return 0; }
+
     inline StringView view() const;
+
+private:
+    RefPtr<StringImpl> m_impl;
 };
 
 }

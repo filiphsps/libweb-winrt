@@ -232,6 +232,7 @@
     <ClInclude Include="AK\Iterator.h" />
     <ClInclude Include="AK\JsonObject.h" />
     <ClInclude Include="AK\JsonParser.h" />
+    <ClInclude Include="AK\MemMem.h" />
     <ClInclude Include="AK\Noncopyable.h" />
     <ClInclude Include="AK\NonnullOwnPtr.h" />
     <ClInclude Include="AK\NonnullOwnPtrVector.h" />

@@ -28,12 +28,12 @@ public:
     {
     }
 
-    template<size_t size>
+    /*template<size_t size>
     inline constexpr Span(Array<T, size>& array)
         : m_values(array.data())
         , m_size(size)
     {
-    }
+    }*/
 
 protected:
     T* m_values{ nullptr };

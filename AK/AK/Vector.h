@@ -34,6 +34,9 @@ public:
     inline VisibleType& at(size_t i) const { }
 
     VisibleType& operator[](size_t i) { return at(i); }
+
+    template<typename TUnaryPredicate>
+    int find_if(TUnaryPredicate&& finder) const { return 0; }
 };
 
 }

@@ -1,7 +1,9 @@
 #pragma once
 #pragma warning(disable: 4455)
 
+#include "./AK/Assertions.h"
 #include "./AK/Forward.h"
+#include "./AK/Span.h"
 #include "./AK/StringUtils.h"
 
 namespace AK {

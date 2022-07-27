@@ -16,8 +16,9 @@ struct Array {
 
     constexpr Span<T> span() { return { __data, Size }; }
 
-    constexpr T const& at(size_t index)
+    constexpr T const& at(size_t index) const
     {
+        //VERIFY(index < size());
         return __data[index];
     }
 
@@ -26,7 +27,7 @@ struct Array {
 
     constexpr bool is_empty() const { return size() == 0; }
 
-    constexpr T const& operator[](size_t index) const { return at(index); }
+    constexpr T const& operator[](size_t index) const { return NULL; /*return at(index);*/ }
 
     template<typename T2, size_t Size2>
     constexpr bool operator==(Array<T2, Size2> const& other) const { return span() == other.span(); }

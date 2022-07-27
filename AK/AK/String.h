@@ -2,6 +2,7 @@
 
 #include "./AK/Format.h"
 #include "./AK/Forward.h"
+#include "./AK/RefPtr.h"
 #include "./AK/StringBuilder.h"
 #include "./AK/StringImpl.h"
 #include "./AK/StringUtils.h"

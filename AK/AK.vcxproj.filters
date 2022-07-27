@@ -270,6 +270,9 @@
     <ClInclude Include="AK\StringImpl.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="AK\MemMem.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
