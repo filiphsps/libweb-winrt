@@ -251,9 +251,6 @@
     <ClInclude Include="JsonArray.h">
       <Filter>AK</Filter>
     </ClInclude>
-    <ClInclude Include="Checked.h">
-      <Filter>AK</Filter>
-    </ClInclude>
     <ClInclude Include="AK\Endian.h">
       <Filter>AK</Filter>
     </ClInclude>
@@ -288,6 +285,12 @@
       <Filter>AK</Filter>
     </ClInclude>
     <ClInclude Include="AK\UnicodeUtils.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Checked.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NonnullPtrVector.h">
       <Filter>AK</Filter>
     </ClInclude>
   </ItemGroup>

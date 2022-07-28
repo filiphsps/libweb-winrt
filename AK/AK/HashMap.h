@@ -20,6 +20,16 @@ public:
     size_t capacity() const { return 0; }
     void clear();
     void clear_with_capacity();
+
+    HashSetResult set(const K& key, const V& value);
+    HashSetResult set(const K& key, V&& value);
+    HashSetResult set(K&& key, V&& value);
+
+    int* begin() const { return 0; }
+    int* end() const { return 0; }
+    int* find(const K& key)
+
+    u32 hash() const;
 };
 
 }

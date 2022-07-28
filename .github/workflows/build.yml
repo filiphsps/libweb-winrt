@@ -6,14 +6,13 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug]
-        platform: [ARM, x64]
+        platform: [x64]
 
     runs-on: windows-latest
 
     steps:
       - name: 🌎 Checkout code
         uses: actions/checkout@v2.1.0
-        id: checkout_code
 
       - uses: nuget/setup-nuget@v1
         with:
@@ -33,16 +32,17 @@ jobs:
           sdk-version: 16299
 
       - name: 📦 Restore nuget packages
-        id: run_nuget
         working-directory: ${{ github.workspace }}
         run: nuget.exe restore .\LibWeb-WinRT.sln
 
       - name: 📦 Restore solution
-        id: restore_msbuild
         working-directory: ${{ github.workspace }}
         run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /t:Restore
 
-      - name: ⚙️ Run MSBuild
-        id: run_msbuild
+      - name: ⚙️ Build AK
         working-directory: ${{ github.workspace }}
-        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false /t:Build
+        run: msbuild .\AK\AK.vcxproj /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false
+
+      - name: ⚙️ Build LibJS
+        working-directory: ${{ github.workspace }}
+        run: msbuild .\LibJS\LibJS.vcxproj /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false

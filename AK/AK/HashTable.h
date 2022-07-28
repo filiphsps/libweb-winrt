@@ -63,6 +63,11 @@ public:
     template<typename U, size_t N>
     void set_from(U(&from_array)[N]);
 
+    template<typename U = T>
+    HashSetResult set(U&& value, HashSetExistingEntryBehavior existing_entry_behaviour = HashSetExistingEntryBehavior::Replace);
+
+    bool remove(const T& value) { return false; }
+
     template<typename TUnaryPredicate>
     bool remove_all_matching(TUnaryPredicate const& predicate);
 

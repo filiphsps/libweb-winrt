@@ -37,6 +37,16 @@ public:
 
     VisibleType& operator[](size_t i) { return at(i); }
 
+    Vector& operator=(Vector&& other);
+
+    Vector& operator=(Vector const& other);
+
+    template<size_t other_inline_capacity>
+    Vector& operator=(Vector<T, other_inline_capacity> const& other);
+
+    int* begin() const { return 0; }
+    int* end() const { return 0; }
+
     template<typename TUnaryPredicate>
     int find_if(TUnaryPredicate&& finder) const { return 0; }
 };

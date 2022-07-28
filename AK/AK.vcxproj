@@ -212,6 +212,7 @@
     <ClInclude Include="AK\BultinWrappers.h" />
     <ClInclude Include="AK\ByteBuffer.h" />
     <ClInclude Include="AK\CharacterTypes.h" />
+    <ClInclude Include="AK\Checked.h" />
     <ClInclude Include="AK\CheckedFormatString.h" />
     <ClInclude Include="AK\Concepts.h" />
     <ClInclude Include="AK\DateConstants.h" />
@@ -242,6 +243,7 @@
     <ClInclude Include="AK\Noncopyable.h" />
     <ClInclude Include="AK\NonnullOwnPtr.h" />
     <ClInclude Include="AK\NonnullOwnPtrVector.h" />
+    <ClInclude Include="AK\NonnullPtrVector.h" />
     <ClInclude Include="AK\NonnullRefPtr.h" />
     <ClInclude Include="AK\NonnullRefPtrVector.h" />
     <ClInclude Include="AK\NumericLimits.h" />
@@ -278,7 +280,6 @@
     <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="AK\Weakable.h" />
     <ClInclude Include="AK\WeakPtr.h" />
-    <ClInclude Include="Checked.h" />
     <ClInclude Include="JsonArray.h" />
     <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
     <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
