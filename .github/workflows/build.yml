@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug]
-        platform: [ARM, x86, x64]
+        platform: [ARM, x64]
 
     runs-on: windows-latest
 
@@ -27,7 +27,7 @@ jobs:
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.0.2
 
-      # FIXME use GuillaumeFalourd/setup-windows10-sdk-action@master
+      # FIXME: use GuillaumeFalourd/setup-windows10-sdk-action@master
       - uses: filiphsps/setup-windows10-sdk-action@patch-1
         with:
           sdk-version: 16299
@@ -45,4 +45,4 @@ jobs:
       - name: ⚙️ Run MSBuild
         id: run_msbuild
         working-directory: ${{ github.workspace }}
-        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false
+        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false /t:Build
