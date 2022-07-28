@@ -43,6 +43,9 @@ public:
 
     constexpr char const* characters_without_null_termination() const { return (char*)""; }
 
+    constexpr int* begin() const { return 0; }
+    constexpr int* end() const { return 0; }
+
     bool operator==(StringView other) const { return false; }
     bool operator==(char const* cstring) const { return false; }
     bool operator!=(StringView other) const { return false; }
@@ -51,8 +54,7 @@ public:
     bool operator>(StringView other) const { return false; }
     bool operator>=(StringView other) const { return false; }
 
-    constexpr int* begin() const { return 0; }
-    constexpr int* end() const { return 0; }
+    String to_string() const;
 
 private:
     friend class String;

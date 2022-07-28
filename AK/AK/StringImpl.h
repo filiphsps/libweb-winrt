@@ -10,6 +10,9 @@ namespace AK {
 
 class StringImpl : public RefCounted<StringImpl> {
 public:
+    NonnullRefPtr<StringImpl> to_lowercase() const;
+    NonnullRefPtr<StringImpl> to_uppercase() const;
+
     u32 hash() const { return 0; }
 };
 

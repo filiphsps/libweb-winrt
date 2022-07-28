@@ -22,21 +22,22 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.x
+          include-prerelease: true
+
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: 📦 Restore nuget packages
         id: run_nuget
         working-directory: ${{ github.workspace }}
-        run: nuget.exe restore .\AdaptiveShell.sln
+        run: nuget.exe restore .\LibWeb-WinRT.sln
 
-      - name: 🛠️ Setup MSBuild path
-        uses: microsoft/setup-msbuild@v1.1
-        id: setup_msbuild
+      - name: 📦 Restore solution
+        id: restore_msbuild
+        working-directory: ${{ github.workspace }}
+        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /t:Restore
 
       - name: ⚙️ Run MSBuild
         id: run_msbuild
         working-directory: ${{ github.workspace }}
-        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=x64 /p:PublishReadyToRun=false
-
-#      - name: Setup VSTest path
-#        uses: darenm/Setup-VSTest@v1
-#        id: setup_vstest
+        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false

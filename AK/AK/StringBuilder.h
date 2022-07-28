@@ -1,5 +1,7 @@
 #pragma once
 
+#include "./AK/ByteBuffer.h"
+#include "./AK/Format.h"
 #include "./AK/Forward.h"
 #include "./AK/StringView.h"
 
@@ -15,14 +17,26 @@ public:
     ErrorOr<void> try_append(StringView);
     ErrorOr<void> try_append_code_point(u32);
     ErrorOr<void> try_append(char);
+    template<typename... Parameters>
+    ErrorOr<void> try_appendff(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     void append(StringView) {}
     void append(char) {}
     void append_code_point(u32) {}
     void append(char const*, size_t) {}
+    void appendvf(char const*, va_list) {}
+
+    void append_as_lowercase(char) {}
+    void append_escaped_for_json(StringView) {}
+
+    template<typename... Parameters>
+    void appendff(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) {}
 
     String build() const;
     String to_string() const;
+    ByteBuffer to_byte_buffer() const;
+
+    StringView string_view() const;
 
     void clear() {}
 
@@ -31,25 +45,14 @@ public:
     void trim(size_t count) { /*m_buffer.resize(m_buffer.size() - count);*/ }
 
     template<class SeparatorType, class CollectionType>
-    void join(SeparatorType const& separator, CollectionType const& collection, StringView fmtstr = "{}"sv)
-    {
-        /*bool first = true;
-        for (auto& item : collection) {
-            if (first)
-                first = false;
-            else
-                append(separator);
-            appendff(fmtstr, item);
-        }*/
-    }
+    void join(SeparatorType const& separator, CollectionType const& collection, StringView fmtstr = "{}"sv) {}
 
 private:
     ErrorOr<void> will_append(size_t);
-    //u8* data() { return m_buffer.data(); }
-    //u8 const* data() const { return m_buffer.data(); }
+    u8* data() { return m_buffer.data(); }
 
     static constexpr size_t inline_capacity = 256;
-    //AK::Detail::ByteBuffer<inline_capacity> m_buffer;
+    AK::Detail::ByteBuffer<inline_capacity> m_buffer;
 };
 
 }

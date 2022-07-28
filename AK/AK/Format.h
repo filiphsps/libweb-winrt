@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <string.h>
@@ -190,7 +191,6 @@ namespace AK {
             char fill = ' ',
             SignMode sign_mode = SignMode::OnlyIfNeeded);
 
-#ifndef KERNEL
         ErrorOr<void> put_f80(
             long double value,
             u8 base = 10,
@@ -211,7 +211,6 @@ namespace AK {
             size_t precision = 6,
             char fill = ' ',
             SignMode sign_mode = SignMode::OnlyIfNeeded);
-#endif
 
         ErrorOr<void> put_hexdump(
             ReadonlyBytes,
@@ -449,7 +448,6 @@ namespace AK {
         ErrorOr<void> format(FormatBuilder&, bool);
     };
 
-#ifndef KERNEL
     template<>
     struct Formatter<float> : StandardFormatter {
         ErrorOr<void> format(FormatBuilder&, float value);
@@ -475,7 +473,6 @@ namespace AK {
 
         ErrorOr<void> format(FormatBuilder&, long double value);
     };
-#endif
 
     template<size_t precision, typename Underlying>
     struct Formatter<FixedPoint<precision, Underlying>> : StandardFormatter {
@@ -528,30 +525,21 @@ namespace AK {
 
     ErrorOr<void> vformat(StringBuilder&, StringView fmtstr, TypeErasedFormatParams&);
 
-#ifndef KERNEL
     void vout(FILE*, StringView fmtstr, TypeErasedFormatParams&, bool newline = false);
 
     template<typename... Parameters>
-    void out(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
-    {
-        VariadicFormatParams variadic_format_params{ parameters... };
-        vout(file, fmtstr.view(), variadic_format_params);
-    }
+    void out(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     template<typename... Parameters>
-    void outln(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
-    {
-        VariadicFormatParams variadic_format_params{ parameters... };
-        vout(file, fmtstr.view(), variadic_format_params, true);
-    }
+    void outln(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     inline void outln(FILE* file) { fputc('\n', file); }
 
     template<typename... Parameters>
-    void out(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) { out(stdout, move(fmtstr), parameters...); }
+    void out(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     template<typename... Parameters>
-    void outln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) { outln(stdout, move(fmtstr), parameters...); }
+    void outln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     inline void outln() { outln(stdout); }
 
@@ -562,58 +550,27 @@ namespace AK {
         } while (0)
 
     template<typename... Parameters>
-    void warn(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
-    {
-        out(stderr, move(fmtstr), parameters...);
-    }
+    void warn(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     template<typename... Parameters>
-    void warnln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) { outln(stderr, move(fmtstr), parameters...); }
+    void warnln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     inline void warnln() { outln(stderr); }
 
-#    define warnln_if(flag, fmt, ...)       \
+#define warnln_if(flag, fmt, ...)       \
         do {                                \
             if constexpr (flag)             \
                 warnln(fmt, ##__VA_ARGS__); \
         } while (0)
 
-#endif
-
     void vdbgln(StringView fmtstr, TypeErasedFormatParams&);
 
     template<typename... Parameters>
-    void dbgln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
-    {
-        VariadicFormatParams variadic_format_params{ parameters... };
-        vdbgln(fmtstr.view(), variadic_format_params);
-    }
+    void dbgln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     inline void dbgln() { dbgln(""); }
 
     void set_debug_enabled(bool);
-
-#ifdef KERNEL
-    void vdmesgln(StringView fmtstr, TypeErasedFormatParams&);
-
-    template<typename... Parameters>
-    void dmesgln(CheckedFormatString<Parameters...>&& fmt, Parameters const&... parameters)
-    {
-        VariadicFormatParams variadic_format_params{ parameters... };
-        vdmesgln(fmt.view(), variadic_format_params);
-    }
-
-    void v_critical_dmesgln(StringView fmtstr, TypeErasedFormatParams&);
-
-    // be very careful to not cause any allocations here, since we could be in
-    // a very unstable situation
-    template<typename... Parameters>
-    void critical_dmesgln(CheckedFormatString<Parameters...>&& fmt, Parameters const&... parameters)
-    {
-        VariadicFormatParams variadic_format_params{ parameters... };
-        v_critical_dmesgln(fmt.view(), variadic_format_params);
-    }
-#endif
 
     template<typename T>
     class FormatIfSupported {
@@ -630,17 +587,11 @@ namespace AK {
     };
     template<typename T, bool Supported = false>
     struct __FormatIfSupported : Formatter<StringView> {
-        ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const&)
-        {
-            return Formatter<StringView>::format(builder, "?"sv);
-        }
+        ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const&);
     };
     template<typename T>
     struct __FormatIfSupported<T, true> : Formatter<T> {
-        ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const& value)
-        {
-            return Formatter<T>::format(builder, value.value());
-        }
+        ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const& value);
     };
     template<typename T>
     struct Formatter<FormatIfSupported<T>> : __FormatIfSupported<T, HasFormatter<T>> {
@@ -653,41 +604,18 @@ namespace AK {
     template<>
     struct Formatter<FormatString> : Formatter<StringView> {
         template<typename... Parameters>
-        ErrorOr<void> format(FormatBuilder& builder, StringView fmtstr, Parameters const&... parameters)
-        {
-            VariadicFormatParams variadic_format_params{ parameters... };
-            return vformat(builder, fmtstr, variadic_format_params);
-        }
+        ErrorOr<void> format(FormatBuilder& builder, StringView fmtstr, Parameters const&... parameters);
         ErrorOr<void> vformat(FormatBuilder& builder, StringView fmtstr, TypeErasedFormatParams& params);
     };
 
     template<>
     struct Formatter<Error> : Formatter<FormatString> {
-        ErrorOr<void> format(FormatBuilder& builder, Error const& error)
-        {
-#if defined(__serenity__) && defined(KERNEL)
-            if (error.is_errno())
-                return Formatter<FormatString>::format(builder, "Error(errno={})"sv, error.code());
-            return Formatter<FormatString>::format(builder, "Error({})"sv, error.string_literal());
-#else
-            if (error.is_syscall())
-                return Formatter<FormatString>::format(builder, "{}: {} (errno={})"sv, error.string_literal(), strerror(error.code()), error.code());
-            if (error.is_errno())
-                return Formatter<FormatString>::format(builder, "{} (errno={})"sv, strerror(error.code()), error.code());
-
-            return Formatter<FormatString>::format(builder, "{}"sv, error.string_literal());
-#endif
-        }
+        ErrorOr<void> format(FormatBuilder& builder, Error const& error);
     };
 
     template<typename T, typename ErrorType>
     struct Formatter<ErrorOr<T, ErrorType>> : Formatter<FormatString> {
-        ErrorOr<void> format(FormatBuilder& builder, ErrorOr<T, ErrorType> const& error_or)
-        {
-            if (error_or.is_error())
-                return Formatter<FormatString>::format(builder, "{}"sv, error_or.error());
-            return Formatter<FormatString>::format(builder, "{{{}}}"sv, error_or.value());
-        }
+        ErrorOr<void> format(FormatBuilder& builder, ErrorOr<T, ErrorType> const& error_or);
     };
 
 } // namespace AK

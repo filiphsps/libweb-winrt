@@ -95,9 +95,6 @@ public:
     {
         unref_if_not_null(m_ptr);
         m_ptr = nullptr;
-#    ifdef SANITIZE_PTRS
-        m_ptr = reinterpret_cast<T*>(explode_byte(NONNULLREFPTR_SCRUB_BYTE));
-#    endif
     }
 
     template<typename U>

@@ -7,6 +7,8 @@
 #pragma once
 
 #include <cstdint>
+#include "./AK/IterationDecision.h"
+#include "./AK/Platform.h"
 #include "./AK/StdLibExtras.h"
 
 using u64 = uint64_t;

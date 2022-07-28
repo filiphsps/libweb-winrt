@@ -23,19 +23,10 @@ public:
     {
     }
 
-    static FlyString from_fly_impl(NonnullRefPtr<StringImpl> impl)
-    {
-        //VERIFY(impl->is_fly());
-        FlyString string;
-        string.m_impl = move(impl);
-        return string;
-    }
+    static FlyString from_fly_impl(NonnullRefPtr<StringImpl> impl);
 
-    FlyString& operator=(FlyString&& other)
-    {
-        m_impl = move(other.m_impl);
-        return *this;
-    }
+    FlyString& operator=(FlyString&& other);
+    FlyString& operator=(FlyString const& other);
 
     bool is_empty() const { return true; }
     bool is_null() const { return true; }

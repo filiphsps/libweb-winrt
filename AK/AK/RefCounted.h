@@ -29,7 +29,7 @@ public:
         ++m_ref_count;
     }
 
-     bool try_ref() const
+    bool try_ref() const
     {
         if (m_ref_count == 0)
             return false;

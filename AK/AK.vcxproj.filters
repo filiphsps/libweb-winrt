@@ -38,6 +38,7 @@
     <ClCompile Include="AK\Time.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="AK\StringImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -271,6 +272,12 @@
       <Filter>AK</Filter>
     </ClInclude>
     <ClInclude Include="AK\MemMem.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Memory.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IterationDecision.h">
       <Filter>AK</Filter>
     </ClInclude>
   </ItemGroup>
