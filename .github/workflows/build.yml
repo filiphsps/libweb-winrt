@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug]
-        platform: [arm64, x86, x64]
+        platform: [ARM, x86, x64]
 
     runs-on: windows-latest
 
@@ -26,6 +26,11 @@ jobs:
 
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.0.2
+
+      # FIXME use GuillaumeFalourd/setup-windows10-sdk-action@master
+      - uses: filiphsps/setup-windows10-sdk-action@patch-1
+        with:
+          sdk-version: 16299
 
       - name: 📦 Restore nuget packages
         id: run_nuget
