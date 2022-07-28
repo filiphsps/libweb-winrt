@@ -39,10 +39,7 @@ public:
         : m_ptr(other.leak_ptr())
     {
     }
-    ~OwnPtr()
-    {
-        clear();
-    }
+    ~OwnPtr();
 
     OwnPtr(OwnPtr const&) = delete;
     template<typename U>

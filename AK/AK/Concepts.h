@@ -7,6 +7,7 @@
 #pragma once
 
 #include "./AK/Forward.h"
+#include "./AK/IterationDecision.h"
 #include "./AK/StdLibExtras.h"
 
 

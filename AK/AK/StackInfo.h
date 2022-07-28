@@ -12,7 +12,7 @@ namespace AK {
 
 class StackInfo {
 public:
-    StackInfo();
+    StackInfo() = default;
 
     FlatPtr base() const { return m_base; }
     FlatPtr top() const { return m_top; }

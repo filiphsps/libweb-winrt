@@ -217,6 +217,7 @@
     <ClInclude Include="AK\DateConstants.h" />
     <ClInclude Include="AK\Debug.h" />
     <ClInclude Include="AK\Demangle.h" />
+    <ClInclude Include="AK\DisjointChunks.h" />
     <ClInclude Include="AK\DistinctNumeric.h" />
     <ClInclude Include="AK\Endian.h" />
     <ClInclude Include="AK\Error.h" />
@@ -230,6 +231,7 @@
     <ClInclude Include="AK\HashFunctions.h" />
     <ClInclude Include="AK\HashMap.h" />
     <ClInclude Include="AK\HashTable.h" />
+    <ClInclude Include="AK\Hex.h" />
     <ClInclude Include="AK\IntrusiveList.h" />
     <ClInclude Include="AK\IterationDecision.h" />
     <ClInclude Include="AK\Iterator.h" />
@@ -270,6 +272,7 @@
     <ClInclude Include="AK\TypeCasts.h" />
     <ClInclude Include="AK\TypedTransfer.h" />
     <ClInclude Include="AK\Types.h" />
+    <ClInclude Include="AK\UnicodeUtils.h" />
     <ClInclude Include="AK\Utf16View.h" />
     <ClInclude Include="AK\Variant.h" />
     <ClInclude Include="AK\Vector.h" />
@@ -286,6 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AK\FlyString.cpp" />
+    <ClCompile Include="AK\Format.cpp" />
     <ClCompile Include="AK\GenericLexer.cpp" />
     <ClCompile Include="AK\String.cpp" />
     <ClCompile Include="AK\StringBuilder.cpp" />
