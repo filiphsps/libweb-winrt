@@ -118,8 +118,9 @@ private:
 
 }
 
-AK::StringView operator"" sv(char const* str, size_t length) {
-    return AK::StringView(str, length);
+inline constexpr AK::StringView operator"" sv(char const* cstring, size_t length)
+{
+    return AK::StringView(cstring, length);
 }
 
 using AK::StringView;
