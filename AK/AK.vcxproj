@@ -238,6 +238,7 @@
     <ClInclude Include="AK\Iterator.h" />
     <ClInclude Include="AK\JsonObject.h" />
     <ClInclude Include="AK\JsonParser.h" />
+    <ClInclude Include="AK\kmalloc.h" />
     <ClInclude Include="AK\MemMem.h" />
     <ClInclude Include="AK\Memory.h" />
     <ClInclude Include="AK\Noncopyable.h" />
@@ -255,6 +256,7 @@
     <ClInclude Include="AK\RefCounted.h" />
     <ClInclude Include="AK\RefPtr.h" />
     <ClInclude Include="AK\Result.h" />
+    <ClInclude Include="AK\ReverseIterator.h" />
     <ClInclude Include="AK\ScopeGuard.h" />
     <ClInclude Include="AK\SinglyLinkedList.h" />
     <ClInclude Include="AK\Span.h" />
