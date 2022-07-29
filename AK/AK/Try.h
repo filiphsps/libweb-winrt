@@ -23,5 +23,5 @@
         _temporary_result.release_value();     \
     })*/
 
-#define TRY(expression) ((expression).release_value())
-#define MUST(expression) ((expression).release_value())
+#define TRY(expression) (expression.release_value())
+#define MUST(expression) (expression.release_value())

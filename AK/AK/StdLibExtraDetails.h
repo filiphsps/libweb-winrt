@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <type_traits>
+
 namespace AK::Detail {
 
 template<class T, T v>
@@ -371,7 +373,7 @@ template<typename T>
 inline constexpr bool IsClass = __is_class(T);
 
 template<typename Base, typename Derived>
-inline constexpr bool IsBaseOf = __is_base_of(Base, Derived);
+inline constexpr bool IsBaseOf = false; // FIXME: __is_base_of(Base, Derived);
 
 template<typename T>
 inline constexpr bool __IsIntegral = false;

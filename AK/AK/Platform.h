@@ -91,8 +91,21 @@
 #undef Yield
 #undef _CRT_NO_TIME_T
 
-// libjs
+// LibJS
 #define HEAP_DEBUG 0
 #define PROMISE_DEBUG 0
 #define JS_MODULE_DEBUG 0
 #define LEXER_DEBUG 0
+
+// FIXME: We need to figure out why the LibJS macro fails under msvc
+#undef __TRY_OR_REJECT
+#define __TRY_OR_REJECT(global_object, capability, expression, CALL_CHECK) ((expression).release_value())
+
+#undef TRY_OR_REJECT
+#define TRY_OR_REJECT(global_object, capability, expression) ((expression).release_value())
+
+#undef TRY_OR_MUST_REJECT
+#define TRY_OR_MUST_REJECT(global_object, capability, expression) ((expression).release_value())
+
+#undef TRY_OR_REJECT_WITH_VALUE
+#define TRY_OR_REJECT_WITH_VALUE(global_object, capability, expression) ((expression).release_value())

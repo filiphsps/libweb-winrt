@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2018-2021, Andreas Kling <kling@serenityos.org>
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 #pragma once
 
 #include "./AK/Vector.h"
@@ -44,11 +50,22 @@ public:
     Optional<size_t> find_first_index(T const& value) const;
 
     inline PtrType& ptr_at(size_t index);
+    inline PtrType const& ptr_at(size_t index) const { return Base::at(index); }
 
-    inline T& at(size_t index);
-    inline T& operator[](size_t index);
-    inline T& first();
-    inline T& last();
+    inline T& at(size_t index) { return *Base::at(index); }
+    inline const T& at(size_t index) const { return *Base::at(index); }
+    inline T& operator[](size_t index) { return at(index); }
+    inline const T& operator[](size_t index) const { return at(index); }
+    inline T& first() { return at(0); }
+    inline const T& first() const { return at(0); }
+    inline T& last() { return at(size() - 1); }
+    inline const T& last() const { return at(size() - 1); }
+
+private:
+    // NOTE: You can't use resize() on a NonnullFooPtrVector since making the vector
+    //       bigger would require being able to default-construct NonnullFooPtrs.
+    //       Instead, use shrink(new_size).
+    void resize(size_t) = delete;
 };
 
 }

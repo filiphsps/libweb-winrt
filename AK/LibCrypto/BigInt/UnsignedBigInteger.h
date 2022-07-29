@@ -34,6 +34,31 @@ public:
 
     UnsignedBigInteger() = default;
 
+    static UnsignedBigInteger create_invalid();
+
+    static UnsignedBigInteger import_data(StringView data);
+    static UnsignedBigInteger import_data(u8 const* ptr, size_t length);
+
+    static UnsignedBigInteger create_from(u64 value);
+
+    size_t export_data(Bytes, bool remove_leading_zeros = false) const;
+
+    static UnsignedBigInteger from_base(u16 N, StringView str);
+    String to_base(u16 N) const;
+
+    u64 to_u64() const;
+    double to_double() const;
+
+    UnsignedBigInteger plus(UnsignedBigInteger const& other) const;
+    UnsignedBigInteger minus(UnsignedBigInteger const& other) const;
+    UnsignedBigInteger bitwise_or(UnsignedBigInteger const& other) const;
+    UnsignedBigInteger bitwise_and(UnsignedBigInteger const& other) const;
+    UnsignedBigInteger bitwise_xor(UnsignedBigInteger const& other) const;
+    UnsignedBigInteger bitwise_not_fill_to_one_based_index(size_t) const;
+    UnsignedBigInteger shift_left(size_t num_bits) const;
+    UnsignedBigInteger multiplied_by(UnsignedBigInteger const& other) const;
+    UnsignedDivisionResult divided_by(UnsignedBigInteger const& divisor) const;
+
 private:
     friend class UnsignedBigIntegerAlgorithms;
     // Little endian
