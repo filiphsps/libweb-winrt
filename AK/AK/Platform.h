@@ -68,3 +68,10 @@
 #define __builtin_isinf_sign isinf
 #define ssize_t __int64
 #define suseconds_t long int
+
+// gcc
+#define __attribute__(expression)
+
+//libjs
+#define HEAP_DEBUG 0
+#define PROMISE_DEBUG 0

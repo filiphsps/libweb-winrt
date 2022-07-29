@@ -66,6 +66,16 @@ public:
 
     Vector<StringView> lines(bool consider_cr = true) const;
 
+    template<typename T = int>
+    Optional<T> to_int() const;
+    template<typename T = unsigned>
+    Optional<T> to_uint() const;
+
+    StringView substring_view_starting_from_substring(StringView substring) const;
+    StringView substring_view_starting_after_substring(StringView substring) const;
+
+    bool copy_characters_to_buffer(char* buffer, size_t buffer_size) const;
+
     bool operator==(StringView other) const { return false; }
     bool operator==(char const* cstring) const { return false; }
     bool operator!=(StringView other) const { return false; }

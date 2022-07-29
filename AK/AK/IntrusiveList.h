@@ -17,33 +17,57 @@
 namespace AK {
 
 template<typename T>
-class IntrusiveListNode;
-
-namespace Detail {
-
-template<typename V, typename T>
-static V ExtractIntrusiveListType(IntrusiveListNode<V> T::* x);
-
-template<class T>
-class IntrusiveListImpl {
-public:
-    void append(T&);
-
-    T* last();
-
-    bool is_empty();
-};
-
-}
-
-template<typename T>
 class IntrusiveListNode {
 public:
     void remove();
 };
 
 template<auto member>
-using IntrusiveList = Detail::IntrusiveListImpl<decltype(Detail::ExtractIntrusiveListType(member))>;
+class IntrusiveList {};
+
+// Thanks to https://stackoverflow.com/a/59139500/3142553
+template<typename NodeType, typename T, T NodeType::* P>
+class IntrusiveList<P> {
+public:
+    IntrusiveList() = default;
+    ~IntrusiveList();
+
+    void clear();
+    bool is_empty();
+    size_t size_slow();
+    void append(NodeType&);
+    void prepend(NodeType&);
+    void insert_before(NodeType&, NodeType&);
+    void remove(NodeType&);
+
+    bool contains(const T&) const;
+    NodeType* first();
+    NodeType* last();
+
+    class Iterator {
+    public:
+        Iterator() = default;
+        Iterator(T* value)
+            : m_value(move(value))
+        {
+        }
+
+        const T& operator*() const;
+        auto operator->() const;
+        T& operator*();
+        auto operator->();
+        bool operator==(Iterator const& other) const;
+        bool operator!=(Iterator const& other) const;
+        Iterator& operator++();
+        Iterator& erase();
+
+    private:
+        T* m_value{ nullptr };
+    };
+
+    Iterator begin();
+    Iterator end() { return Iterator{}; }
+};
 
 }
 
