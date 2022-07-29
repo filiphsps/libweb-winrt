@@ -22,18 +22,10 @@ template<typename T>
 class RefPtr;
 
 template<typename T>
-inline void ref_if_not_null(T* ptr)
-{
-    if (ptr)
-        ptr->ref();
-}
+inline void ref_if_not_null(T* ptr);
 
 template<typename T>
-inline void unref_if_not_null(T* ptr)
-{
-    if (ptr)
-        ptr->unref();
-}
+inline void unref_if_not_null(T* ptr);
 
 template<typename T>
 class NonnullRefPtr {
@@ -218,10 +210,8 @@ public:
     bool operator==(NonnullRefPtr& other) { return m_ptr == other.m_ptr; }
     bool operator!=(NonnullRefPtr& other) { return m_ptr != other.m_ptr; }
 
-    // clang-format off
 private:
     NonnullRefPtr() = delete;
-    // clang-format on
 
     inline T* as_nonnull_ptr() const
     {

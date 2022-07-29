@@ -45,9 +45,10 @@ public:
     ReadonlyBytes bytes() const;
     constexpr char const& operator[](size_t index) const;
 
-    constexpr StringView substring_view(size_t start, size_t length) const { return StringView(); }
+    constexpr StringView substring_view(size_t start, size_t length) const;
+    constexpr StringView substring_view(size_t start) const;
 
-    StringView replace(StringView, StringView, ReplaceMode) const { return StringView(); }
+    StringView replace(StringView, StringView, ReplaceMode) const;
     constexpr int compare() { return 0; }
 
     constexpr int* begin() const { return 0; }

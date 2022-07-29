@@ -176,7 +176,7 @@
       <PrecompiledHeaderOutputFile>$(ProjectDir)/../x64/Debug/AK.pch</PrecompiledHeaderOutputFile>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>Default</ConformanceMode>
       <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -200,6 +200,11 @@
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <ClCompile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AK\AllOf.h" />
@@ -297,6 +302,7 @@
     <ClCompile Include="AK\FlyString.cpp" />
     <ClCompile Include="AK\Format.cpp" />
     <ClCompile Include="AK\GenericLexer.cpp" />
+    <ClCompile Include="AK\IntrusiveList.cpp" />
     <ClCompile Include="AK\kmalloc.cpp" />
     <ClCompile Include="AK\String.cpp" />
     <ClCompile Include="AK\StringBuilder.cpp" />
