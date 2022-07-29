@@ -342,6 +342,15 @@
     <ClInclude Include="AK\JsonObjectSerializer.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="AK\RedBlackTree.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\EnumBits.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\LexicalPath.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
