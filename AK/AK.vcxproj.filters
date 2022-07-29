@@ -47,7 +47,15 @@
     <ClCompile Include="AK\kmalloc.cpp">
       <Filter>AK</Filter>
     </ClCompile>
-    <ClCompile Include="AK\Utf8View.cpp" />
+    <ClCompile Include="AK\Utf16View.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Utf8View.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Utf32View.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

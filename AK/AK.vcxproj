@@ -303,6 +303,8 @@
     <ClCompile Include="AK\StringImpl.cpp" />
     <ClCompile Include="AK\StringView.cpp" />
     <ClCompile Include="AK\Time.cpp" />
+    <ClCompile Include="AK\Utf16View.cpp" />
+    <ClCompile Include="AK\Utf32View.cpp" />
     <ClCompile Include="AK\Utf8View.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">Create</PrecompiledHeader>

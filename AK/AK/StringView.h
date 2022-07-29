@@ -49,6 +49,8 @@ public:
     constexpr int* begin() const { return 0; }
     constexpr int* end() const { return 0; }
 
+    Vector<StringView> lines(bool consider_cr = true) const;
+
     bool operator==(StringView other) const { return false; }
     bool operator==(char const* cstring) const { return false; }
     bool operator!=(StringView other) const { return false; }
