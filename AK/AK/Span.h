@@ -35,6 +35,14 @@ public:
     {
     }
 
+    template<size_t size>
+    requires(IsConst<T>)
+    inline constexpr Span(Array<T, size> const& array)
+        : m_values(array.data())
+        , m_size(size)
+    {
+    }
+
 protected:
     T* m_values{ nullptr };
     size_t m_size{ 0 };

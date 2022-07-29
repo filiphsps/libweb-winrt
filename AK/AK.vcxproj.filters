@@ -20,6 +20,9 @@
     <Filter Include="LibThreading">
       <UniqueIdentifier>{68022297-8568-4b21-9b2c-8df0b49cbc63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LibCore">
+      <UniqueIdentifier>{3132eeae-b399-4a8a-87cb-ded2bc670f8b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -366,6 +369,9 @@
     </ClInclude>
     <ClInclude Include="LibThreading\Mutex.h">
       <Filter>LibThreading</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCore\File.h">
+      <Filter>LibCore</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

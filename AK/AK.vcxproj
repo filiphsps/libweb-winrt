@@ -298,6 +298,7 @@
     <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="AK\Weakable.h" />
     <ClInclude Include="AK\WeakPtr.h" />
+    <ClInclude Include="LibCore\File.h" />
     <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
     <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
     <ClInclude Include="LibThreading\Mutex.h" />

@@ -16,6 +16,7 @@ public:
     ~String() = default;
 
     String() = default;
+    
     String(StringView view);
     String(String const& other);
     String(String&& other);
@@ -78,10 +79,15 @@ public:
 
     constexpr ConstIterator begin() const { return ConstIterator::begin(*this); }
     constexpr ConstIterator end() const { return ConstIterator::end(*this); }
-   
+
+    bool starts_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool ends_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool starts_with(char) const;
+    bool ends_with(char) const;
+
     bool is_null() { return true; }
     inline bool is_empty() const { return true; }
-    inline size_t length();
+    inline size_t length() const { return m_impl ? m_impl->length() : 0; }
     char* characters() const;
 
     u32 hash() const { return 0; }

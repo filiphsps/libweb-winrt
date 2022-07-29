@@ -100,9 +100,6 @@ public:
     inline ~RefPtr()
     {
         clear();
-#    ifdef SANITIZE_PTRS
-        m_ptr = reinterpret_cast<T*>(explode_byte(REFPTR_SCRUB_BYTE));
-#    endif
     }
 
     template<typename U>

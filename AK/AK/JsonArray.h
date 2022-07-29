@@ -64,12 +64,6 @@ private:
     Vector<JsonValue> m_values;
 };
 
-template<typename Builder>
-inline void JsonArray::serialize(Builder& builder) const;
-
-template<typename Builder>
-inline typename Builder::OutputType JsonArray::serialized() const;
-
 }
 
 using AK::JsonArray;

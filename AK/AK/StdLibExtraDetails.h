@@ -572,10 +572,10 @@ template<typename T>
 struct __decay<T[]> {
     typedef T* type;
 };
-template<typename T, decltype(sizeof(T)) N>
+/*template<typename T, decltype(sizeof(T)) N>
 struct __decay<T[N]> {
     typedef T* type;
-};
+};*/
 // FIXME: Function decay
 template<typename T>
 using Decay = typename __decay<T>::type;

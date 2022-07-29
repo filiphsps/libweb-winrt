@@ -19,6 +19,8 @@ public:
     NonnullRefPtr<StringImpl> to_lowercase() const;
     NonnullRefPtr<StringImpl> to_uppercase() const;
 
+    size_t length() const;
+
     u32 hash() const { return 0; }
 };
 
