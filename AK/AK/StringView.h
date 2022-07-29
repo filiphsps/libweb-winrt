@@ -66,6 +66,22 @@ public:
     bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
     bool equals_ignoring_case(StringView other) const;
 
+    StringView trim(StringView characters, TrimMode mode = TrimMode::Both) const;
+    StringView trim_whitespace(TrimMode mode = TrimMode::Both) const;
+
+    String to_lowercase_string() const;
+    String to_uppercase_string() const;
+    String to_titlecase_string() const;
+
+    Optional<size_t> find(char needle, size_t start = 0) const;
+    Optional<size_t> find(StringView needle, size_t start = 0) const;
+    Optional<size_t> find_last(char needle) const;
+
+    Vector<size_t> find_all(StringView needle);
+
+    using SearchDirection = StringUtils::SearchDirection;
+    Optional<size_t> find_any_of(StringView needles, SearchDirection direction = SearchDirection::Forward) const;
+
     Vector<StringView> lines(bool consider_cr = true) const;
 
     template<typename T = int>

@@ -30,6 +30,11 @@ public:
     static String repeated(char, size_t count);
     static String repeated(StringView, size_t count);
 
+    template<typename T = int>
+    Optional<T> to_int(TrimWhitespace = TrimWhitespace::Yes) const;
+    template<typename T = unsigned>
+    Optional<T> to_uint(TrimWhitespace = TrimWhitespace::Yes) const;
+
     static String bijective_base_from(size_t value, unsigned base = 26, StringView map = {});
     static String roman_number_from(size_t value);
 
@@ -72,7 +77,7 @@ public:
    
     bool is_null() { return true; }
     inline bool is_empty() const { return true; }
-    inline int length();
+    inline size_t length();
     char* characters() const;
 
     u32 hash() const { return 0; }

@@ -1,4 +1,10 @@
 #pragma once
+
+#pragma warning(disable: 4146)
+
+#undef _USE_MATH_DEFINES
+#define _USE_MATH_DEFINES
+
 #include <limits.h>
 #include <new>
 #include <math.h>
@@ -12,11 +18,11 @@
 #endif
 
 #ifdef _M_ARM
-#    define AK_ARCH_AARCH64 1
+#    define AK_ARCH_AARCH32 1
 #endif
 
 #ifdef _M_ARM64
-#    define AK_ARCH_AARCH32 1
+#    define AK_ARCH_AARCH64 1
 #endif
 
 #define AK_OS_WINRT

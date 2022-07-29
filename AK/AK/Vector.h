@@ -147,10 +147,10 @@ requires(!IsRvalueReference<T>) class Vector {
         inline void unchecked_append(StorageType const* values, size_t count);
 
         template<class... Args>
-        void empend(Args&&... args) requires(!contains_reference);
+        void empend(Args&&... args)/* requires(!contains_reference)*/;
 
         template<typename U = T>
-        void prepend(U&& value) requires(CanBePlacedInsideVector<U>);
+        void prepend(U&& value)/* requires(CanBePlacedInsideVector<U>)*/;
 
         void prepend(Vector&& other);
 
@@ -244,9 +244,10 @@ requires(!IsRvalueReference<T>) class Vector {
         ReverseIterator rend() { return ReverseIterator::rend(*this); }
         ReverseConstIterator rend() const { return ReverseConstIterator::rend(*this); }
 
-        inline constexpr auto in_reverse();
-
-        inline constexpr auto in_reverse() const;
+        inline constexpr auto in_reverse()
+        {
+            return ReverseWrapper::in_reverse(*this);
+        }
 
         template<typename TUnaryPredicate>
         ConstIterator find_if(TUnaryPredicate&& finder) const;

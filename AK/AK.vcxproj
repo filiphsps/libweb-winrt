@@ -244,6 +244,7 @@
     <ClInclude Include="AK\Iterator.h" />
     <ClInclude Include="AK\JsonArray.h" />
     <ClInclude Include="AK\JsonObject.h" />
+    <ClInclude Include="AK\JsonObjectSerializer.h" />
     <ClInclude Include="AK\JsonParser.h" />
     <ClInclude Include="AK\JsonValue.h" />
     <ClInclude Include="AK\kmalloc.h" />
