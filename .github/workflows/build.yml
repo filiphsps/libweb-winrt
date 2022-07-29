@@ -11,8 +11,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: 🌎 Checkout code
+      - name: 🌎 Checkout repository
         uses: actions/checkout@v2.1.0
+        with:
+          submodules: true
 
       - uses: nuget/setup-nuget@v1
         with:

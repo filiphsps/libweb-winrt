@@ -39,6 +39,9 @@ private:
 
 public:
     template<typename U = T>
+    WeakPtr<U> make_weak_ptr() const;
+
+    template<typename U = T>
     ErrorOr<WeakPtr<U>> try_make_weak_ptr() const;
 
 protected:

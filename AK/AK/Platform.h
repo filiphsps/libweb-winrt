@@ -1,6 +1,7 @@
 #pragma once
 #include <limits.h>
 #include <new>
+#include <math.h>
 
 #ifdef _M_IX86
 #    define AK_ARCH_I386 1
@@ -68,11 +69,17 @@
 #define __builtin_isinf isinf
 #define __builtin_isinf_sign isinf
 #define __builtin_launder std::launder
+#define __builtin_exp2 exp2
+#define __builtin_add_overflow(a, b, c) (a += b)
+#define __builtin_sub_overflow(a, b, c) (a -= b)
+#define __builtin_mul_overflow(a, b, c) (a *= b)
 #define ssize_t __int64
 #define suseconds_t long int
 
 // gcc
 #define __attribute__(expression)
+#define __ORDER_LITTLE_ENDIAN__ 1234 // FIXME
+#define __BYTE_ORDER__ 1234 // FIXME
 
 // msvc quirks
 #undef Yield
@@ -80,3 +87,5 @@
 // libjs
 #define HEAP_DEBUG 0
 #define PROMISE_DEBUG 0
+#define JS_MODULE_DEBUG 0
+#define LEXER_DEBUG 0
