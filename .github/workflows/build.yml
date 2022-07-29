@@ -41,8 +41,4 @@ jobs:
 
       - name: ⚙️ Build AK
         working-directory: ${{ github.workspace }}
-        run: msbuild .\AK\AK.vcxproj /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false
-
-      - name: ⚙️ Build LibJS
-        working-directory: ${{ github.workspace }}
-        run: msbuild .\LibJS\LibJS.vcxproj /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /p:PublishReadyToRun=false
+        run: msbuild .\LibWeb-WinRT.sln /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }}

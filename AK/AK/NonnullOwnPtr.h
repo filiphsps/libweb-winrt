@@ -7,6 +7,10 @@ class WeakPtr;
 
 template<typename T>
 class NonnullOwnPtr {
+public:
+    using ElementType = T;
+
+    enum AdoptTag { Adopt };
 
     inline T* operator->();
 
@@ -14,6 +18,8 @@ class NonnullOwnPtr {
 
     inline operator T* ();
 
+private:
+    T* m_ptr = nullptr;
 };
 
 }

@@ -27,7 +27,7 @@ public:
 
     int* begin() const { return 0; }
     int* end() const { return 0; }
-    int* find(const K& key)
+    int* find(const K& key);
 
     u32 hash() const;
 };
