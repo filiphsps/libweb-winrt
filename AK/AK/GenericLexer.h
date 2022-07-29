@@ -42,9 +42,27 @@ public:
     };
 
     char consume() { return ' '; }
-    StringView consume(size_t);
-    Result<u32, UnicodeEscapeError> consume_escaped_code_point() { return NULL; }
+
+    constexpr bool consume_specific(char const* next);
+
     char consume_escaped_character(char, StringView) { return ' '; }
+
+    StringView consume(size_t count);
+    StringView consume_all();
+    StringView consume_line();
+    StringView consume_until(char);
+    StringView consume_until(StringView);
+    StringView consume_quoted_string(char escape_char = 0);
+
+    Result<u32, UnicodeEscapeError> consume_escaped_code_point() { return NULL; }
+
+    constexpr void ignore(size_t count = 1);
+
+    template<typename TPredicate>
+    StringView consume_while(TPredicate pred);
+
+    template<typename TPredicate>
+    StringView consume_until(TPredicate pred);
 
 protected:
     StringView m_input;

@@ -48,6 +48,30 @@ public:
 
     StringView view() const;
 
+    bool operator==(String const&) const;
+    bool operator!=(String const& other) const;
+
+    bool operator==(StringView) const;
+    bool operator!=(StringView other) const;
+
+    bool operator==(FlyString const&) const;
+    bool operator!=(FlyString const& other) const;
+
+    bool operator<(String const&) const;
+    bool operator<(char const*) const;
+    bool operator>=(String const& other) const;
+    bool operator>=(char const* other) const;
+
+    bool operator>(String const&) const;
+    bool operator>(char const*) const;
+    bool operator<=(String const& other) const;
+    bool operator<=(char const* other) const;
+
+    bool operator==(char const* cstring) const;
+    bool operator!=(char const* cstring) const;
+
+    static String empty();
+
 private:
     RefPtr<StringImpl> m_impl;
 };

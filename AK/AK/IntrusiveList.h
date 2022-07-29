@@ -162,13 +162,9 @@ public:
 
     static constexpr bool IsRaw = IsPointer<Container>;
 
-    // Note: For some reason, clang does not consider `member` as declared here, and as declared above (`SubstitutedIntrusiveListNode<T, Container> T::*`)
-    //       to be of equal types. so for now, just make the members public on clang.
-#ifndef __clang__
 private:
     template<class T_, typename Container_, SubstitutedIntrusiveListNode<T_, Container_> T_::* member>
     friend class ::AK::Detail::IntrusiveList;
-#endif
 
     IntrusiveListStorage<T, Container>* m_storage = nullptr;
     SubstitutedIntrusiveListNode<T, Container>* m_next = nullptr;
@@ -411,8 +407,20 @@ using IntrusiveList = Detail::IntrusiveList<
     decltype(Detail::ExtractIntrusiveListTypes::container(member)),
     member>;*/
 
-template<auto T>
+template<class T>
 class IntrusiveList {
+public:
+    IntrusiveList() = default;
+    ~IntrusiveList();
+
+    bool is_empty() const;
+    size_t size_slow() const;
+    void append(T& n);
+    void prepend(T& n);
+    void insert_before(T&, T&);
+    void remove(T& n);
+
+    bool contains(const T&) const;
 };
 
 }

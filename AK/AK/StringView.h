@@ -2,8 +2,12 @@
 #pragma warning(disable: 4455)
 
 #include "./AK/Assertions.h"
+#include "./AK/Checked.h"
 #include "./AK/Forward.h"
+#include "./AK/Optional.h"
 #include "./AK/Span.h"
+#include "./AK/StdLibExtras.h"
+#include "./AK/StringHash.h"
 #include "./AK/StringUtils.h"
 
 namespace AK {
@@ -38,8 +42,8 @@ public:
     constexpr char const* characters_without_null_termination() const { return m_characters; }
     constexpr size_t length() const { return m_length; }
 
-    bool contains(char) const { return false; }
-    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const { return false; }
+    ReadonlyBytes bytes() const;
+    constexpr char const& operator[](size_t index) const;
 
     constexpr StringView substring_view(size_t start, size_t length) const { return StringView(); }
 
@@ -48,6 +52,16 @@ public:
 
     constexpr int* begin() const { return 0; }
     constexpr int* end() const { return 0; }
+
+    bool starts_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool ends_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool starts_with(char) const;
+    bool ends_with(char) const;
+    bool matches(StringView mask, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
+    bool matches(StringView mask, Vector<MaskSpan>&, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
+    bool contains(char) const;
+    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool equals_ignoring_case(StringView other) const;
 
     Vector<StringView> lines(bool consider_cr = true) const;
 

@@ -26,6 +26,20 @@ enum class TrimWhitespace {
     No,
 };
 
+struct MaskSpan {
+    size_t start;
+    size_t length;
+
+    bool operator==(MaskSpan const& other) const
+    {
+        return start == other.start && length == other.length;
+    }
+    bool operator!=(MaskSpan const& other) const
+    {
+        return !(*this == other);
+    }
+};
+
 }
 
 using AK::CaseSensitivity;
