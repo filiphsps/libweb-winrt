@@ -65,6 +65,9 @@
     <ClCompile Include="AK\JsonParser.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="AK\LexicalPath.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

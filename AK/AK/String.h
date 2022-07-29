@@ -20,6 +20,7 @@ public:
     String(String const& other);
     String(String&& other);
     String(char const* cstring, ShouldChomp shouldChomp = NoChomp);
+    String(char const* cstring, size_t length, ShouldChomp shouldChomp = NoChomp);
     explicit String(ReadonlyBytes bytes, ShouldChomp shouldChomp = NoChomp);
     String(StringImpl const& impl);
     String(StringImpl const* impl);

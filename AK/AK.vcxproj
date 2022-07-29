@@ -311,6 +311,7 @@
     <ClCompile Include="AK\IntrusiveList.cpp" />
     <ClCompile Include="AK\JsonParser.cpp" />
     <ClCompile Include="AK\kmalloc.cpp" />
+    <ClCompile Include="AK\LexicalPath.cpp" />
     <ClCompile Include="AK\String.cpp" />
     <ClCompile Include="AK\StringBuilder.cpp" />
     <ClCompile Include="AK\StringImpl.cpp" />
