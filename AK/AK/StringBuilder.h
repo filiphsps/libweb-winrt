@@ -21,6 +21,8 @@ public:
     ErrorOr<void> try_appendff(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     void append(StringView) {}
+    void append(Utf16View const&);
+    void append(Utf32View const&);
     void append(char) {}
     void append_code_point(u32) {}
     void append(char const*, size_t) {}

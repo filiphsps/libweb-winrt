@@ -8,6 +8,8 @@ using Empty = std::monostate;
 
 template<typename... Ts>
 struct Variant : public std::variant<Ts...> {
+    Variant();
+
     using std::variant<Ts...>::variant;
     using std::variant<Ts...>::operator=;
 

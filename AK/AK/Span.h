@@ -96,7 +96,18 @@ public:
 
     constexpr Span() = default;
 
-    inline constexpr T* data() { return this->m_values; }
+    inline constexpr T* data();
+
+    inline constexpr T* offset_pointer(size_t offset);
+
+    using ConstIterator = SimpleIterator<Span const, T const>;
+    using Iterator = SimpleIterator<Span, T>;
+
+    constexpr ConstIterator begin() const { return ConstIterator::begin(*this); }
+    constexpr Iterator begin() { return Iterator::begin(*this); }
+
+    constexpr ConstIterator end() const { return ConstIterator::end(*this); }
+    constexpr Iterator end() { return Iterator::end(*this); }
 
     inline constexpr size_t size() const { return this->m_size; }
     inline constexpr bool is_null() const { return this->m_values == nullptr; }

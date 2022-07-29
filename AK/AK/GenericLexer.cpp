@@ -3,9 +3,4 @@
 
 namespace AK {
 
-bool GenericLexer::is_eof()
-{
-    return false;
-}
-
 }

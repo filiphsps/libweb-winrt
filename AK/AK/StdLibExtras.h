@@ -7,6 +7,7 @@
 #pragma once
 
 #include <utility>
+#include <stdlib.h>
 #include "./AK/Assertions.h"
 #include "./AK/StdLibExtraDetails.h"
 
@@ -40,17 +41,19 @@ constexpr SizeType array_size(T(&)[N])
     return N;
 }
 
-/*template<typename T>
+#undef min
+template<typename T>
 constexpr T min(const T& a, IdentityType<T> const& b)
 {
     return b < a ? b : a;
 }
 
+#undef max
 template<typename T>
 constexpr T max(const T& a, IdentityType<T> const& b)
 {
     return a < b ? b : a;
-}*/
+}
 
 template<typename T>
 constexpr T clamp(const T& value, IdentityType<T> const& min, IdentityType<T> const& max)
@@ -118,12 +121,9 @@ using AK::ceil_div;
 using AK::clamp;
 using AK::exchange;
 using AK::is_constant_evaluated;
-//using AK::max;
-//using AK::min;
+using AK::max;
+using AK::min;
 using AK::mix;
 using AK::RawPtr;
 using AK::swap;
 using AK::to_underlying;
-
-using std::max;
-using std::min;

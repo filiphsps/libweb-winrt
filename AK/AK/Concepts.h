@@ -10,7 +10,6 @@
 #include "./AK/IterationDecision.h"
 #include "./AK/StdLibExtras.h"
 
-
 namespace AK::Concepts {
 
 template<typename T>
@@ -84,6 +83,30 @@ concept VoidFunction = requires(Func func, Args... args)
     }
     -> SameAs<void>;
 };
+
+template<typename Func, typename... Args>
+concept IteratorFunction = requires(Func func, Args... args)
+{
+    {
+        func(args...)
+    }
+    -> SameAs<IterationDecision>;
+};
+
+template<typename T, typename EndT>
+concept IteratorPairWith = requires(T it, EndT end)
+{
+    *it;
+    { it != end } -> SameAs<bool>;
+    ++it;
+};
+
+template<typename T>
+concept IterableContainer = requires
+{
+    { declval<T>().begin() } -> IteratorPairWith<decltype(declval<T>().end())>;
+};
+
 }
 
 using AK::Concepts::Arithmetic;
@@ -92,6 +115,9 @@ using AK::Concepts::Enum;
 using AK::Concepts::FloatingPoint;
 using AK::Concepts::Fundamental;
 using AK::Concepts::Integral;
+using AK::Concepts::IterableContainer;
+using AK::Concepts::IteratorFunction;
+using AK::Concepts::IteratorPairWith;
 using AK::Concepts::OneOf;
 using AK::Concepts::OneOfIgnoringCV;
 using AK::Concepts::SameAs;
@@ -99,3 +125,4 @@ using AK::Concepts::Signed;
 using AK::Concepts::SpecializationOf;
 using AK::Concepts::Unsigned;
 using AK::Concepts::VoidFunction;
+

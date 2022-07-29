@@ -8,7 +8,6 @@
 
 #include "./AK/Weakable.h"
 
-
 namespace AK {
 
 template<typename T>
@@ -112,7 +111,7 @@ public:
         return *this;
     }
 
-    [[nodiscard]] RefPtr<T> strong_ref() const
+    RefPtr<T> strong_ref() const
     {
         return RefPtr<T> { ptr() };
     }
@@ -123,7 +122,7 @@ public:
     operator const T* () const { return unsafe_ptr(); }
     operator T* () { return unsafe_ptr(); }
 
-    [[nodiscard]] T* unsafe_ptr() const
+    T* unsafe_ptr() const
     {
         if (m_link)
             return m_link->template unsafe_ptr<T>();

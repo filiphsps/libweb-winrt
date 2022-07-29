@@ -3,8 +3,4 @@
 
 namespace AK {
 
-StringBuilder::StringBuilder(size_t initial_capacity)
-{
-}
-
 }

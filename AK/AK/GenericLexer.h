@@ -30,22 +30,20 @@ public:
     }
 
     u32 peek() { return 0; }
-    u32 peek(u32) { return 0; }
+    u32 peek(size_t offset = 0) { return 0; }
 
-    void ignore() {}
-    void ignore(u32) {}
-    void retreat() {}
+    void retreat();
 
-    enum class UnicodeEscapeError {
-        MalformedUnicodeEscape,
-        UnicodeEscapeOverflow,
-    };
+    char consume();
 
-    char consume() { return ' '; }
+    template<typename T>
+    constexpr bool consume_specific(const T& next);
+
+    bool consume_specific(String const& next);
 
     constexpr bool consume_specific(char const* next);
 
-    char consume_escaped_character(char, StringView) { return ' '; }
+    char consume_escaped_character(char, StringView);
 
     StringView consume(size_t count);
     StringView consume_all();
@@ -54,9 +52,18 @@ public:
     StringView consume_until(StringView);
     StringView consume_quoted_string(char escape_char = 0);
 
-    Result<u32, UnicodeEscapeError> consume_escaped_code_point() { return NULL; }
+    enum class UnicodeEscapeError {
+        MalformedUnicodeEscape,
+        UnicodeEscapeOverflow,
+    };
+
+    Result<u32, UnicodeEscapeError> consume_escaped_code_point(bool combine_surrogate_pairs = true);
 
     constexpr void ignore(size_t count = 1);
+
+    constexpr void ignore_until(char stop);
+
+    constexpr void ignore_until(char const* stop);
 
     template<typename TPredicate>
     StringView consume_while(TPredicate pred);
@@ -69,6 +76,22 @@ protected:
     size_t m_index{ 0 };
 };
 
+constexpr auto is_any_of(StringView values)
+{
+    return [values](auto c) { return values.contains(c); };
+}
+
+constexpr auto is_not_any_of(StringView values)
+{
+    return [values](auto c) { return !values.contains(c); };
+}
+
+//constexpr auto is_path_separator = is_any_of("/\\"sv);
+//constexpr auto is_quote = is_any_of("'\""sv);
+
 }
 
 using AK::GenericLexer;
+using AK::is_any_of;
+//using AK::is_path_separator;
+//using AK::is_quote;

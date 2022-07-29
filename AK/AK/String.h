@@ -24,11 +24,26 @@ public:
         builder.join(separator, collection, fmtstr);
         return builder.build();
     }
+
+    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool contains(char, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+
+    Optional<size_t> find(char needle, size_t start = 0) const;
+    Optional<size_t> find(StringView needle, size_t start = 0) const;
+    Optional<size_t> find_last(char needle) const;
+    Vector<size_t> find_all(StringView needle) const;
+    using SearchDirection = StringUtils::SearchDirection;
+    Optional<size_t> find_any_of(StringView needles, SearchDirection direction) const;
+
+    String substring(size_t start, size_t length) const;
+    String substring(size_t start) const;
+    StringView substring_view(size_t start, size_t length) const;
+    StringView substring_view(size_t start) const;
    
     bool is_null() { return true; }
     inline bool is_empty() const { return true; }
     inline int length();
-    char* characters() const { return (char*)""; }
+    char* characters() const;
 
     String replace(StringView, StringView, ReplaceMode) const;
     size_t count(StringView) const;
@@ -36,15 +51,12 @@ public:
     u32 hash() const { return 0; }
 
     template<typename... Parameters>
-    static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) {}
+    static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
     template<typename T>
-    static String number(T value) requires IsArithmetic<T>
-    {
-        return formatted("{}", value);
-    }
+    static String number(T value) requires IsArithmetic<T>;
 
-    inline char const& operator[](size_t i) const { return ' '; }
+    inline char const& operator[](size_t i) const;
 
     StringView view() const;
 

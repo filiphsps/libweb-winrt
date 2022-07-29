@@ -23,6 +23,11 @@ public:
     void extend(DisjointChunks&& chunks);
     void extend(DisjointChunks const& chunks);
 
+    ChunkType& first_chunk();
+    ChunkType& last_chunk();
+    ChunkType const& first_chunk() const;
+    ChunkType const& last_chunk() const;
+
     void ensure_capacity(size_t needed_capacity);
 
     void insert(size_t index, T value);

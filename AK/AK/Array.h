@@ -28,6 +28,15 @@ struct Array {
     template<typename T2, size_t Size2>
     constexpr bool operator==(Array<T2, Size2> const& other);
 
+    using ConstIterator = SimpleIterator<Array const, T const>;
+    using Iterator = SimpleIterator<Array, T>;
+
+    constexpr ConstIterator begin() const { return ConstIterator::begin(*this); }
+    constexpr Iterator begin() { return Iterator::begin(*this); }
+
+    constexpr ConstIterator end() const { return ConstIterator::end(*this); }
+    constexpr Iterator end() { return Iterator::end(*this); }
+
     constexpr operator Span<T const>() const;
 
     T __data[Size];

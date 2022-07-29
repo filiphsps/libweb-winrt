@@ -54,6 +54,8 @@ public:
     constexpr int* begin() const { return 0; }
     constexpr int* end() const { return 0; }
 
+    constexpr unsigned hash() const;
+
     bool starts_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
     bool ends_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
     bool starts_with(char) const;
@@ -85,6 +87,12 @@ public:
     bool operator>=(StringView other) const { return false; }
 
     String to_string() const;
+
+    template<typename... Ts>
+    inline constexpr bool is_one_of(Ts&&... strings) const;
+
+    template<typename... Ts>
+    inline constexpr bool is_one_of_ignoring_case(Ts&&... strings) const;
 
 private:
     friend class String;

@@ -1,5 +1,6 @@
 #pragma once
 #include <limits.h>
+#include <new>
 
 #ifdef _M_IX86
 #    define AK_ARCH_I386 1
@@ -66,12 +67,16 @@
 #define __builtin_isnan isnan
 #define __builtin_isinf isinf
 #define __builtin_isinf_sign isinf
+#define __builtin_launder std::launder
 #define ssize_t __int64
 #define suseconds_t long int
 
 // gcc
 #define __attribute__(expression)
 
-//libjs
+// msvc quirks
+#undef Yield
+
+// libjs
 #define HEAP_DEBUG 0
 #define PROMISE_DEBUG 0

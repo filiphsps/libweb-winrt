@@ -5,6 +5,11 @@
 
 namespace AK {
 
+namespace Detail {
+template<Concepts::AnyString T, Concepts::AnyString U>
+inline constexpr bool IsHashCompatible<T, U> = true;
+}
+
 enum class CaseSensitivity {
     CaseInsensitive,
     CaseSensitive,
@@ -39,6 +44,15 @@ struct MaskSpan {
         return !(*this == other);
     }
 };
+
+namespace StringUtils {
+
+enum class SearchDirection {
+    Forward,
+    Backward
+};
+
+}
 
 }
 

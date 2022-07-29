@@ -59,6 +59,9 @@
     <ClCompile Include="AK\IntrusiveList.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="AK\StringUtils.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
