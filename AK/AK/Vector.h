@@ -43,7 +43,7 @@ struct CanBePlacedInsideVectorHelper<StorageType, false> {
 }
 
 template<typename T, size_t inline_capacity>
-    requires(!IsRvalueReference<T>) class Vector {
+requires(!IsRvalueReference<T>) class Vector {
     private:
         static constexpr bool contains_reference = IsLvalueReference<T>;
         using StorageType = Conditional<contains_reference, RawPtr<RemoveReference<T>>, T>;

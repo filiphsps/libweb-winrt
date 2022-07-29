@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include "./AK/Iterator.h"
 #include "./AK/Span.h"
 
 namespace AK {
@@ -35,6 +36,17 @@ struct Array {
 template<typename T, typename... Types>
 Array(T, Types...)->Array<T, sizeof...(Types) + 1>;
 
+namespace Detail {
+
+template<typename T, size_t... Is>
+constexpr auto integer_sequence_generate_array([[maybe_unused]] T const offset, IntegerSequence<T, Is...>)->Array<T, sizeof...(Is)>;
+
+}
+
+template<typename T, T N>
+constexpr static auto iota_array(T const offset = {});
+
 }
 
 using AK::Array;
+using AK::iota_array;

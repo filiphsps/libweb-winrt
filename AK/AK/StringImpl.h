@@ -5,6 +5,7 @@
 #include "./AK/RefPtr.h"
 #include "./AK/Span.h"
 #include "./AK/Types.h"
+#include "./AK/kmalloc.h"
 
 namespace AK {
 

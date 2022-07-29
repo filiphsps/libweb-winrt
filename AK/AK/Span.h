@@ -102,29 +102,15 @@ public:
     inline constexpr bool is_null() const { return this->m_values == nullptr; }
     inline constexpr bool is_empty() const { return this->m_size == 0; }
 
-    inline constexpr T& at(size_t index)
-    {
-        VERIFY(index < this->m_size);
-        return this->m_values[index];
-    }
+    inline constexpr size_t copy_to(Span<RemoveConst<T>> other) const;
 
-    inline constexpr T& operator[](size_t index)
-    {
-        return at(index);
-    }
+    inline constexpr T& at(size_t index);
 
-    /* constexpr bool operator==(Span const& other) const
-    {
-        if (size() != other.size())
-            return false;
+    inline constexpr T& operator[](size_t index);
 
-        return TypedTransfer<T>::compare(data(), other.data(), size());
-    }*/
+    constexpr bool operator==(Span const& other) const;
 
-    constexpr operator Span<T const>() const
-    {
-        return { data(), size() };
-    }
+    constexpr operator Span<T const>() const;
 };
 
 using ReadonlyBytes = Span<u8 const>;

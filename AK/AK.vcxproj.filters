@@ -38,8 +38,16 @@
     <ClCompile Include="AK\Time.cpp">
       <Filter>AK</Filter>
     </ClCompile>
-    <ClCompile Include="AK\StringImpl.cpp" />
-    <ClCompile Include="AK\Format.cpp" />
+    <ClCompile Include="AK\StringImpl.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Format.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\kmalloc.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Utf8View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -297,6 +305,15 @@
       <Filter>AK</Filter>
     </ClInclude>
     <ClInclude Include="AK\kmalloc.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IntrusiveDetails.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Utf8View.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Utf32View.h">
       <Filter>AK</Filter>
     </ClInclude>
   </ItemGroup>

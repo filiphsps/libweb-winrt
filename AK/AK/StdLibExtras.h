@@ -50,7 +50,7 @@ template<typename T>
 constexpr T max(const T& a, IdentityType<T> const& b)
 {
     return a < b ? b : a;
-}
+}*/
 
 template<typename T>
 constexpr T clamp(const T& value, IdentityType<T> const& min, IdentityType<T> const& max)
@@ -67,7 +67,7 @@ template<typename T, typename U>
 constexpr T mix(T const& v1, T const& v2, U const& interpolation)
 {
     return v1 + (v2 - v1) * interpolation;
-}*/
+}
 
 template<typename T, typename U>
 constexpr T ceil_div(T a, U b)
@@ -115,12 +115,15 @@ constexpr bool is_constant_evaluated()
 
 using AK::array_size;
 using AK::ceil_div;
-//using AK::clamp;
+using AK::clamp;
 using AK::exchange;
 using AK::is_constant_evaluated;
 //using AK::max;
 //using AK::min;
-//using AK::mix;
+using AK::mix;
 using AK::RawPtr;
 using AK::swap;
 using AK::to_underlying;
+
+using std::max;
+using std::min;

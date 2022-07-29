@@ -6,3 +6,4 @@
 #include "./AK/StdLibExtras.h"
 #include "./AK/StringHash.h"
 #include "./AK/StringImpl.h"
+#include "./AK/kmalloc.h"

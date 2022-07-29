@@ -6,6 +6,7 @@
 namespace Crypto {
 
 class SignedBigInteger {
+public:
     String to_base(u16 N) const;
 };
 

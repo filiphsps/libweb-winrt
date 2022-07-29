@@ -13,6 +13,15 @@ class NonnullPtrVector : public Vector<PtrType, inline_capacity> {
 public:
     NonnullPtrVector() = default;
 
+    NonnullPtrVector(Vector<PtrType>&& other)
+        : Base(static_cast<Base&&>(other))
+    {
+    }
+    NonnullPtrVector(Vector<PtrType> const& other)
+        : Base(static_cast<Base const&>(other))
+    {
+    }
+
     using Base::size;
 
     using ConstIterator = SimpleIterator<const NonnullPtrVector, const T>;
@@ -20,15 +29,21 @@ public:
     using ReverseIterator = SimpleReverseIterator<NonnullPtrVector, T>;
     using ReverseConstIterator = SimpleReverseIterator<NonnullPtrVector const, T const>;
 
-    inline constexpr ConstIterator begin() const { return ConstIterator::begin(*this); }
-    inline constexpr Iterator begin() { return Iterator::begin(*this); }
-    inline constexpr ReverseIterator rbegin() { return ReverseIterator::rbegin(*this); }
-    inline constexpr ReverseConstIterator rbegin() const { return ReverseConstIterator::rbegin(*this); }
+    inline constexpr ConstIterator begin() const;
+    inline constexpr Iterator begin();
+    inline constexpr ReverseIterator rbegin();
+    inline constexpr ReverseConstIterator rbegin() const;
 
-    inline constexpr ConstIterator end() const { return ConstIterator::end(*this); }
-    inline constexpr Iterator end() { return Iterator::end(*this); }
-    inline constexpr ReverseIterator rend() { return ReverseIterator::rend(*this); }
-    inline constexpr ReverseConstIterator rend() const { return ReverseConstIterator::rend(*this); }
+    inline constexpr ConstIterator end() const;
+    inline constexpr Iterator end();
+    inline constexpr ReverseIterator rend();
+    inline constexpr ReverseConstIterator rend() const;
+
+    inline constexpr auto in_reverse();
+
+    Optional<size_t> find_first_index(T const& value) const;
+
+    inline PtrType& ptr_at(size_t index);
 
     inline T& at(size_t index);
     inline T& operator[](size_t index);

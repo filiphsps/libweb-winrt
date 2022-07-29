@@ -24,14 +24,16 @@ public:
         builder.join(separator, collection, fmtstr);
         return builder.build();
     }
-
-    u32 hash() const { return 0; }
-
-    char* characters() const { return (char*)""; }
-    int length();
+   
     bool is_null() { return true; }
+    inline bool is_empty() const { return true; }
+    inline int length();
+    char* characters() const { return (char*)""; }
+
     String replace(StringView, StringView, ReplaceMode) const;
     size_t count(StringView) const;
+
+    u32 hash() const { return 0; }
 
     template<typename... Parameters>
     static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters) {}
@@ -44,10 +46,15 @@ public:
 
     inline char const& operator[](size_t i) const { return ' '; }
 
+    StringView view() const;
+
 private:
     RefPtr<StringImpl> m_impl;
 };
 
+String escape_html_entities(StringView html);
+
 }
 
+using AK::escape_html_entities;
 using AK::String;

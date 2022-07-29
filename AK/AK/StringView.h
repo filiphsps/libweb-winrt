@@ -32,6 +32,12 @@ public:
     explicit StringView(String&&) = delete;
     explicit StringView(FlyString&&) = delete;
 
+    constexpr bool is_null() const;
+    constexpr bool is_empty() const { return m_length == 0; }
+
+    constexpr char const* characters_without_null_termination() const { return m_characters; }
+    constexpr size_t length() const { return m_length; }
+
     bool contains(char) const { return false; }
     bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const { return false; }
 
@@ -39,9 +45,6 @@ public:
 
     StringView replace(StringView, StringView, ReplaceMode) const { return StringView(); }
     constexpr int compare() { return 0; }
-    size_t length() { return 0; }
-
-    constexpr char const* characters_without_null_termination() const { return (char*)""; }
 
     constexpr int* begin() const { return 0; }
     constexpr int* end() const { return 0; }
