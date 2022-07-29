@@ -16,7 +16,7 @@ public:
     ~String() = default;
 
     String() = default;
-    String(StringView);
+    String(StringView view);
     String(String const& other);
     String(String&& other);
     String(char const* cstring, ShouldChomp shouldChomp = NoChomp);
@@ -30,11 +30,6 @@ public:
     static String repeated(char, size_t count);
     static String repeated(StringView, size_t count);
 
-    template<typename T = int>
-    Optional<T> to_int(TrimWhitespace = TrimWhitespace::Yes) const;
-    template<typename T = unsigned>
-    Optional<T> to_uint(TrimWhitespace = TrimWhitespace::Yes) const;
-
     static String bijective_base_from(size_t value, unsigned base = 26, StringView map = {});
     static String roman_number_from(size_t value);
 
@@ -45,6 +40,14 @@ public:
         builder.join(separator, collection, fmtstr);
         return builder.build();
     }
+
+    bool matches(StringView mask, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
+    bool matches(StringView mask, Vector<MaskSpan>&, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
+
+    template<typename T = int>
+    Optional<T> to_int(TrimWhitespace = TrimWhitespace::Yes) const;
+    template<typename T = unsigned>
+    Optional<T> to_uint(TrimWhitespace = TrimWhitespace::Yes) const;
 
     bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
     bool contains(char, CaseSensitivity = CaseSensitivity::CaseSensitive) const;

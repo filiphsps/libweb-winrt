@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: BSD-2-Clause
  */
 
-
 #pragma once
 
 #include <errno.h>
@@ -26,10 +25,7 @@ public:
     bool is_syscall() const { return m_syscall; }
 
     template<size_t N>
-    inline static Error from_string_literal(char const (&string_literal)[N])
-    {
-        return from_string_view(StringView{ string_literal, N - 1 });
-    }
+    inline static Error from_string_literal(char const (&string_literal)[N]);
 
     bool operator==(Error const& other) const
     {

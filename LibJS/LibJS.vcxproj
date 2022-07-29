@@ -204,13 +204,10 @@
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\*.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Heap\*.cpp" />
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Runtime\*.cpp" />
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Tests\*.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Bytecode\*.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Contrib\*.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Tests\*.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="pch.cpp">

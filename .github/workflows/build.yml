@@ -28,8 +28,7 @@ jobs:
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v1.0.2
 
-      # FIXME: use GuillaumeFalourd/setup-windows10-sdk-action@master
-      - uses: filiphsps/setup-windows10-sdk-action@patch-1
+      - uses: GuillaumeFalourd/setup-windows10-sdk-action@main
         with:
           sdk-version: 16299
 
