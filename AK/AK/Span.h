@@ -115,10 +115,27 @@ public:
 
     inline constexpr Span slice(size_t start, size_t length) const;
     inline constexpr Span slice(size_t start) const;
+    inline constexpr Span slice_from_end(size_t count) const;
+
+    inline constexpr Span trim(size_t length) const;
+
+    inline constexpr T* offset(size_t start) const;
+
+    inline constexpr void overwrite(size_t offset, void const* data, size_t data_size);
 
     inline constexpr size_t copy_to(Span<RemoveConst<T>> other) const;
 
+    inline constexpr size_t copy_trimmed_to(Span<RemoveConst<T>> other) const;
+
+    inline constexpr size_t fill(T const& value);
+
+    bool constexpr contains_slow(T const& value) const;
+
+    bool constexpr starts_with(Span<T const> other) const;
+
     inline constexpr T& at(size_t index);
+
+    inline constexpr T& last();
 
     inline constexpr T& operator[](size_t index);
 

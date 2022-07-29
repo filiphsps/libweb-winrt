@@ -25,7 +25,6 @@ constexpr bool is_power_of_two(T value) requires(IsIntegral<T>)
 
 using std::forward;
 using std::move;
-using std::abs;
 
 namespace AK::Detail {
 template<typename T>
@@ -55,6 +54,11 @@ constexpr T max(const T& a, IdentityType<T> const& b)
 {
     return a < b ? b : a;
 }
+
+// FIXME:
+template<typename T>
+T abs(const T& a);
+
 
 template<typename T>
 constexpr T clamp(const T& value, IdentityType<T> const& min, IdentityType<T> const& max)

@@ -27,6 +27,12 @@ public:
     String(NonnullRefPtr<StringImpl>&& impl);
     String(FlyString const&);
 
+    static String repeated(char, size_t count);
+    static String repeated(StringView, size_t count);
+
+    static String bijective_base_from(size_t value, unsigned base = 26, StringView map = {});
+    static String roman_number_from(size_t value);
+
     template<class SeparatorType, class CollectionType>
     static String join(SeparatorType const& separator, CollectionType const& collection, StringView fmtstr = "{}"sv)
     {

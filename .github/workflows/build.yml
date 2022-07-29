@@ -41,6 +41,6 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /t:Restore
 
-      - name: ⚙️ Build AK
+      - name: ⚙️ Build
         working-directory: ${{ github.workspace }}
         run: msbuild .\LibWeb-WinRT.sln /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }}

@@ -1,5 +1,12 @@
 #pragma once
 
+#include "./AK/Assertions.h"
+#include "./AK/Format.h"
+#include "./AK/RefCounted.h"
+#include "./AK/StdLibExtras.h"
+#include "./AK/Traits.h"
+#include "./AK/Types.h"
+
 namespace AK {
 
 template<typename T>
@@ -36,7 +43,7 @@ public:
     template<typename U>
     NonnullOwnPtr& operator=(NonnullOwnPtr<U> const&) = delete;
 
-    /*template<typename U>
+    template<typename U>
     NonnullOwnPtr(RefPtr<U> const&) = delete;
     template<typename U>
     NonnullOwnPtr(NonnullRefPtr<U> const&) = delete;
@@ -47,7 +54,7 @@ public:
     template<typename U>
     NonnullOwnPtr& operator=(NonnullRefPtr<U> const&) = delete;
     template<typename U>
-    NonnullOwnPtr& operator=(WeakPtr<U> const&) = delete;*/
+    NonnullOwnPtr& operator=(WeakPtr<U> const&) = delete;
 
     inline T* operator->();
     inline const T* operator->() const;
@@ -77,14 +84,13 @@ template<class T, class... Args>
     return NonnullOwnPtr<T>(NonnullOwnPtr<T>::Adopt, *new T(forward<Args>(args)...));
 }
 
-// FIXME: Remove once P0960R3 is available in Clang.
 template<class T, class... Args>
 inline NonnullOwnPtr<T> make(Args&&... args)
 {
     return NonnullOwnPtr<T>(NonnullOwnPtr<T>::Adopt, *new T{ forward<Args>(args)... });
 }
 
-/*template<typename T>
+template<typename T>
 struct Traits<NonnullOwnPtr<T>> : public GenericTraits<NonnullOwnPtr<T>> {
     using PeekType = T*;
     using ConstPeekType = const T*;
@@ -104,7 +110,7 @@ struct Formatter<NonnullOwnPtr<T>> : Formatter<const T*> {
     {
         return Formatter<const T*>::format(builder, value.ptr());
     }
-};*/
+};
 
 }
 

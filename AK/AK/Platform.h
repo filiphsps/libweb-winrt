@@ -78,11 +78,12 @@
 
 // gcc
 #define __attribute__(expression)
-#define __ORDER_LITTLE_ENDIAN__ 1234 // FIXME
-#define __BYTE_ORDER__ 1234 // FIXME
+#define __ORDER_LITTLE_ENDIAN__ 1234 // FIXME:
+#define __BYTE_ORDER__ 1234 // FIXME:
 
 // msvc quirks
 #undef Yield
+#undef _CRT_NO_TIME_T
 
 // libjs
 #define HEAP_DEBUG 0

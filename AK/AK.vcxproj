@@ -214,7 +214,7 @@
     <ClInclude Include="AK\Atomic.h" />
     <ClInclude Include="AK\Badge.h" />
     <ClInclude Include="AK\BitCast.h" />
-    <ClInclude Include="AK\BultinWrappers.h" />
+    <ClInclude Include="AK\BuiltinWrappers.h" />
     <ClInclude Include="AK\ByteBuffer.h" />
     <ClInclude Include="AK\CharacterTypes.h" />
     <ClInclude Include="AK\Checked.h" />
@@ -242,6 +242,7 @@
     <ClInclude Include="AK\IntrusiveList.h" />
     <ClInclude Include="AK\IterationDecision.h" />
     <ClInclude Include="AK\Iterator.h" />
+    <ClInclude Include="AK\JsonArray.h" />
     <ClInclude Include="AK\JsonObject.h" />
     <ClInclude Include="AK\JsonParser.h" />
     <ClInclude Include="AK\JsonValue.h" />
@@ -291,11 +292,11 @@
     <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="AK\Weakable.h" />
     <ClInclude Include="AK\WeakPtr.h" />
-    <ClInclude Include="JsonArray.h" />
     <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
     <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="sys\mman.h" />
     <ClInclude Include="sys\time.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -304,6 +305,7 @@
     <ClCompile Include="AK\Format.cpp" />
     <ClCompile Include="AK\GenericLexer.cpp" />
     <ClCompile Include="AK\IntrusiveList.cpp" />
+    <ClCompile Include="AK\JsonParser.cpp" />
     <ClCompile Include="AK\kmalloc.cpp" />
     <ClCompile Include="AK\String.cpp" />
     <ClCompile Include="AK\StringBuilder.cpp" />

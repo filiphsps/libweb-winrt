@@ -62,6 +62,9 @@
     <ClCompile Include="AK\StringUtils.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="AK\JsonParser.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -270,13 +273,10 @@
     <ClInclude Include="Math.h">
       <Filter>AK</Filter>
     </ClInclude>
-    <ClInclude Include="JsonArray.h">
-      <Filter>AK</Filter>
-    </ClInclude>
     <ClInclude Include="AK\Endian.h">
       <Filter>AK</Filter>
     </ClInclude>
-    <ClInclude Include="AK\BultinWrappers.h">
+    <ClInclude Include="AK\BuiltinWrappers.h">
       <Filter>AK</Filter>
     </ClInclude>
     <ClInclude Include="AK\DateConstants.h">
@@ -332,6 +332,12 @@
     </ClInclude>
     <ClInclude Include="AK\JsonValue.h">
       <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonArray.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="sys\mman.h">
+      <Filter>sys</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
