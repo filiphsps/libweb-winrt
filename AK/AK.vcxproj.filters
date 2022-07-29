@@ -330,6 +330,9 @@
     <ClInclude Include="AK\Utf32View.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="AK\JsonValue.h">
+      <Filter>AK</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

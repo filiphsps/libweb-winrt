@@ -25,6 +25,7 @@ constexpr bool is_power_of_two(T value) requires(IsIntegral<T>)
 
 using std::forward;
 using std::move;
+using std::abs;
 
 namespace AK::Detail {
 template<typename T>

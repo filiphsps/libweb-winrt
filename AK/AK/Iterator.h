@@ -66,16 +66,8 @@ public:
     SimpleIterator(SimpleIterator const& obj) = default;
 
 private:
-    static constexpr SimpleIterator begin(Container& container) { return { container, 0 }; }
-    static constexpr SimpleIterator end(Container& container)
-    {
-        using RawContainerType = RemoveCV<Container>;
-
-        if constexpr (IsSame<StringView, RawContainerType> || IsSame<String, RawContainerType>)
-            return { container, container.length() };
-        else
-            return { container, container.size() };
-    }
+    static constexpr SimpleIterator begin(Container& container);
+    static constexpr SimpleIterator end(Container& container);
 
     constexpr SimpleIterator(Container& container, size_t index)
         : m_container(container)

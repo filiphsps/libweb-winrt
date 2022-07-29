@@ -3,12 +3,4 @@
 
 namespace AK {
 
-String::String(const char*)
-{
-}
-
-int String::length() {
-    return 0;
-}
-
 }

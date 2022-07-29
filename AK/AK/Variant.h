@@ -40,7 +40,7 @@ struct Variant : public std::variant<Ts...> {
     template<typename T>
     T& get() const
     {
-        return std::get<T>(*this);
+        return const_cast<T&>(std::get<T>(*this));
     }
 
     template<typename T>

@@ -9,6 +9,11 @@
 
 namespace AK {
 
+enum ShouldChomp {
+    NoChomp,
+    Chomp
+};
+
 class StringImpl : public RefCounted<StringImpl> {
 public:
     NonnullRefPtr<StringImpl> to_lowercase() const;

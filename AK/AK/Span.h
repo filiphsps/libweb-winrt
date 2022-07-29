@@ -28,12 +28,12 @@ public:
     {
     }
 
-    /*template<size_t size>
+    template<size_t size>
     inline constexpr Span(Array<T, size>& array)
         : m_values(array.data())
         , m_size(size)
     {
-    }*/
+    }
 
 protected:
     T* m_values{ nullptr };
@@ -112,6 +112,9 @@ public:
     inline constexpr size_t size() const { return this->m_size; }
     inline constexpr bool is_null() const { return this->m_values == nullptr; }
     inline constexpr bool is_empty() const { return this->m_size == 0; }
+
+    inline constexpr Span slice(size_t start, size_t length) const;
+    inline constexpr Span slice(size_t start) const;
 
     inline constexpr size_t copy_to(Span<RemoveConst<T>> other) const;
 

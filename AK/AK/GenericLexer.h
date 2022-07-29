@@ -29,8 +29,7 @@ public:
         return false;
     }
 
-    u32 peek() { return 0; }
-    u32 peek(size_t offset = 0) { return 0; }
+    constexpr char peek(size_t offset = 0) const;
 
     void retreat();
 
