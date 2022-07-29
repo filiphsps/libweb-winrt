@@ -142,6 +142,16 @@ private:
     RefPtr<StringImpl> m_impl;
 };
 
+template<>
+struct Traits<String> : public GenericTraits<String> {
+    static unsigned hash(String const& s);
+};
+
+struct CaseInsensitiveStringTraits : public Traits<String> {
+    static unsigned hash(String const& s);
+    static bool equals(String const& a, String const& b);
+};
+
 String escape_html_entities(StringView html);
 
 //InputStream& operator>>(InputStream& stream, String& string);

@@ -89,7 +89,7 @@ public:
     bool is_end() const;
     bool is_begin() const;
 
-    auto key() const;
+    auto key() const { return m_node->key; }
 
 private:
     friend TreeType;

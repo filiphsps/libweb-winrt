@@ -241,6 +241,8 @@
     <ClInclude Include="AK\Hex.h" />
     <ClInclude Include="AK\IntrusiveDetails.h" />
     <ClInclude Include="AK\IntrusiveList.h" />
+    <ClInclude Include="AK\IntrusiveRedBlackTree.h" />
+    <ClInclude Include="AK\IPv4Address.h" />
     <ClInclude Include="AK\IterationDecision.h" />
     <ClInclude Include="AK\Iterator.h" />
     <ClInclude Include="AK\JsonArray.h" />
@@ -298,8 +300,10 @@
     <ClInclude Include="AK\WeakPtr.h" />
     <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
     <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
+    <ClInclude Include="LibThreading\Mutex.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="pthread.h" />
     <ClInclude Include="sys\mman.h" />
     <ClInclude Include="sys\time.h" />
     <ClInclude Include="targetver.h" />

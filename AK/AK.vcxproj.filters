@@ -17,6 +17,9 @@
     <Filter Include="LibCrypto\BigInt">
       <UniqueIdentifier>{f50d2597-c69c-488a-9fd1-1f63bb8fee6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LibThreading">
+      <UniqueIdentifier>{68022297-8568-4b21-9b2c-8df0b49cbc63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -353,6 +356,16 @@
     </ClInclude>
     <ClInclude Include="AK\LexicalPath.h">
       <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IntrusiveRedBlackTree.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="pthread.h" />
+    <ClInclude Include="AK\IPv4Address.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="LibThreading\Mutex.h">
+      <Filter>LibThreading</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
