@@ -84,8 +84,13 @@
 
 // gcc
 #define __attribute__(expression)
+
+#ifndef __ORDER_LITTLE_ENDIAN__
 #define __ORDER_LITTLE_ENDIAN__ 1234 // FIXME:
+#endif
+#ifndef __BYTE_ORDER__
 #define __BYTE_ORDER__ 1234 // FIXME:
+#endif
 
 // msvc quirks
 #undef Yield
