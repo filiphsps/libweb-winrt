@@ -11,6 +11,14 @@ public:
     static bool is_directory(String const& filename) { return false; }
 
     static bool exists(String const& filename) { return false; }
+
+    virtual bool open(OpenMode) override;
+
+    enum class ShouldCloseFileDescriptor {
+        No = 0,
+        Yes
+    };
+    bool open(int fd, OpenMode, ShouldCloseFileDescriptor);
 };
 
 }

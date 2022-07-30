@@ -272,6 +272,7 @@
     <ClInclude Include="AK\Result.h" />
     <ClInclude Include="AK\ReverseIterator.h" />
     <ClInclude Include="AK\ScopeGuard.h" />
+    <ClInclude Include="AK\SIMD.h" />
     <ClInclude Include="AK\SinglyLinkedList.h" />
     <ClInclude Include="AK\Span.h" />
     <ClInclude Include="AK\StackInfo.h" />

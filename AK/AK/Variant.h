@@ -34,7 +34,7 @@ struct Variant : public std::variant<Ts...> {
     template<typename T>
     T* get_pointer() const
     {
-        return std::get_if<T>(this);
+        return const_cast<T*>(std::get_if<T>(this));
     }
 
     template<typename T>
