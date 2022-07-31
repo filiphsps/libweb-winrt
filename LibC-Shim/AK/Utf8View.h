@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include "./AK/String.h"
-#include "./AK/StringView.h"
-#include "./AK/Types.h"
+#include "String.h"
+#include "StringView.h"
+#include "Types.h"
 
 namespace AK {
 

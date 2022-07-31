@@ -7,8 +7,8 @@
 #pragma once
 
 #include <stdlib.h>
-#include "./AK/Platform.h"
-#include "./AK/Types.h"
+#include "Platform.h"
+#include "Types.h"
 
 namespace AK {
 

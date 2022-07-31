@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "./AK/Forward.h"
+#include "Forward.h"
 
 namespace AK::UnicodeUtils {
 

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "./AK/Badge.h"
-#include "./AK/RefCounted.h"
-#include "./AK/RefPtr.h"
-#include "./AK/Span.h"
-#include "./AK/Types.h"
-#include "./AK/kmalloc.h"
+#include "Badge.h"
+#include "RefCounted.h"
+#include "RefPtr.h"
+#include "Span.h"
+#include "Types.h"
+#include "kmalloc.h"
 
 namespace AK {
 

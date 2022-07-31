@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include "./AK/Format.h"
-#include "./AK/Traits.h"
-#include "./AK/Types.h"
+#include "Format.h"
+#include "Traits.h"
+#include "Types.h"
 
 namespace AK {
 

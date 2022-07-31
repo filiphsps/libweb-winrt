@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "./AK/Concepts.h"
-#include "./AK/Error.h"
-#include "./AK/Noncopyable.h"
-#include "./AK/kmalloc.h"
+#include "Concepts.h"
+#include "Error.h"
+#include "Noncopyable.h"
+#include "kmalloc.h"
 
 namespace AK {
 

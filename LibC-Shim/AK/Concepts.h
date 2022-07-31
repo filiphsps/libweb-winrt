@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "./AK/Forward.h"
-#include "./AK/IterationDecision.h"
-#include "./AK/StdLibExtras.h"
+#include "Forward.h"
+#include "IterationDecision.h"
+#include "StdLibExtras.h"
 
 namespace AK::Concepts {
 

@@ -4,7 +4,7 @@
 
 #include <limits.h>
 #include <float.h>
-#include "./AK/Types.h"
+#include "Types.h"
 
 namespace AK {
 

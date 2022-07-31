@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "./AK/Forward.h"
-#include "./AK/Optional.h"
-#include "./AK/StringBuilder.h"
-#include "./AK/String.h"
+#include "Forward.h"
+#include "Optional.h"
+#include "StringBuilder.h"
+#include "String.h"
 
 namespace AK {
 

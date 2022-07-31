@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Checked.h"
-#include "./AK/Noncopyable.h"
-#include "./AK/Platform.h"
-#include "./AK/StdLibExtras.h"
+#include "Assertions.h"
+#include "Checked.h"
+#include "Noncopyable.h"
+#include "Platform.h"
+#include "StdLibExtras.h"
 
 namespace AK {
 

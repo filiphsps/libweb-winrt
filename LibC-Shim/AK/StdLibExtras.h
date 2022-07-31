@@ -8,8 +8,8 @@
 
 #include <utility>
 #include <stdlib.h>
-#include "./AK/Assertions.h"
-#include "./AK/StdLibExtraDetails.h"
+#include "Assertions.h"
+#include "StdLibExtraDetails.h"
 
 template<typename T, typename U>
 constexpr auto round_up_to_power_of_two(T value, U power_of_two) requires(IsIntegral<T>&& IsIntegral<U>)

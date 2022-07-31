@@ -27,10 +27,10 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Concepts.h"
-#include "./AK/NumericLimits.h"
-#include "./AK/StdLibExtras.h"
+#include "Assertions.h"
+#include "Concepts.h"
+#include "NumericLimits.h"
+#include "StdLibExtras.h"
 
 namespace AK {
 

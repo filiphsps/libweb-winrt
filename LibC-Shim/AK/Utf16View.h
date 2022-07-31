@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "./AK/Format.h"
-#include "./AK/Forward.h"
-#include "./AK/Optional.h"
-#include "./AK/Span.h"
-#include "./AK/String.h"
-#include "./AK/Types.h"
-#include "./AK/Vector.h"
+#include "Format.h"
+#include "Forward.h"
+#include "Optional.h"
+#include "Span.h"
+#include "String.h"
+#include "Types.h"
+#include "Vector.h"
 
 namespace AK {
 

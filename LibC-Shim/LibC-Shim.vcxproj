@@ -288,6 +288,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AK\Atomic.cpp" />
     <ClCompile Include="AK\FlyString.cpp" />
     <ClCompile Include="AK\Format.cpp" />
     <ClCompile Include="AK\GenericLexer.cpp" />

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "./AK/Concepts.h"
-#include "./AK/Forward.h"
+#include "Concepts.h"
+#include "Forward.h"
 
 namespace AK {
 

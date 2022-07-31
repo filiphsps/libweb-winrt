@@ -10,10 +10,10 @@
 
 #include <limits.h>
 #include <time.h>
-#include "./AK/Array.h"
-#include "./AK/Assertions.h"
-#include "./AK/Platform.h"
-#include "./AK/Types.h"
+#include "Array.h"
+#include "Assertions.h"
+#include "Platform.h"
+#include "Types.h"
 
  // Kernel and Userspace pull in the definitions from different places.
  // Avoid trying to figure out which one.

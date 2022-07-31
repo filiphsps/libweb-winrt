@@ -1,10 +1,10 @@
 #pragma once
 
-#include "./AK/BuiltinWrappers.h"
-#include "./AK/Concepts.h"
-#include "./AK/NumericLimits.h"
-#include "./AK/StdLibExtraDetails.h"
-#include "./AK/Types.h"
+#include "BuiltinWrappers.h"
+#include "Concepts.h"
+#include "NumericLimits.h"
+#include "StdLibExtraDetails.h"
+#include "Types.h"
 
 namespace AK {
 

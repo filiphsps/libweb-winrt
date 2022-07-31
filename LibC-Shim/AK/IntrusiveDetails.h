@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "./AK/NonnullRefPtr.h"
+#include "NonnullRefPtr.h"
 
 namespace AK::Detail {
 

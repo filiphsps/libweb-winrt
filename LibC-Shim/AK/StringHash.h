@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string.h>
-#include "./AK/Types.h"
+#include "Types.h"
 
 namespace AK {
 

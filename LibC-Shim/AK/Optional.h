@@ -8,9 +8,9 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "StdLibExtras.h"
+#include "Types.h"
 
 
 namespace AK {

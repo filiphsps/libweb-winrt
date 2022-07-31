@@ -1,7 +1,7 @@
 #pragma once
 
 #include <variant>
-#include "./AK/Forward.h"
+#include "Forward.h"
 
 namespace AK {
 using Empty = std::monostate;

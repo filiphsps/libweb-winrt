@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "./AK/Array.h"
-#include "./AK/StringView.h"
+#include "Array.h"
+#include "StringView.h"
 
 namespace AK {
 

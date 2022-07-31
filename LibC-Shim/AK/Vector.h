@@ -7,18 +7,18 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Error.h"
-#include "./AK/Find.h"
-#include "./AK/Forward.h"
-#include "./AK/Iterator.h"
-#include "./AK/Optional.h"
-#include "./AK/ReverseIterator.h"
-#include "./AK/Span.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Traits.h"
-#include "./AK/TypedTransfer.h"
-#include "./AK/kmalloc.h"
+#include "Assertions.h"
+#include "Error.h"
+#include "Find.h"
+#include "Forward.h"
+#include "Iterator.h"
+#include "Optional.h"
+#include "ReverseIterator.h"
+#include "Span.h"
+#include "StdLibExtras.h"
+#include "Traits.h"
+#include "TypedTransfer.h"
+#include "kmalloc.h"
 #include <initializer_list>
 
 namespace AK {
@@ -91,13 +91,37 @@ requires(!IsRvalueReference<T>) class Vector {
         ALWAYS_INLINE size_t size() const { return m_size; }
         size_t capacity() const { return m_capacity; }
 
-        ALWAYS_INLINE StorageType* data();
+        ALWAYS_INLINE StorageType* data()
+        {
+            if constexpr (inline_capacity > 0)
+                return m_outline_buffer ? m_outline_buffer : inline_buffer();
+            return m_outline_buffer;
+        }
 
-        ALWAYS_INLINE StorageType const* data() const;
+        ALWAYS_INLINE StorageType const* data() const
+        {
+            if constexpr (inline_capacity > 0)
+                return m_outline_buffer ? m_outline_buffer : inline_buffer();
+            return m_outline_buffer;
+        }
 
-        ALWAYS_INLINE VisibleType const& at(size_t i) const;
+        ALWAYS_INLINE VisibleType const& at(size_t i) const
+        {
+            VERIFY(i < m_size);
+            if constexpr (contains_reference)
+                return *data()[i];
+            else
+                return data()[i];
+        }
 
-        ALWAYS_INLINE VisibleType& at(size_t i);
+        ALWAYS_INLINE VisibleType& at(size_t i)
+        {
+            VERIFY(i < m_size);
+            if constexpr (contains_reference)
+                return *data()[i];
+            else
+                return data()[i];
+        }
 
         ALWAYS_INLINE VisibleType const& operator[](size_t i) const { return at(i); }
         ALWAYS_INLINE VisibleType& operator[](size_t i) { return at(i); }
@@ -118,12 +142,27 @@ requires(!IsRvalueReference<T>) class Vector {
         Optional<VisibleType&> last_matching(TUnaryPredicate const& predicate) requires(!contains_reference);
 
         template<typename V>
-        bool operator==(V const& other) const;
+        bool operator==(V const& other) const
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return false;
+        }
 
         template<typename V>
-        bool contains_slow(V const& value) const;
+        bool contains_slow(V const& value) const
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return false;
+        }
 
-        bool contains_in_range(VisibleType const& value, size_t const start, size_t const end) const;
+        bool contains_in_range(VisibleType const& value, size_t const start, size_t const end) const
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return false;
+        }
 
         template<typename U = T>
         void insert(size_t index, U&& value) requires(CanBePlacedInsideVector<U>);
@@ -131,30 +170,74 @@ requires(!IsRvalueReference<T>) class Vector {
         template<typename TUnaryPredicate, typename U = T>
         void insert_before_matching(U&& value, TUnaryPredicate const& predicate, size_t first_index = 0, size_t* inserted_index = nullptr) requires(CanBePlacedInsideVector<U>);
 
-        void extend(Vector&& other);
+        void extend(Vector&& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void extend(Vector const& other);
+        void extend(Vector const& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        ALWAYS_INLINE void append(T&& value);
+        ALWAYS_INLINE void append(T&& value)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        ALWAYS_INLINE void append(T const& value) requires(!contains_reference);
+        ALWAYS_INLINE void append(T const& value) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void append(StorageType const* values, size_t count);
+        void append(StorageType const* values, size_t count)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
         template<typename U = T>
-        ALWAYS_INLINE void unchecked_append(U&& value) requires(CanBePlacedInsideVector<U>);
+        ALWAYS_INLINE void unchecked_append(U&& value) requires(CanBePlacedInsideVector<U>)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        ALWAYS_INLINE void unchecked_append(StorageType const* values, size_t count);
+        ALWAYS_INLINE void unchecked_append(StorageType const* values, size_t count)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
         template<class... Args>
-        void empend(Args&&... args)/* requires(!contains_reference)*/;
+        void empend(Args&&... args)/* requires(!contains_reference)*/
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
         template<typename U = T>
-        void prepend(U&& value)/* requires(CanBePlacedInsideVector<U>)*/;
+        void prepend(U&& value)/* requires(CanBePlacedInsideVector<U>)*/
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void prepend(Vector&& other);
+        void prepend(Vector&& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void prepend(StorageType const* values, size_t count);
+        void prepend(StorageType const* values, size_t count)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
         Vector& operator=(Vector&& other);
 
@@ -163,19 +246,45 @@ requires(!IsRvalueReference<T>) class Vector {
         template<size_t other_inline_capacity>
         Vector& operator=(Vector<T, other_inline_capacity> const& other);
 
-        void clear();
+        void clear()
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void clear_with_capacity();
+        void clear_with_capacity()
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void remove(size_t index);
+        void remove(size_t index)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void remove(size_t index, size_t count);
+        void remove(size_t index, size_t count)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
         template<typename TUnaryPredicate>
-        bool remove_first_matching(TUnaryPredicate const& predicate);
+        bool remove_first_matching(TUnaryPredicate const& predicate)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return false;
+        }
 
         template<typename TUnaryPredicate>
-        bool remove_all_matching(TUnaryPredicate const& predicate);
+        bool remove_all_matching(TUnaryPredicate const& predicate)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return false;
+        }
 
         ALWAYS_INLINE T take_last();
 
@@ -186,48 +295,143 @@ requires(!IsRvalueReference<T>) class Vector {
         T unstable_take(size_t index);
 
         template<typename U = T>
-        ErrorOr<void> try_insert(size_t index, U&& value) requires(CanBePlacedInsideVector<U>);
+        ErrorOr<void> try_insert(size_t index, U&& value) requires(CanBePlacedInsideVector<U>)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
         template<typename TUnaryPredicate, typename U = T>
-        ErrorOr<void> try_insert_before_matching(U&& value, TUnaryPredicate const& predicate, size_t first_index = 0, size_t* inserted_index = nullptr) requires(CanBePlacedInsideVector<U>);
+        ErrorOr<void> try_insert_before_matching(U&& value, TUnaryPredicate const& predicate, size_t first_index = 0, size_t* inserted_index = nullptr) requires(CanBePlacedInsideVector<U>)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_extend(Vector&& other);
+        ErrorOr<void> try_extend(Vector&& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_extend(Vector const& other);
+        ErrorOr<void> try_extend(Vector const& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_append(T&& value);
+        ErrorOr<void> try_append(T&& value)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_append(T const& value) requires(!contains_reference);
+        ErrorOr<void> try_append(T const& value) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_append(StorageType const* values, size_t count);
+        ErrorOr<void> try_append(StorageType const* values, size_t count)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
         template<class... Args>
-        ErrorOr<void> try_empend(Args&&... args) requires(!contains_reference);
+        ErrorOr<void> try_empend(Args&&... args) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
         template<typename U = T>
-        ErrorOr<void> try_prepend(U&& value) requires(CanBePlacedInsideVector<U>);
+        ErrorOr<void> try_prepend(U&& value) requires(CanBePlacedInsideVector<U>)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_prepend(Vector&& other);
+        ErrorOr<void> try_prepend(Vector&& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_prepend(StorageType const* values, size_t count);
+        ErrorOr<void> try_prepend(StorageType const* values, size_t count)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_grow_capacity(size_t needed_capacity);
+        ErrorOr<void> try_grow_capacity(size_t needed_capacity)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_ensure_capacity(size_t needed_capacity);
+        ErrorOr<void> try_ensure_capacity(size_t needed_capacity)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_resize(size_t new_size, bool keep_capacity = false) requires(!contains_reference);
+        ErrorOr<void> try_resize(size_t new_size, bool keep_capacity = false) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        ErrorOr<void> try_resize_and_keep_capacity(size_t new_size) requires(!contains_reference);
+        ErrorOr<void> try_resize_and_keep_capacity(size_t new_size) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return {};
+        }
 
-        void grow_capacity(size_t needed_capacity);
+        void grow_capacity(size_t needed_capacity)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void ensure_capacity(size_t needed_capacity);
+        void ensure_capacity(size_t needed_capacity)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void shrink(size_t new_size, bool keep_capacity = false);
+        void shrink(size_t new_size, bool keep_capacity = false)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void resize(size_t new_size, bool keep_capacity = false) requires(!contains_reference);
+        void resize(size_t new_size, bool keep_capacity = false) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        void resize_and_keep_capacity(size_t new_size) requires(!contains_reference);
+        void resize_and_keep_capacity(size_t new_size) requires(!contains_reference)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
         using ConstIterator = SimpleIterator<Vector const, VisibleType const>;
         using Iterator = SimpleIterator<Vector, VisibleType>;
@@ -264,15 +468,32 @@ requires(!IsRvalueReference<T>) class Vector {
         void reverse();
 
     private:
-        void reset_capacity();
+        void reset_capacity()
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
-        static size_t padded_capacity(size_t capacity);
+        static size_t padded_capacity(size_t capacity)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return capacity;
+        }
 
         StorageType* slot(size_t i) { return &data()[i]; }
         StorageType const* slot(size_t i) const { return &data()[i]; }
 
-        StorageType* inline_buffer();
-        StorageType const* inline_buffer() const;
+        StorageType* inline_buffer()
+        {
+            static_assert(inline_capacity > 0);
+            return reinterpret_cast<StorageType*>(m_inline_buffer_storage);
+        }
+        StorageType const* inline_buffer() const
+        {
+            static_assert(inline_capacity > 0);
+            return reinterpret_cast<StorageType const*>(m_inline_buffer_storage);
+        }
 
         StorageType& raw_last() { return raw_at(size() - 1); }
         StorageType& raw_first() { return raw_at(0); }
@@ -281,11 +502,21 @@ requires(!IsRvalueReference<T>) class Vector {
         size_t m_size{ 0 };
         size_t m_capacity{ 0 };
 
-        static constexpr size_t storage_size();
+        static constexpr size_t storage_size()
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return 1;
+        }
 
-        static constexpr size_t storage_alignment();
+        static constexpr size_t storage_alignment()
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return 1;
+        }
 
-        //alignas(storage_alignment()) unsigned char m_inline_buffer_storage[storage_size()];
+        unsigned char m_inline_buffer_storage[storage_size()];
         StorageType* m_outline_buffer{ nullptr };
 };
 

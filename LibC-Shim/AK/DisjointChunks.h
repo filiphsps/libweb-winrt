@@ -1,10 +1,10 @@
 #pragma once
 
-#include "./AK/AllOf.h"
-#include "./AK/Forward.h"
-#include "./AK/Span.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Try.h"
+#include "AllOf.h"
+#include "Forward.h"
+#include "Span.h"
+#include "StdLibExtras.h"
+#include "Try.h"
 
 namespace AK {
 

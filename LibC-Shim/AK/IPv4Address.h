@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "./AK/Endian.h"
-#include "./AK/Format.h"
-#include "./AK/Optional.h"
-#include "./AK/StringView.h"
-#include "./AK/Vector.h"
-#include "./AK/String.h"
+#include "Endian.h"
+#include "Format.h"
+#include "Optional.h"
+#include "StringView.h"
+#include "Vector.h"
+#include "String.h"
 
 namespace AK {
 

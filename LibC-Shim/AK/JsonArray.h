@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "./AK/Concepts.h"
-#include "./AK/JsonObjectSerializer.h"
-#include "./AK/JsonValue.h"
-#include "./AK/Vector.h"
+#include "Concepts.h"
+#include "JsonObjectSerializer.h"
+#include "JsonValue.h"
+#include "Vector.h"
 
 namespace AK {
 

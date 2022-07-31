@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Find.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Traits.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "Find.h"
+#include "StdLibExtras.h"
+#include "Traits.h"
+#include "Types.h"
 
 namespace AK {
 

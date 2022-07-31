@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "./AK/GenericLexer.h"
-#include "./AK/JsonValue.h"
+#include "GenericLexer.h"
+#include "JsonValue.h"
 
 namespace AK {
 

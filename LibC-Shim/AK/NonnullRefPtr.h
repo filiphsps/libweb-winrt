@@ -8,11 +8,11 @@
 
 #define NONNULLREFPTR_SCRUB_BYTE 0xe1
 
-#include "./AK/Assertions.h"
-#include "./AK/Atomic.h"
-#include "./AK/Format.h"
-#include "./AK/Traits.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "Atomic.h"
+#include "Format.h"
+#include "Traits.h"
+#include "Types.h"
 
 namespace AK {
 

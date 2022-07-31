@@ -26,13 +26,13 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Atomic.h"
-#include "./AK/BitCast.h"
-#include "./AK/Noncopyable.h"
-#include "./AK/ScopeGuard.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "Atomic.h"
+#include "BitCast.h"
+#include "Noncopyable.h"
+#include "ScopeGuard.h"
+#include "StdLibExtras.h"
+#include "Types.h"
 
 namespace AK {
 
@@ -59,26 +59,57 @@ public:
     ~Function() = default;
 
     template<typename CallableType>
-    Function(CallableType&& callable) requires((IsFunctionObject<CallableType>&& IsCallableWithArguments<CallableType, In...> && !IsSame<RemoveCVReference<CallableType>, Function>));
+    Function(CallableType&& callable) requires((IsFunctionObject<CallableType>&& IsCallableWithArguments<CallableType, In...> && !IsSame<RemoveCVReference<CallableType>, Function>))
+    {
+    }
 
     template<typename FunctionType>
-    Function(FunctionType f) requires((IsFunctionPointer<FunctionType>&& IsCallableWithArguments<RemovePointer<FunctionType>, In...> && !IsSame<RemoveCVReference<FunctionType>, Function>));
+    Function(FunctionType f) requires((IsFunctionPointer<FunctionType>&& IsCallableWithArguments<RemovePointer<FunctionType>, In...> && !IsSame<RemoveCVReference<FunctionType>, Function>))
+    {
+    }
 
     Function(Function&& other);
 
-    Out operator()(In... in) const;
+    Out operator()(In... in) const
+    {
+        auto* wrapper = callable_wrapper();
+        VERIFY(wrapper);
+        return wrapper->call(forward<In>(in)...);
+    }
 
-    explicit operator bool() const;
+    explicit operator bool() const { return !!callable_wrapper(); }
 
     template<typename CallableType>
-    Function& operator=(CallableType&& callable) requires((IsFunctionObject<CallableType>&& IsCallableWithArguments<CallableType, In...>));
+    Function& operator=(CallableType&& callable) requires((IsFunctionObject<CallableType> && IsCallableWithArguments<CallableType, In...>))
+    {
+        clear();
+        init_with_callable(forward<CallableType>(callable));
+        return *this;
+    }
 
     template<typename FunctionType>
-    Function& operator=(FunctionType f) requires((IsFunctionPointer<FunctionType>&& IsCallableWithArguments<RemovePointer<FunctionType>, In...>));
+    Function& operator=(FunctionType f) requires((IsFunctionPointer<FunctionType> && IsCallableWithArguments<RemovePointer<FunctionType>, In...>))
+    {
+        clear();
+        if (f)
+            init_with_callable(move(f));
+        return *this;
+    }
 
-    Function& operator=(std::nullptr_t);
+    Function& operator=(std::nullptr_t)
+    {
+        clear();
+        return *this;
+    }
 
-    Function& operator=(Function&& other);
+    Function& operator=(Function&& other)
+    {
+        if (this != &other) {
+            clear();
+            move_from(move(other));
+        }
+        return *this;
+    }
 
 private:
     class CallableWrapperBase {
@@ -101,11 +132,21 @@ private:
         {
         }
 
-        Out call(In... in) final override;
+        Out call(In... in) final override
+        {
+            return m_callable(forward<In>(in)...);
+        }
 
-        void destroy();
+        void destroy() final override
+        {
+            delete this;
+        }
 
-        void init_and_swap(u8* destination, size_t size) final override;
+        void init_and_swap(u8* destination, size_t size) final override
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+        }
 
     private:
         CallableType m_callable;
@@ -119,16 +160,28 @@ private:
 
     CallableWrapperBase* callable_wrapper() const;
 
-    void clear(bool may_defer = true);
+    void clear(bool may_defer = true)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
 
     template<typename Callable>
-    void init_with_callable(Callable&& callable);
+    void init_with_callable(Callable&& callable)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
 
-    void move_from(Function&& other);
+    void move_from(Function&& other)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
 
     FunctionKind m_kind{ FunctionKind::NullPointer };
     bool m_deferred_clear{ false };
-    //mutable Atomic<u16> m_call_nesting_level{ 0 };
+    mutable Atomic<u16> m_call_nesting_level{ 0 };
     static constexpr size_t inline_capacity = 4 * sizeof(void*);
     //alignas(max(alignof(CallableWrapperBase), alignof(CallableWrapperBase*))) u8 m_storage[inline_capacity];
 };

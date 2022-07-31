@@ -1,10 +1,10 @@
 #pragma once
 
-#include "./AK/HashMap.h"
-#include "./AK/JsonArray.h"
-#include "./AK/JsonObjectSerializer.h"
-#include "./AK/JsonValue.h"
-#include "./AK/String.h"
+#include "HashMap.h"
+#include "JsonArray.h"
+#include "JsonObjectSerializer.h"
+#include "JsonValue.h"
+#include "String.h"
 
 
 namespace AK {

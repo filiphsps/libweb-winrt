@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "./AK/HashTable.h"
-#include "./AK/Optional.h"
-#include "./AK/Vector.h"
+#include "HashTable.h"
+#include "Optional.h"
+#include "Vector.h"
 #include <initializer_list>
 
 namespace AK {

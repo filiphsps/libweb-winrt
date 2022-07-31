@@ -8,14 +8,14 @@
 
 #define REFPTR_SCRUB_BYTE 0xe0
 
-#include "./AK/Assertions.h"
-#include "./AK/Atomic.h"
-#include "./AK/Error.h"
-#include "./AK/Format.h"
-#include "./AK/NonnullRefPtr.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Traits.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "Atomic.h"
+#include "Error.h"
+#include "Format.h"
+#include "NonnullRefPtr.h"
+#include "StdLibExtras.h"
+#include "Traits.h"
+#include "Types.h"
 
 namespace AK {
 

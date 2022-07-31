@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "./AK/NonnullOwnPtr.h"
-#include "./AK/NonnullPtrVector.h"
+#include "NonnullOwnPtr.h"
+#include "NonnullPtrVector.h"
 
 namespace AK {
 

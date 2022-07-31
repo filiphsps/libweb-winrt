@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Platform.h"
-#include "./AK/StdLibExtras.h"
+#include "Assertions.h"
+#include "Platform.h"
+#include "StdLibExtras.h"
 
 namespace AK {
 

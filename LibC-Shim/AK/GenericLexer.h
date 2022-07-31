@@ -1,7 +1,7 @@
 #pragma once
 
-#include "./AK/Result.h"
-#include "./AK/StringView.h"
+#include "Result.h"
+#include "StringView.h"
 
 namespace AK {
 

@@ -5,17 +5,17 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "./AK/CheckedFormatString.h"
-#include "./AK/AllOf.h"
-#include "./AK/AnyOf.h"
-#include "./AK/Array.h"
-#include "./AK/Error.h"
-#include "./AK/FixedPoint.h"
-#include "./AK/Forward.h"
-#include "./AK/Optional.h"
-#include "./AK/StringView.h"
+#include "CheckedFormatString.h"
+#include "AllOf.h"
+#include "AnyOf.h"
+#include "Array.h"
+#include "Error.h"
+#include "FixedPoint.h"
+#include "Forward.h"
+#include "Optional.h"
+#include "StringView.h"
 // FIXME: this shouldn't be here
-#include "./AK/Math.h"
+#include "Math.h"
 
 namespace AK {
 
@@ -467,21 +467,41 @@ struct Formatter<std::nullptr_t> : Formatter<FlatPtr> {
 
 ErrorOr<void> vformat(StringBuilder&, StringView fmtstr, TypeErasedFormatParams&);
 
-void vout(FILE*, StringView fmtstr, TypeErasedFormatParams&, bool newline = false);
+void vout(FILE*, StringView fmtstr, TypeErasedFormatParams&, bool newline = false)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 template<typename... Parameters>
-void out(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void out(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 template<typename... Parameters>
-void outln(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void outln(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 ALWAYS_INLINE void outln(FILE* file) { fputc('\n', file); }
 
 template<typename... Parameters>
-void out(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void out(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 template<typename... Parameters>
-void outln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void outln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 ALWAYS_INLINE void outln() { outln(stdout); }
 
@@ -492,10 +512,18 @@ ALWAYS_INLINE void outln() { outln(stdout); }
     } while (0)
 
 template<typename... Parameters>
-void warn(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void warn(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 template<typename... Parameters>
-void warnln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void warnln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 ALWAYS_INLINE void warnln() { outln(stderr); }
 
@@ -508,7 +536,11 @@ ALWAYS_INLINE void warnln() { outln(stderr); }
 void vdbgln(StringView fmtstr, TypeErasedFormatParams&);
 
 template<typename... Parameters>
-void dbgln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+void dbgln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 //ALWAYS_INLINE void dbgln() { dbgln(""); }
 
@@ -529,11 +561,21 @@ private:
 };
 template<typename T, bool Supported = false>
 struct __FormatIfSupported : Formatter<StringView> {
-    ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const&);
+    ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const&)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 };
 template<typename T>
 struct __FormatIfSupported<T, true> : Formatter<T> {
-    ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const& value);
+    ErrorOr<void> format(FormatBuilder& builder, FormatIfSupported<T> const& value)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 };
 template<typename T>
 struct Formatter<FormatIfSupported<T>> : __FormatIfSupported<T, HasFormatter<T>> {
@@ -546,18 +588,38 @@ struct FormatString {
 template<>
 struct Formatter<FormatString> : Formatter<StringView> {
     template<typename... Parameters>
-    ErrorOr<void> format(FormatBuilder& builder, StringView fmtstr, Parameters const&... parameters);
-    ErrorOr<void> vformat(FormatBuilder& builder, StringView fmtstr, TypeErasedFormatParams& params);
+    ErrorOr<void> format(FormatBuilder& builder, StringView fmtstr, Parameters const&... parameters)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
+    ErrorOr<void> vformat(FormatBuilder& builder, StringView fmtstr, TypeErasedFormatParams& params)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 };
 
 template<>
 struct Formatter<Error> : Formatter<FormatString> {
-    ErrorOr<void> format(FormatBuilder& builder, Error const& error);
+    ErrorOr<void> format(FormatBuilder& builder, Error const& error)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 };
 
 template<typename T, typename ErrorType>
 struct Formatter<ErrorOr<T, ErrorType>> : Formatter<FormatString> {
-    ErrorOr<void> format(FormatBuilder& builder, ErrorOr<T, ErrorType> const& error_or);
+    ErrorOr<void> format(FormatBuilder& builder, ErrorOr<T, ErrorType> const& error_or)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 };
 
 } // namespace AK

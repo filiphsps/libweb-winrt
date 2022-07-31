@@ -1,13 +1,13 @@
 #pragma once
 
-#include "./AK/Format.h"
-#include "./AK/Forward.h"
-#include "./AK/RefPtr.h"
-//#include "./AK/Stream.h"
-#include "./AK/StringBuilder.h"
-#include "./AK/StringImpl.h"
-#include "./AK/StringUtils.h"
-#include "./AK/Traits.h"
+#include "Format.h"
+#include "Forward.h"
+#include "RefPtr.h"
+//#include "Stream.h"
+#include "StringBuilder.h"
+#include "StringImpl.h"
+#include "StringUtils.h"
+#include "Traits.h"
 
 namespace AK {
 

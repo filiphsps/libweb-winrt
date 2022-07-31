@@ -1,7 +1,7 @@
 #pragma once
 
-#include "./AK/String.h"
-#include "./AK/StringUtils.h"
+#include "String.h"
+#include "StringUtils.h"
 
 namespace AK {
 

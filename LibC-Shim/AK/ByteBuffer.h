@@ -1,10 +1,10 @@
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Error.h"
-#include "./AK/Span.h"
-#include "./AK/Types.h"
-#include "./AK/kmalloc.h"
+#include "Assertions.h"
+#include "Error.h"
+#include "Span.h"
+#include "Types.h"
+#include "kmalloc.h"
 
 namespace AK {
 namespace Detail {

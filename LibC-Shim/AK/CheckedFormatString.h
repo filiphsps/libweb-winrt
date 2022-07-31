@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "./AK/AllOf.h"
-#include "./AK/AnyOf.h"
-#include "./AK/Array.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/StringView.h"
+#include "AllOf.h"
+#include "AnyOf.h"
+#include "Array.h"
+#include "StdLibExtras.h"
+#include "StringView.h"
 
 namespace AK::Format::Detail {
 template<typename... Args>

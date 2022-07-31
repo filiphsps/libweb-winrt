@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "./AK/Concepts.h"
-#include "./AK/Find.h"
-#include "./AK/Iterator.h"
+#include "Concepts.h"
+#include "Find.h"
+#include "Iterator.h"
 
 namespace AK {
 

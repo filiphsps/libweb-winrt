@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "./AK/Array.h"
-#include "./AK/Assertions.h"
-#include "./AK/Span.h"
-#include "./AK/Types.h"
-#include "./AK/Vector.h"
+#include "Array.h"
+#include "Assertions.h"
+#include "Span.h"
+#include "Types.h"
+#include "Vector.h"
 
 namespace AK {
 

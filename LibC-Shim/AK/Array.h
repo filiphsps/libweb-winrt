@@ -1,8 +1,8 @@
 #pragma once
 
 #include <array>
-#include "./AK/Iterator.h"
-#include "./AK/Span.h"
+#include "Iterator.h"
+#include "Span.h"
 
 namespace AK {
 

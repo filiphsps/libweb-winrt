@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "./AK/IntrusiveDetails.h"
-#include "./AK/RedBlackTree.h"
+#include "IntrusiveDetails.h"
+#include "RedBlackTree.h"
 
 namespace AK::Detail {
 

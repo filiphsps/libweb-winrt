@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "./AK/StdLibExtras.h"
+#include "StdLibExtras.h"
 
 namespace AK {
 

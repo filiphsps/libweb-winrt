@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "./AK/Weakable.h"
+#include "Weakable.h"
 
 namespace AK {
 
@@ -67,7 +67,7 @@ public:
     template<typename U>
     WeakPtr& operator=(NonnullRefPtr<U> const& object)/* requires(IsBaseOf<T, U>)*/;
 
-    RefPtr<T> strong_ref() const
+    [[nodiscard]] RefPtr<T> strong_ref() const
     {
         return RefPtr<T> { ptr() };
     }
@@ -78,7 +78,12 @@ public:
     operator const T* () const { return unsafe_ptr(); }
     operator T* () { return unsafe_ptr(); }
 
-    T* unsafe_ptr() const;
+    [[nodiscard]] T* unsafe_ptr() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return nullptr;
+    }
 
     operator bool() const { return m_link ? !m_link->is_null() : false; }
 

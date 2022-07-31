@@ -1,9 +1,9 @@
 #pragma once
 
-#include "./AK/ByteBuffer.h"
-#include "./AK/Format.h"
-#include "./AK/Forward.h"
-#include "./AK/StringView.h"
+#include "ByteBuffer.h"
+#include "Format.h"
+#include "Forward.h"
+#include "StringView.h"
 
 namespace AK {
 

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Format.h"
-#include "./AK/RefCounted.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/Traits.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "Format.h"
+#include "RefCounted.h"
+#include "StdLibExtras.h"
+#include "Traits.h"
+#include "Types.h"
 
 namespace AK {
 

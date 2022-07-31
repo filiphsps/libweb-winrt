@@ -8,11 +8,11 @@
 #pragma once
 
 #include <string.h>
-#include "./AK/BitCast.h"
-#include "./AK/Concepts.h"
-#include "./AK/Forward.h"
-#include "./AK/HashFunctions.h"
-#include "./AK/StringHash.h"
+#include "BitCast.h"
+#include "Concepts.h"
+#include "Forward.h"
+#include "HashFunctions.h"
+#include "StringHash.h"
 
 namespace AK {
 

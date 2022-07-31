@@ -7,12 +7,12 @@
 #pragma once
 
 #include <list>
-#include "./AK/Assertions.h"
-#include "./AK/BitCast.h"
-#include "./AK/Forward.h"
-#include "./AK/IntrusiveDetails.h"
-#include "./AK/Noncopyable.h"
-#include "./AK/StdLibExtras.h"
+#include "Assertions.h"
+#include "BitCast.h"
+#include "Forward.h"
+#include "IntrusiveDetails.h"
+#include "Noncopyable.h"
+#include "StdLibExtras.h"
 
 namespace AK {
 

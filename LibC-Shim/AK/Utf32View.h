@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "./AK/Assertions.h"
-#include "./AK/Checked.h"
-#include "./AK/Types.h"
+#include "Assertions.h"
+#include "Checked.h"
+#include "Types.h"
 
 namespace AK {
 

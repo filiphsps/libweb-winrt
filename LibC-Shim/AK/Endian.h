@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "./AK/Format.h"
-#include "./AK/Forward.h"
-#include "./AK/Platform.h"
+#include "Format.h"
+#include "Forward.h"
+#include "Platform.h"
 
 namespace AK {
 

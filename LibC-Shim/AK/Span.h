@@ -1,10 +1,10 @@
 #pragma once
 
-#include "./AK/Array.h"
-#include "./AK/Assertions.h"
-#include "./AK/Iterator.h"
-#include "./AK/TypedTransfer.h"
-#include "./AK/Types.h"
+#include "Array.h"
+#include "Assertions.h"
+#include "Iterator.h"
+#include "TypedTransfer.h"
+#include "Types.h"
 
 namespace AK {
 

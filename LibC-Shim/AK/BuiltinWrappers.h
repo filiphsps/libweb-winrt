@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./AK/Concepts.h"
+#include "Concepts.h"
 
 template<Unsigned IntType>
 ALWAYS_INLINE constexpr int popcount(IntType value)

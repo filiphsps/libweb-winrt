@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "./AK/String.h"
-#include "./AK/Vector.h"
+#include "String.h"
+#include "Vector.h"
 
 namespace AK {
 

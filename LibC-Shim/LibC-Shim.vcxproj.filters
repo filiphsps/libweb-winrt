@@ -59,6 +59,9 @@
     <ClCompile Include="AK\Utf32View.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="AK\Atomic.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

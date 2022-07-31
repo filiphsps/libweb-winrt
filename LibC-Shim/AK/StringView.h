@@ -7,14 +7,14 @@
 #pragma once
 #pragma warning(disable: 4455)
 
-#include "./AK/Assertions.h"
-#include "./AK/Checked.h"
-#include "./AK/Forward.h"
-#include "./AK/Optional.h"
-#include "./AK/Span.h"
-#include "./AK/StdLibExtras.h"
-#include "./AK/StringHash.h"
-#include "./AK/StringUtils.h"
+#include "Assertions.h"
+#include "Checked.h"
+#include "Forward.h"
+#include "Optional.h"
+#include "Span.h"
+#include "StdLibExtras.h"
+#include "StringHash.h"
+#include "StringUtils.h"
 
 namespace AK {
 
@@ -48,7 +48,12 @@ public:
     explicit StringView(String&&) = delete;
     explicit StringView(FlyString&&) = delete;
 
-    constexpr bool is_null() const;
+    constexpr bool is_null() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
     constexpr bool is_empty() const { return m_length == 0; }
 
     constexpr char const* characters_without_null_termination() const { return m_characters; }

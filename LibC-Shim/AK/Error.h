@@ -8,10 +8,10 @@
 
 #include <errno.h>
 #include <string.h>
-#include "./AK/Optional.h"
-#include "./AK/StringView.h"
-#include "./AK/Try.h"
-#include "./AK/Variant.h"
+#include "Optional.h"
+#include "StringView.h"
+#include "Try.h"
+#include "Variant.h"
 
 namespace AK {
 
