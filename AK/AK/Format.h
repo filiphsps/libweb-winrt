@@ -14,6 +14,8 @@
 #include "./AK/Forward.h"
 #include "./AK/Optional.h"
 #include "./AK/StringView.h"
+// FIXME: this shouldn't be here
+#include "./AK/Math.h"
 
 namespace AK {
 
@@ -262,7 +264,7 @@ public:
     }
 
 private:
-    Array<TypeErasedParameter, sizeof...(Parameters)> m_data;
+    //Array<TypeErasedParameter, sizeof...(Parameters)> m_data;
 };
 
 // We use the same format for most types for consistency. This is taken directly from
@@ -329,42 +331,7 @@ template<typename T, size_t inline_capacity>
         : StandardFormatter(move(formatter))
     {
     }
-    ErrorOr<void> format(FormatBuilder& builder, Vector<T> value)
-    {
-        /*if (m_mode == Mode::Pointer) {
-            Formatter<FlatPtr> formatter{ *this };
-            TRY(formatter.format(builder, reinterpret_cast<FlatPtr>(value.data())));
-            return {};
-        }
-
-        if (m_sign_mode != FormatBuilder::SignMode::Default)
-            VERIFY_NOT_REACHED();
-        if (m_alternative_form)
-            VERIFY_NOT_REACHED();
-        if (m_zero_pad)
-            VERIFY_NOT_REACHED();
-        if (m_mode != Mode::Default)
-            VERIFY_NOT_REACHED();
-        if (m_width.has_value() && m_precision.has_value())
-            VERIFY_NOT_REACHED();
-
-        m_width = m_width.value_or(0);
-        m_precision = m_precision.value_or(NumericLimits<size_t>::max());
-
-        Formatter<T> content_fmt;
-        TRY(builder.put_literal("[ "sv));
-        bool first = true;
-        for (auto& content : value) {
-            if (!first) {
-                TRY(builder.put_literal(", "sv));
-                content_fmt = Formatter<T>{};
-            }
-            first = false;
-            TRY(content_fmt.format(builder, content));
-        }
-        TRY(builder.put_literal(" ]"sv));*/
-        return {};
-    }
+    ErrorOr<void> format(FormatBuilder& builder, Vector<T> value);
 };
 
 template<>
@@ -484,34 +451,7 @@ struct Formatter<FixedPoint<precision, Underlying>> : StandardFormatter {
     {
     }
 
-    ErrorOr<void> format(FormatBuilder& builder, FixedPoint<precision, Underlying> value)
-    {
-        u8 base;
-        bool upper_case;
-        if (m_mode == Mode::Default || m_mode == Mode::Float) {
-            base = 10;
-            upper_case = false;
-        }
-        else if (m_mode == Mode::Hexfloat) {
-            base = 16;
-            upper_case = false;
-        }
-        else if (m_mode == Mode::HexfloatUppercase) {
-            base = 16;
-            upper_case = true;
-        }
-        else {
-            VERIFY_NOT_REACHED();
-        }
-
-        m_width = m_width.value_or(0);
-        m_precision = m_precision.value_or(6);
-
-        i64 integer = value.ltrunk();
-        constexpr u64 one = static_cast<Underlying>(1) << precision;
-        u64 fraction_raw = value.raw() & (one - 1);
-        return builder.put_fixed_point(integer, fraction_raw, one, base, upper_case, m_zero_pad, m_align, m_width.value(), m_precision.value(), m_fill, m_sign_mode);
-    }
+    ErrorOr<void> format(FormatBuilder& builder, FixedPoint<precision, Underlying> value);
 };
 
 template<>
@@ -545,7 +485,7 @@ void outln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... par
 
 inline void outln() { outln(stdout); }
 
-#    define outln_if(flag, fmt, ...)       \
+#define outln_if(flag, fmt, ...)       \
     do {                               \
         if constexpr (flag)            \
             outln(fmt, ##__VA_ARGS__); \
@@ -570,7 +510,7 @@ void vdbgln(StringView fmtstr, TypeErasedFormatParams&);
 template<typename... Parameters>
 void dbgln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
-inline void dbgln() { dbgln(""); }
+//inline void dbgln() { dbgln(""); }
 
 void set_debug_enabled(bool);
 

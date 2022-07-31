@@ -49,6 +49,12 @@ public:
     u64 to_u64() const;
     double to_double() const;
 
+    Vector<Word, STARTING_WORD_SIZE> const& words();
+
+    void set_to_0();
+    void set_to(Word other);
+    void set_to(UnsignedBigInteger const& other);
+
     UnsignedBigInteger plus(UnsignedBigInteger const& other) const;
     UnsignedBigInteger minus(UnsignedBigInteger const& other) const;
     UnsignedBigInteger bitwise_or(UnsignedBigInteger const& other) const;
@@ -58,6 +64,16 @@ public:
     UnsignedBigInteger shift_left(size_t num_bits) const;
     UnsignedBigInteger multiplied_by(UnsignedBigInteger const& other) const;
     UnsignedDivisionResult divided_by(UnsignedBigInteger const& divisor) const;
+
+    u32 hash() const;
+
+    void set_bit_inplace(size_t bit_index);
+
+    bool operator==(UnsignedBigInteger const& other) const;
+    bool operator!=(UnsignedBigInteger const& other) const;
+    bool operator<(UnsignedBigInteger const& other) const;
+    bool operator>(UnsignedBigInteger const& other) const;
+    bool operator>=(UnsignedBigInteger const& other) const;
 
 private:
     friend class UnsignedBigIntegerAlgorithms;
@@ -73,6 +89,20 @@ private:
     mutable Optional<size_t> m_cached_trimmed_length;
 };
 
+struct UnsignedDivisionResult {
+    Crypto::UnsignedBigInteger quotient;
+    Crypto::UnsignedBigInteger remainder;
+};
+
 }
 
-inline Crypto::UnsignedBigInteger operator""_bigint(char const* string, size_t length);
+template<>
+struct AK::Formatter<Crypto::UnsignedBigInteger> : Formatter<StringView> {
+    ErrorOr<void> format(FormatBuilder&, Crypto::UnsignedBigInteger const&);
+};
+
+inline Crypto::UnsignedBigInteger
+operator""_bigint(char const* string, size_t length)
+{
+    return Crypto::UnsignedBigInteger::from_base(10, { string, length });
+}

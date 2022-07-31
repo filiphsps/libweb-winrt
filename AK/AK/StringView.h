@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2018-2021, Andreas Kling <kling@serenityos.org>
+ *
+ * SPDX-License-Identifier: BSD-2-Clause
+ */
+
 #pragma once
 #pragma warning(disable: 4455)
 
@@ -15,7 +21,13 @@ namespace AK {
 class StringView {
 public:
     inline constexpr StringView() = default;
-    inline constexpr StringView(char const*, size_t) {}
+    inline constexpr StringView(char const* characters, size_t length)
+        : m_characters(characters)
+        , m_length(length)
+    {
+        if (!is_constant_evaluated())
+            VERIFY(!Checked<uintptr_t>::addition_would_overflow((uintptr_t)characters, length));
+    }
     inline StringView(unsigned char const* characters, size_t length)
         : m_characters((char const*)characters)
         , m_length(length)
@@ -95,8 +107,8 @@ public:
     bool copy_characters_to_buffer(char* buffer, size_t buffer_size) const;
 
     bool operator==(StringView other) const { return false; }
-    bool operator==(char const* cstring) const { return false; }
-    bool operator!=(StringView other) const { return false; }
+    constexpr bool operator==(char const* cstring) const { return false; }
+    constexpr bool operator!=(StringView other) const { return false; }
     bool operator<(StringView other) const { return false; }
     bool operator<=(StringView other) const { return false; }
     bool operator>(StringView other) const { return false; }
@@ -105,10 +117,22 @@ public:
     String to_string() const;
 
     template<typename... Ts>
-    inline constexpr bool is_one_of(Ts&&... strings) const;
+    inline constexpr bool is_one_of(Ts&&... strings) const
+    {
+        return (... || this->operator==(forward<Ts>(strings)));
+    }
 
     template<typename... Ts>
-    inline constexpr bool is_one_of_ignoring_case(Ts&&... strings) const;
+    inline constexpr bool is_one_of_ignoring_case(Ts&&... strings) const
+    {
+        return (... ||
+                [this, &strings]() -> bool {
+            if constexpr (requires(Ts a) { a.view()->StringView; })
+                return this->equals_ignoring_case(forward<Ts>(strings.view()));
+            else
+                return this->equals_ignoring_case(forward<Ts>(strings));
+        }());
+    }
 
 private:
     friend class String;

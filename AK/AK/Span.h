@@ -104,7 +104,8 @@ public:
 
     constexpr Span() = default;
 
-    inline constexpr T* data();
+    inline constexpr T const* data() const { return this->m_values; }
+    inline constexpr T* data() { return this->m_values; }
 
     inline constexpr T* offset_pointer(size_t offset);
 

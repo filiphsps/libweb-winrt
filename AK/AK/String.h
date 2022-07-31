@@ -85,7 +85,7 @@ public:
     bool starts_with(char) const;
     bool ends_with(char) const;
 
-    bool is_null() { return true; }
+    bool is_null() const { return !m_impl; }
     inline bool is_empty() const { return true; }
     inline size_t length() const { return m_impl ? m_impl->length() : 0; }
     char* characters() const;

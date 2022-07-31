@@ -7,9 +7,9 @@
 #pragma once
 
 #include <stdlib.h>
-#include "./AK/Platform.h"
 #include "./AK/Types.h"
 #include "./AK/NumericLimits.h"
+#include "./AK/Platform.h"
 
 namespace AK {
 

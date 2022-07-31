@@ -1,6 +1,7 @@
 #pragma once
 
 #pragma warning(disable: 4146)
+#pragma warning(disable: 34716)
 
 #undef _USE_MATH_DEFINES
 #define _USE_MATH_DEFINES
@@ -96,12 +97,6 @@
 // msvc quirks
 #undef Yield
 #undef _CRT_NO_TIME_T
-
-// LibJS
-#define HEAP_DEBUG 0
-#define PROMISE_DEBUG 0
-#define JS_MODULE_DEBUG 0
-#define LEXER_DEBUG 0
 
 // FIXME: We need to figure out why the LibJS macro fails under msvc
 #define __TRY_OR_REJECT(global_object, capability, expression, CALL_CHECK) (expression.release_value())

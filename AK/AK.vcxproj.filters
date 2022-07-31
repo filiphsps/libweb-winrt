@@ -23,6 +23,21 @@
     <Filter Include="LibCore">
       <UniqueIdentifier>{3132eeae-b399-4a8a-87cb-ded2bc670f8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LibUnicode">
+      <UniqueIdentifier>{8ff33975-9894-4f2a-8540-9cdf8e725c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{f91a0b3f-ca1f-49c4-b691-570d3ae06bfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\API">
+      <UniqueIdentifier>{cd4eeceb-b757-404e-a1ae-9f1d427dd1b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Services">
+      <UniqueIdentifier>{911cc48e-1112-4899-9901-8967e09e918e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Services\WindowServer">
+      <UniqueIdentifier>{df074b9e-1e73-460b-8f5d-8038160860ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -279,9 +294,6 @@
     <ClInclude Include="AK\Find.h">
       <Filter>AK</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>AK</Filter>
-    </ClInclude>
     <ClInclude Include="AK\Endian.h">
       <Filter>AK</Filter>
     </ClInclude>
@@ -375,6 +387,24 @@
     </ClInclude>
     <ClInclude Include="AK\SIMD.h">
       <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCore\SocketAddress.h">
+      <Filter>LibCore</Filter>
+    </ClInclude>
+    <ClInclude Include="LibUnicode\PluralRules.h">
+      <Filter>LibUnicode</Filter>
+    </ClInclude>
+    <ClInclude Include="LibCore\ConfigFile.h">
+      <Filter>LibCore</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Math.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\API\KeyCode.h">
+      <Filter>Kernel\API</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\WindowServer\WindowType.h">
+      <Filter>Services\WindowServer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

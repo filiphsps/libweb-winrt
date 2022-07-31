@@ -252,6 +252,7 @@
     <ClInclude Include="AK\JsonValue.h" />
     <ClInclude Include="AK\kmalloc.h" />
     <ClInclude Include="AK\LexicalPath.h" />
+    <ClInclude Include="AK\Math.h" />
     <ClInclude Include="AK\MemMem.h" />
     <ClInclude Include="AK\Memory.h" />
     <ClInclude Include="AK\Noncopyable.h" />
@@ -299,13 +300,17 @@
     <ClInclude Include="AK\Vector.h" />
     <ClInclude Include="AK\Weakable.h" />
     <ClInclude Include="AK\WeakPtr.h" />
+    <ClInclude Include="Kernel\API\KeyCode.h" />
+    <ClInclude Include="LibCore\ConfigFile.h" />
     <ClInclude Include="LibCore\File.h" />
+    <ClInclude Include="LibCore\SocketAddress.h" />
     <ClInclude Include="LibCrypto\BigInt\SignedBigInteger.h" />
     <ClInclude Include="LibCrypto\BigInt\UnsignedBigInteger.h" />
     <ClInclude Include="LibThreading\Mutex.h" />
-    <ClInclude Include="Math.h" />
+    <ClInclude Include="LibUnicode\PluralRules.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="pthread.h" />
+    <ClInclude Include="Services\WindowServer\WindowType.h" />
     <ClInclude Include="sys\mman.h" />
     <ClInclude Include="sys\time.h" />
     <ClInclude Include="targetver.h" />

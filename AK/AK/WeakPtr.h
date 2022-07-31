@@ -122,12 +122,7 @@ public:
     operator const T* () const { return unsafe_ptr(); }
     operator T* () { return unsafe_ptr(); }
 
-    T* unsafe_ptr() const
-    {
-        if (m_link)
-            return m_link->template unsafe_ptr<T>();
-        return nullptr;
-    }
+    T* unsafe_ptr() const;
 
     operator bool() const { return m_link ? !m_link->is_null() : false; }
 

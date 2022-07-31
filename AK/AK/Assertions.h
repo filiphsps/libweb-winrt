@@ -5,7 +5,7 @@
 
 //#define VERIFY assert
 // FIXME: Actually verify
-#define VERIFY(expression) ([&]{ return; }())
+#define VERIFY(expression)
 
 #define VERIFY_NOT_REACHED() VERIFY(false)
 static constexpr bool TODO = false;
