@@ -33,6 +33,7 @@ Write-Host "Starting serenity code patching..." -NoNewline
 
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Bytecode\Register.h).replace('constexpr static u32 a', 'Register() {} constexpr static u32 a') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Bytecode\Register.h
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Reference.h).replace('Reference() = default;', 'Reference() {}') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Reference.h
+#(Get-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h).replace('RulePosition(Parser& parser', 'RulePosition() = default; RulePosition(Parser& parser') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h
 
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h).replace('requires(IsSame<ValueType, Empty>)', '') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h).replace('    : m_value(Empty {})', '') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h

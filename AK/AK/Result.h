@@ -18,12 +18,14 @@ public:
     using ErrorType = ErrorT;
 
     Result(ValueType const& res)
-        : m_result(res)
     {
     }
 
     Result(ErrorType const& error)
-        : m_error(error)
+    {
+    }
+
+    Result()
     {
     }
 
@@ -31,20 +33,11 @@ public:
     Result(Result const& other) = default;
     ~Result() = default;
 
-    ValueType& value()
-    {
-        return m_result;
-    }
+    ValueType& value();
 
-    ErrorType& error()
-    {
-        return m_error;
-    }
+    ErrorType& error();
 
-    bool is_error() const
-    {
-        return true;
-    }
+    bool is_error() const;
 
     ValueType release_value();
 
@@ -63,16 +56,17 @@ public:
     using ErrorType = ErrorT;
 
     Result(ErrorType const& error)
-        : m_error(error)
     {
     }
 
     Result(ErrorType&& error)
-        : m_error(move(error))
     {
     }
 
-    Result() = default;
+    Result()
+    {
+    }
+
     Result(Result&& other) = default;
     Result(Result const& other) = default;
     ~Result() = default;

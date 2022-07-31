@@ -19,97 +19,53 @@ public:
     WeakPtr() = default;
 
     template<typename U>
-    WeakPtr(WeakPtr<U> const& other) requires(IsBaseOf<T, U>)
+    WeakPtr(WeakPtr<U> const& other)/* requires(IsBaseOf<T, U>)*/
         : m_link(other.m_link)
     {
     }
 
     template<typename U>
-    WeakPtr(WeakPtr<U>&& other) requires(IsBaseOf<T, U>)
+    WeakPtr(WeakPtr<U>&& other)/* requires(IsBaseOf<T, U>)*/
         : m_link(other.take_link())
     {
     }
 
     template<typename U>
-    WeakPtr& operator=(WeakPtr<U>&& other) requires(IsBaseOf<T, U>)
+    WeakPtr& operator=(WeakPtr<U>&& other)/* requires(IsBaseOf<T, U>)*/
     {
         m_link = other.take_link();
         return *this;
     }
 
     template<typename U>
-    WeakPtr& operator=(WeakPtr<U> const& other) requires(IsBaseOf<T, U>)
-    {
-        if ((void const*)this != (void const*)&other)
-            m_link = other.m_link;
-        return *this;
-    }
+    WeakPtr& operator=(WeakPtr<U> const& other)/* requires(IsBaseOf<T, U>)*/;
 
-    WeakPtr& operator=(std::nullptr_t)
-    {
-        clear();
-        return *this;
-    }
+    WeakPtr& operator=(std::nullptr_t);
 
     template<typename U>
-    WeakPtr(const U& object) requires(IsBaseOf<T, U>)
-        : m_link(object.template make_weak_ptr<U>().take_link())
+    WeakPtr(const U& object)/* requires(IsBaseOf<T, U>)*/
     {
     }
 
     template<typename U>
-    WeakPtr(const U* object) requires(IsBaseOf<T, U>)
-    {
-        if (object)
-            m_link = object->template make_weak_ptr<U>().take_link();
-    }
+    WeakPtr(const U* object)/* requires(IsBaseOf<T, U>)*/;
 
     template<typename U>
-    WeakPtr(RefPtr<U> const& object) requires(IsBaseOf<T, U>)
-    {
-        if (object)
-            m_link = object->template make_weak_ptr<U>().take_link();
-    }
+    WeakPtr(RefPtr<U> const& object)/* requires(IsBaseOf<T, U>)*/;
 
     template<typename U>
-    WeakPtr(NonnullRefPtr<U> const& object) requires(IsBaseOf<T, U>)
-    {
-        m_link = object->template make_weak_ptr<U>().take_link();
-    }
+    WeakPtr(NonnullRefPtr<U> const& object)/* requires(IsBaseOf<T, U>)*/;
+    template<typename U>
+    WeakPtr& operator=(const U& object)/* requires(IsBaseOf<T, U>)*/;
 
     template<typename U>
-    WeakPtr& operator=(const U& object) requires(IsBaseOf<T, U>)
-    {
-        m_link = object.template make_weak_ptr<U>().take_link();
-        return *this;
-    }
+    WeakPtr& operator=(const U* object)/* requires(IsBaseOf<T, U>)*/;
 
     template<typename U>
-    WeakPtr& operator=(const U* object) requires(IsBaseOf<T, U>)
-    {
-        if (object)
-            m_link = object->template make_weak_ptr<U>().take_link();
-        else
-            m_link = nullptr;
-        return *this;
-    }
+    WeakPtr& operator=(RefPtr<U> const& object)/* requires(IsBaseOf<T, U>)*/;
 
     template<typename U>
-    WeakPtr& operator=(RefPtr<U> const& object) requires(IsBaseOf<T, U>)
-    {
-        if (object)
-            m_link = object->template make_weak_ptr<U>().take_link();
-        else
-            m_link = nullptr;
-        return *this;
-    }
-
-    template<typename U>
-    WeakPtr& operator=(NonnullRefPtr<U> const& object) requires(IsBaseOf<T, U>)
-    {
-        m_link = object->template make_weak_ptr<U>().take_link();
-        return *this;
-    }
+    WeakPtr& operator=(NonnullRefPtr<U> const& object)/* requires(IsBaseOf<T, U>)*/;
 
     RefPtr<T> strong_ref() const
     {
