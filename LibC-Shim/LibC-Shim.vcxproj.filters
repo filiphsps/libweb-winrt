@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="AK">
+      <UniqueIdentifier>{658754e4-a270-47a1-87d0-5d1d749efc57}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AK\FlyString.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Format.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\GenericLexer.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\IntrusiveList.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\JsonParser.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\kmalloc.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\LexicalPath.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\String.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\StringBuilder.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\StringImpl.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\StringUtils.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\StringView.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Time.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Utf8View.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Utf16View.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+    <ClCompile Include="AK\Utf32View.cpp">
+      <Filter>AK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="AK\AllOf.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\AnyOf.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Array.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Assertions.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Atomic.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Badge.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\BitCast.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\BuiltinWrappers.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\ByteBuffer.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\CharacterTypes.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Checked.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\CheckedFormatString.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Concepts.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\DateConstants.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Debug.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Demangle.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\DisjointChunks.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\DistinctNumeric.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Endian.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\EnumBits.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Error.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Find.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\FixedPoint.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\FlyString.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Format.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Forward.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Function.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\GenericLexer.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\HashFunctions.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\HashMap.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\HashTable.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Hex.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IntrusiveDetails.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IntrusiveList.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IntrusiveRedBlackTree.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IPv4Address.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\IterationDecision.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Iterator.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonArray.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonObject.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonObjectSerializer.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonParser.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\JsonValue.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\kmalloc.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\LexicalPath.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Math.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\MemMem.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Memory.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Noncopyable.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NonnullOwnPtr.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NonnullOwnPtrVector.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NonnullPtrVector.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NonnullRefPtr.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NonnullRefPtrVector.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\NumericLimits.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Optional.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\OwnPtr.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Platform.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\QuickSort.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Random.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\RedBlackTree.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\RefCounted.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\RefPtr.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Result.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\ReverseIterator.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\ScopeGuard.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\SIMD.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\SinglyLinkedList.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Span.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StackInfo.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StdLibExtraDetails.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StdLibExtras.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\String.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringBuilder.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringHash.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringImpl.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringUtils.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\StringView.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\TemporaryChange.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Time.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Traits.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Try.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\TypeCasts.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\TypedTransfer.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Types.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\UnicodeUtils.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Utf8View.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Utf16View.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Utf32View.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Variant.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Vector.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\Weakable.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+    <ClInclude Include="AK\WeakPtr.h">
+      <Filter>AK</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
