@@ -5,7 +5,6 @@
 
 #include "pch.h"
 #include "MainPage.xaml.h"
-#include <LibJS.h>
 
 using namespace TestApp;
 

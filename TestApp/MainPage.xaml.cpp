@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "MainPage.xaml.h"
+//#include <LibC.h>
 
 using namespace TestApp;
 
@@ -24,4 +25,6 @@ using namespace Windows::UI::Xaml::Navigation;
 MainPage::MainPage()
 {
 	InitializeComponent();
+
+	//auto str = AK::String();
 }

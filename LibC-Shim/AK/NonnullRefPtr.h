@@ -22,10 +22,18 @@ template<typename T>
 class RefPtr;
 
 template<typename T>
-ALWAYS_INLINE void ref_if_not_null(T* ptr);
+ALWAYS_INLINE void ref_if_not_null(T* ptr)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 template<typename T>
-ALWAYS_INLINE void unref_if_not_null(T* ptr);
+ALWAYS_INLINE void unref_if_not_null(T* ptr)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+}
 
 template<typename T>
 class NonnullRefPtr {

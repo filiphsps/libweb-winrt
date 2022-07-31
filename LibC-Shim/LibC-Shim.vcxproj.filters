@@ -62,6 +62,7 @@
     <ClCompile Include="AK\Atomic.cpp">
       <Filter>AK</Filter>
     </ClCompile>
+    <ClCompile Include="LibC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -345,5 +346,6 @@
     <ClInclude Include="AK\WeakPtr.h">
       <Filter>AK</Filter>
     </ClInclude>
+    <ClInclude Include="LibC.h" />
   </ItemGroup>
 </Project>

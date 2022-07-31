@@ -40,9 +40,21 @@ public:
     {
     }
 
-    StringView(ByteBuffer const&);
-    StringView(String const&);
-    StringView(FlyString const&);
+    StringView(ByteBuffer const&)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    StringView(String const&)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    StringView(FlyString const&)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
 
     explicit StringView(ByteBuffer&&) = delete;
     explicit StringView(String&&) = delete;
@@ -59,29 +71,109 @@ public:
     constexpr char const* characters_without_null_termination() const { return m_characters; }
     constexpr size_t length() const { return m_length; }
 
-    ReadonlyBytes bytes() const;
+    ReadonlyBytes bytes() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
     constexpr char const& operator[](size_t index) const;
 
-    constexpr StringView substring_view(size_t start, size_t length) const;
-    constexpr StringView substring_view(size_t start) const;
+    constexpr StringView substring_view(size_t start, size_t length) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return StringView();
+    }
+    constexpr StringView substring_view(size_t start) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return StringView();
+    }
 
     StringView replace(StringView, StringView, ReplaceMode) const;
-    constexpr int compare() { return 0; }
+    constexpr int compare()
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
 
-    constexpr int* begin() const { return 0; }
-    constexpr int* end() const { return 0; }
+    constexpr int* begin() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
+    constexpr int* end() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
 
-    constexpr unsigned hash() const;
+    constexpr unsigned hash() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
 
-    bool starts_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
-    bool ends_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
-    bool starts_with(char) const;
-    bool ends_with(char) const;
-    bool matches(StringView mask, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
-    bool matches(StringView mask, Vector<MaskSpan>&, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
-    bool contains(char) const;
-    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
-    bool equals_ignoring_case(StringView other) const;
+    bool starts_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool ends_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool starts_with(char) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool ends_with(char) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool matches(StringView mask, CaseSensitivity = CaseSensitivity::CaseInsensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool matches(StringView mask, Vector<MaskSpan>&, CaseSensitivity = CaseSensitivity::CaseInsensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool contains(char) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool equals_ignoring_case(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
     StringView trim(StringView characters, TrimMode mode = TrimMode::Both) const;
     StringView trim_whitespace(TrimMode mode = TrimMode::Both) const;
@@ -90,9 +182,24 @@ public:
     String to_uppercase_string() const;
     String to_titlecase_string() const;
 
-    Optional<size_t> find(char needle, size_t start = 0) const;
-    Optional<size_t> find(StringView needle, size_t start = 0) const;
-    Optional<size_t> find_last(char needle) const;
+    Optional<size_t> find(char needle, size_t start = 0) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
+    Optional<size_t> find(StringView needle, size_t start = 0) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
+    Optional<size_t> find_last(char needle) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 
     Vector<size_t> find_all(StringView needle);
 
@@ -102,22 +209,82 @@ public:
     Vector<StringView> lines(bool consider_cr = true) const;
 
     template<typename T = int>
-    Optional<T> to_int() const;
+    Optional<T> to_int() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
     template<typename T = unsigned>
-    Optional<T> to_uint() const;
+    Optional<T> to_uint() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 
-    StringView substring_view_starting_from_substring(StringView substring) const;
-    StringView substring_view_starting_after_substring(StringView substring) const;
+    StringView substring_view_starting_from_substring(StringView substring) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return StringView();
+    }
+    StringView substring_view_starting_after_substring(StringView substring) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return StringView();
+    }
 
-    bool copy_characters_to_buffer(char* buffer, size_t buffer_size) const;
+    bool copy_characters_to_buffer(char* buffer, size_t buffer_size) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
-    bool operator==(StringView other) const { return false; }
-    constexpr bool operator==(char const* cstring) const { return false; }
-    constexpr bool operator!=(StringView other) const { return false; }
-    bool operator<(StringView other) const { return false; }
-    bool operator<=(StringView other) const { return false; }
-    bool operator>(StringView other) const { return false; }
-    bool operator>=(StringView other) const { return false; }
+    bool operator==(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    constexpr bool operator==(char const* cstring) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    constexpr bool operator!=(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator<(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator<=(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator>(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator>=(StringView other) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
     String to_string() const;
 
@@ -149,6 +316,7 @@ private:
 
 ALWAYS_INLINE constexpr AK::StringView operator"" sv(char const* cstring, size_t length)
 {
+    VERIFY_NOT_REACHED();
     return AK::StringView(cstring, length);
 }
 

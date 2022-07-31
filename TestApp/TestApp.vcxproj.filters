@@ -47,4 +47,7 @@
   <ItemGroup>
     <Page Include="MainPage.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\x64\Debug\LibC-Shim\LibC-Shim.dll" />
+  </ItemGroup>
 </Project>

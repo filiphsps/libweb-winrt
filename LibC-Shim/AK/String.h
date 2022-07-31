@@ -17,23 +17,87 @@ public:
 
     String() = default;
     
-    String(StringView view);
-    String(String const& other);
-    String(String&& other);
-    String(char const* cstring, ShouldChomp shouldChomp = NoChomp);
-    String(char const* cstring, size_t length, ShouldChomp shouldChomp = NoChomp);
-    explicit String(ReadonlyBytes bytes, ShouldChomp shouldChomp = NoChomp);
-    String(StringImpl const& impl);
-    String(StringImpl const* impl);
-    String(RefPtr<StringImpl>&& impl);
-    String(NonnullRefPtr<StringImpl>&& impl);
-    String(FlyString const&);
+    String(StringView view)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(String const& other)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(String&& other)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(char const* cstring, ShouldChomp shouldChomp = NoChomp)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(char const* cstring, size_t length, ShouldChomp shouldChomp = NoChomp)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    explicit String(ReadonlyBytes bytes, ShouldChomp shouldChomp = NoChomp)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(StringImpl const& impl)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(StringImpl const* impl)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(RefPtr<StringImpl>&& impl)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(NonnullRefPtr<StringImpl>&& impl)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
+    String(FlyString const&)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+    }
 
-    static String repeated(char, size_t count);
-    static String repeated(StringView, size_t count);
+    static String repeated(char, size_t count)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
+    static String repeated(StringView, size_t count)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
 
-    static String bijective_base_from(size_t value, unsigned base = 26, StringView map = {});
-    static String roman_number_from(size_t value);
+    static String bijective_base_from(size_t value, unsigned base = 26, StringView map = {})
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
+    static String roman_number_from(size_t value)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
 
     template<class SeparatorType, class CollectionType>
     static String join(SeparatorType const& separator, CollectionType const& collection, StringView fmtstr = "{}"sv)
@@ -43,16 +107,46 @@ public:
         return builder.build();
     }
 
-    bool matches(StringView mask, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
-    bool matches(StringView mask, Vector<MaskSpan>&, CaseSensitivity = CaseSensitivity::CaseInsensitive) const;
+    bool matches(StringView mask, CaseSensitivity = CaseSensitivity::CaseInsensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool matches(StringView mask, Vector<MaskSpan>&, CaseSensitivity = CaseSensitivity::CaseInsensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
     template<typename T = int>
-    Optional<T> to_int(TrimWhitespace = TrimWhitespace::Yes) const;
+    Optional<T> to_int(TrimWhitespace = TrimWhitespace::Yes) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
     template<typename T = unsigned>
-    Optional<T> to_uint(TrimWhitespace = TrimWhitespace::Yes) const;
+    Optional<T> to_uint(TrimWhitespace = TrimWhitespace::Yes) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 
-    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
-    bool contains(char, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
+    bool contains(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool contains(char, CaseSensitivity = CaseSensitivity::CaseSensitive) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
     Vector<String> split_limit(char separator, size_t limit, bool keep_empty = false) const;
     Vector<String> split(char separator, bool keep_empty = false) const;
@@ -71,7 +165,12 @@ public:
     StringView substring_view(size_t start, size_t length) const;
     StringView substring_view(size_t start) const;
 
-    ALWAYS_INLINE ReadonlyBytes bytes() const;
+    ALWAYS_INLINE ReadonlyBytes bytes() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
 
     ALWAYS_INLINE char const& operator[](size_t i) const;
 
@@ -82,67 +181,217 @@ public:
 
     bool starts_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
     bool ends_with(StringView, CaseSensitivity = CaseSensitivity::CaseSensitive) const;
-    bool starts_with(char) const;
-    bool ends_with(char) const;
+    bool starts_with(char) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool ends_with(char) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
-    bool is_null() const { return !m_impl; }
-    ALWAYS_INLINE bool is_empty() const { return true; }
-    ALWAYS_INLINE size_t length() const { return m_impl ? m_impl->length() : 0; }
-    char* characters() const;
+    bool is_null() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    ALWAYS_INLINE bool is_empty() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return true;
+    }
+    ALWAYS_INLINE size_t length() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
+    char* characters() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return nullptr;
+    }
 
     u32 hash() const { return 0; }
 
-    static String vformatted(StringView fmtstr, TypeErasedFormatParams&);
+    [[nodiscard]] ByteBuffer to_byte_buffer() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return {};
+    }
+
+    template<typename BufferType>
+    [[nodiscard]] static String copy(BufferType const& buffer, ShouldChomp should_chomp = NoChomp)
+    {
+        if (buffer.is_empty())
+            return empty();
+        return String((char const*)buffer.data(), buffer.size(), should_chomp);
+    }
+
+    [[nodiscard]] static String vformatted(StringView fmtstr, TypeErasedFormatParams&)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
 
     template<typename... Parameters>
-    static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
+    [[nodiscard]] static String formatted(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters)
+    {
+        VariadicFormatParams variadic_format_parameters { parameters... };
+        return vformatted(fmtstr.view(), variadic_format_parameters);
+    }
 
     template<typename T>
-    static String number(T value) requires IsArithmetic<T>;
+    [[nodiscard]] static String number(T value) requires IsArithmetic<T>
+    {
+        return formatted("{}", value);
+    }
 
-    static String empty();
+    [[nodiscard]] StringView view() const
+    {
+        return { characters(), length() };
+    }
 
-    bool operator==(String const&) const;
-    bool operator!=(String const& other) const;
+    [[nodiscard]] static String empty()
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
 
-    bool operator==(StringView) const;
-    bool operator!=(StringView other) const;
+    bool operator==(String const&) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator!=(String const& other) const { return !(*this == other); }
 
-    bool operator==(FlyString const&) const;
-    bool operator!=(FlyString const& other) const;
+    bool operator==(StringView) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator!=(StringView other) const { return !(*this == other); }
 
-    bool operator<(String const&) const;
-    bool operator<(char const*) const;
-    bool operator>=(String const& other) const;
-    bool operator>=(char const* other) const;
+    bool operator==(FlyString const&) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator!=(FlyString const& other) const { return !(*this == other); }
 
-    bool operator>(String const&) const;
-    bool operator>(char const*) const;
-    bool operator<=(String const& other) const;
-    bool operator<=(char const* other) const;
+    bool operator<(String const&) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator<(char const*) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator>=(String const& other) const { return !(*this < other); }
+    bool operator>=(char const* other) const { return !(*this < other); }
 
-    bool operator==(char const* cstring) const;
-    bool operator!=(char const* cstring) const;
+    bool operator>(String const&) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator>(char const*) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator<=(String const& other) const { return !(*this > other); }
+    bool operator<=(char const* other) const { return !(*this > other); }
 
-    String& operator=(String&& other);
+    bool operator==(char const* cstring) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
+    bool operator!=(char const* cstring) const { return !(*this == cstring); }
 
-    String& operator=(String const& other);
+    String& operator=(String&& other)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return *this;
+    }
 
-    String& operator=(std::nullptr_t);
+    String& operator=(String const& other)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return *this;
+    }
 
-    String& operator=(ReadonlyBytes bytes);
+    String& operator=(std::nullptr_t)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return *this;
+    }
 
-    StringView view() const;
+    String& operator=(ReadonlyBytes bytes)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return *this;
+    }
 
-    String replace(StringView needle, StringView replacement, ReplaceMode replace_mode) const;
-    size_t count(StringView needle) const;
-    String reverse() const;
+    String replace(StringView needle, StringView replacement, ReplaceMode replace_mode) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
+    size_t count(StringView needle) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
+    String reverse() const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return String();
+    }
 
     template<typename... Ts>
-    ALWAYS_INLINE constexpr bool is_one_of(Ts&&... strings) const;
+    ALWAYS_INLINE constexpr bool is_one_of(Ts&&... strings) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
     template<typename... Ts>
-    ALWAYS_INLINE constexpr bool is_one_of_ignoring_case(Ts&&... strings) const;
+    ALWAYS_INLINE constexpr bool is_one_of_ignoring_case(Ts&&... strings) const
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 
 private:
     RefPtr<StringImpl> m_impl;
@@ -154,11 +403,26 @@ struct Traits<String> : public GenericTraits<String> {
 };
 
 struct CaseInsensitiveStringTraits : public Traits<String> {
-    static unsigned hash(String const& s);
-    static bool equals(String const& a, String const& b);
+    static unsigned hash(String const& s)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return 0;
+    }
+    static bool equals(String const& a, String const& b)
+    {
+        // FIXME: Impl this.
+        VERIFY_NOT_REACHED();
+        return false;
+    }
 };
 
-String escape_html_entities(StringView html);
+String escape_html_entities(StringView html)
+{
+    // FIXME: Impl this.
+    VERIFY_NOT_REACHED();
+    return String();
+}
 
 //InputStream& operator>>(InputStream& stream, String& string);
 
