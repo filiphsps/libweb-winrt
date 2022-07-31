@@ -5,9 +5,13 @@
       <Configuration>Debug</Configuration>
       <Platform>ARM</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x86">
+    <ProjectConfiguration Include="Debug|ARM64">
       <Configuration>Debug</Configuration>
-      <Platform>x86</Platform>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -17,9 +21,13 @@
       <Configuration>Release</Configuration>
       <Platform>ARM</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x86">
+    <ProjectConfiguration Include="Release|ARM64">
       <Configuration>Release</Configuration>
-      <Platform>x86</Platform>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
@@ -27,8 +35,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{124fa43a-a3ce-4a53-b440-01b704bbe0f3}</ProjectGuid>
-    <Keyword>StaticLibrary</Keyword>
+    <ProjectGuid>{429e1151-2338-4d6d-b154-c3c8195158a9}</ProjectGuid>
+    <Keyword>DynamicLibrary</Keyword>
     <RootNamespace>LibJS</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
@@ -38,39 +46,47 @@
     <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
   </PropertyGroup>
-  <PropertyGroup>
-	<ReadOnlyProject>true</ReadOnlyProject>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
@@ -80,16 +96,22 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -100,42 +122,59 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <GenerateManifest>false</GenerateManifest>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
-      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../LibC-Shim/;$(ProjectDir)/../serenity/Userland/Libraries/;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ForcedIncludeFiles>pch.h;</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\LibC-Shim\$(IntDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LibC-Shim.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,26 +186,51 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
-      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../LibC-Shim/;$(ProjectDir)/../serenity/Userland/Libraries/;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ForcedIncludeFiles>pch.h;</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\LibC-Shim\$(IntDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LibC-Shim.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PostBuild.ps1</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../LibC-Shim/;$(ProjectDir)/../serenity/Userland/Libraries/;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ForcedIncludeFiles>pch.h;</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\LibC-Shim\$(IntDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LibC-Shim.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -178,29 +242,23 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
-      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
-      <AdditionalIncludeDirectories>$(ProjectDir)/../AK/;$(ProjectDir)/../serenity/Userland/Libraries/;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/../LibC-Shim/;$(ProjectDir)/../serenity/Userland/Libraries/;$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ForcedIncludeFiles>pch.h;</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\LibC-Shim\$(IntDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LibC-Shim.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PostBuild.ps1</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -208,37 +266,8 @@
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <PreBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1</Command>
-    </PreBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <PostBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PostBuild.ps1</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LibJS.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -252,9 +281,10 @@
     <ClCompile Include="..\serenity\Userland\Libraries\LibJS\Tests\*.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x86'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Create</PrecompiledHeader>
@@ -264,11 +294,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AK\AK.vcxproj">
-      <Project>{4482715a-767d-4a17-a64d-4d990654de2e}</Project>
+    <ProjectReference Include="..\LibC-Shim\LibC-Shim.vcxproj">
+      <Project>{274e4ccd-578f-4645-a3a5-9773423d2ca1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <Target Name="OnCleanOnly" AfterTargets="Clean">
+    <Message Text="Patching SerenityOS' codebase" Importance="High" />
+    <Exec Command="powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File PreBuild.ps1" />
+  </Target>
 </Project>

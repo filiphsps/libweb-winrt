@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{274e4ccd-578f-4645-a3a5-9773423d2ca1}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>LibC_Shim</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AK\AllOf.h" />
+    <ClInclude Include="AK\AnyOf.h" />
+    <ClInclude Include="AK\Array.h" />
+    <ClInclude Include="AK\Assertions.h" />
+    <ClInclude Include="AK\Atomic.h" />
+    <ClInclude Include="AK\Badge.h" />
+    <ClInclude Include="AK\BitCast.h" />
+    <ClInclude Include="AK\BuiltinWrappers.h" />
+    <ClInclude Include="AK\ByteBuffer.h" />
+    <ClInclude Include="AK\CharacterTypes.h" />
+    <ClInclude Include="AK\Checked.h" />
+    <ClInclude Include="AK\CheckedFormatString.h" />
+    <ClInclude Include="AK\Concepts.h" />
+    <ClInclude Include="AK\DateConstants.h" />
+    <ClInclude Include="AK\Debug.h" />
+    <ClInclude Include="AK\Demangle.h" />
+    <ClInclude Include="AK\DisjointChunks.h" />
+    <ClInclude Include="AK\DistinctNumeric.h" />
+    <ClInclude Include="AK\Endian.h" />
+    <ClInclude Include="AK\EnumBits.h" />
+    <ClInclude Include="AK\Error.h" />
+    <ClInclude Include="AK\Find.h" />
+    <ClInclude Include="AK\FixedPoint.h" />
+    <ClInclude Include="AK\FlyString.h" />
+    <ClInclude Include="AK\Format.h" />
+    <ClInclude Include="AK\Forward.h" />
+    <ClInclude Include="AK\Function.h" />
+    <ClInclude Include="AK\GenericLexer.h" />
+    <ClInclude Include="AK\HashFunctions.h" />
+    <ClInclude Include="AK\HashMap.h" />
+    <ClInclude Include="AK\HashTable.h" />
+    <ClInclude Include="AK\Hex.h" />
+    <ClInclude Include="AK\IntrusiveDetails.h" />
+    <ClInclude Include="AK\IntrusiveList.h" />
+    <ClInclude Include="AK\IntrusiveRedBlackTree.h" />
+    <ClInclude Include="AK\IPv4Address.h" />
+    <ClInclude Include="AK\IterationDecision.h" />
+    <ClInclude Include="AK\Iterator.h" />
+    <ClInclude Include="AK\JsonArray.h" />
+    <ClInclude Include="AK\JsonObject.h" />
+    <ClInclude Include="AK\JsonObjectSerializer.h" />
+    <ClInclude Include="AK\JsonParser.h" />
+    <ClInclude Include="AK\JsonValue.h" />
+    <ClInclude Include="AK\kmalloc.h" />
+    <ClInclude Include="AK\LexicalPath.h" />
+    <ClInclude Include="AK\Math.h" />
+    <ClInclude Include="AK\MemMem.h" />
+    <ClInclude Include="AK\Memory.h" />
+    <ClInclude Include="AK\Noncopyable.h" />
+    <ClInclude Include="AK\NonnullOwnPtr.h" />
+    <ClInclude Include="AK\NonnullOwnPtrVector.h" />
+    <ClInclude Include="AK\NonnullPtrVector.h" />
+    <ClInclude Include="AK\NonnullRefPtr.h" />
+    <ClInclude Include="AK\NonnullRefPtrVector.h" />
+    <ClInclude Include="AK\NumericLimits.h" />
+    <ClInclude Include="AK\Optional.h" />
+    <ClInclude Include="AK\OwnPtr.h" />
+    <ClInclude Include="AK\Platform.h" />
+    <ClInclude Include="AK\QuickSort.h" />
+    <ClInclude Include="AK\Random.h" />
+    <ClInclude Include="AK\RedBlackTree.h" />
+    <ClInclude Include="AK\RefCounted.h" />
+    <ClInclude Include="AK\RefPtr.h" />
+    <ClInclude Include="AK\Result.h" />
+    <ClInclude Include="AK\ReverseIterator.h" />
+    <ClInclude Include="AK\ScopeGuard.h" />
+    <ClInclude Include="AK\SIMD.h" />
+    <ClInclude Include="AK\SinglyLinkedList.h" />
+    <ClInclude Include="AK\Span.h" />
+    <ClInclude Include="AK\StackInfo.h" />
+    <ClInclude Include="AK\StdLibExtraDetails.h" />
+    <ClInclude Include="AK\StdLibExtras.h" />
+    <ClInclude Include="AK\String.h" />
+    <ClInclude Include="AK\StringBuilder.h" />
+    <ClInclude Include="AK\StringHash.h" />
+    <ClInclude Include="AK\StringImpl.h" />
+    <ClInclude Include="AK\StringUtils.h" />
+    <ClInclude Include="AK\StringView.h" />
+    <ClInclude Include="AK\TemporaryChange.h" />
+    <ClInclude Include="AK\Time.h" />
+    <ClInclude Include="AK\Traits.h" />
+    <ClInclude Include="AK\Try.h" />
+    <ClInclude Include="AK\TypeCasts.h" />
+    <ClInclude Include="AK\TypedTransfer.h" />
+    <ClInclude Include="AK\Types.h" />
+    <ClInclude Include="AK\UnicodeUtils.h" />
+    <ClInclude Include="AK\Utf16View.h" />
+    <ClInclude Include="AK\Utf32View.h" />
+    <ClInclude Include="AK\Utf8View.h" />
+    <ClInclude Include="AK\Variant.h" />
+    <ClInclude Include="AK\Vector.h" />
+    <ClInclude Include="AK\Weakable.h" />
+    <ClInclude Include="AK\WeakPtr.h" />
+    <ClInclude Include="LibC.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AK\Atomic.cpp" />
+    <ClCompile Include="AK\FlyString.cpp" />
+    <ClCompile Include="AK\Format.cpp" />
+    <ClCompile Include="AK\GenericLexer.cpp" />
+    <ClCompile Include="AK\IntrusiveList.cpp" />
+    <ClCompile Include="AK\JsonParser.cpp" />
+    <ClCompile Include="AK\kmalloc.cpp" />
+    <ClCompile Include="AK\LexicalPath.cpp" />
+    <ClCompile Include="AK\String.cpp" />
+    <ClCompile Include="AK\StringBuilder.cpp" />
+    <ClCompile Include="AK\StringImpl.cpp" />
+    <ClCompile Include="AK\StringUtils.cpp" />
+    <ClCompile Include="AK\StringView.cpp" />
+    <ClCompile Include="AK\Time.cpp" />
+    <ClCompile Include="AK\Utf16View.cpp" />
+    <ClCompile Include="AK\Utf32View.cpp" />
+    <ClCompile Include="AK\Utf8View.cpp" />
+    <ClCompile Include="LibC.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
