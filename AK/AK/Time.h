@@ -130,7 +130,7 @@ public:
 private:
     // This must be part of the header in order to make the various 'from_*' functions constexpr.
     // However, sane_mod can only deal with a limited range of values for 'denominator', so this can't be made public.
-    inline static constexpr i64 sane_mod(i64& numerator, i64 denominator)
+    ALWAYS_INLINE static constexpr i64 sane_mod(i64& numerator, i64 denominator)
     {
         VERIFY(2 <= denominator && denominator <= 1'000'000'000);
         // '%' in C/C++ does not work in the obvious way:
@@ -146,7 +146,7 @@ private:
         }
         return dividend;
     }
-    inline static constexpr i32 sane_mod(i32& numerator, i32 denominator)
+    ALWAYS_INLINE static constexpr i32 sane_mod(i32& numerator, i32 denominator)
     {
         i64 numerator_64 = numerator;
         i64 dividend = sane_mod(numerator_64, denominator);
@@ -247,7 +247,7 @@ private:
 };
 
 template<typename TimevalType>
-inline void timeval_sub(TimevalType const& a, TimevalType const& b, TimevalType& result)
+ALWAYS_INLINE void timeval_sub(TimevalType const& a, TimevalType const& b, TimevalType& result)
 {
     result.tv_sec = a.tv_sec - b.tv_sec;
     result.tv_usec = a.tv_usec - b.tv_usec;
@@ -258,7 +258,7 @@ inline void timeval_sub(TimevalType const& a, TimevalType const& b, TimevalType&
 }
 
 template<typename TimevalType>
-inline void timeval_add(TimevalType const& a, TimevalType const& b, TimevalType& result)
+ALWAYS_INLINE void timeval_add(TimevalType const& a, TimevalType const& b, TimevalType& result)
 {
     result.tv_sec = a.tv_sec + b.tv_sec;
     result.tv_usec = a.tv_usec + b.tv_usec;
@@ -269,7 +269,7 @@ inline void timeval_add(TimevalType const& a, TimevalType const& b, TimevalType&
 }
 
 template<typename TimespecType>
-inline void timespec_sub(TimespecType const& a, TimespecType const& b, TimespecType& result)
+ALWAYS_INLINE void timespec_sub(TimespecType const& a, TimespecType const& b, TimespecType& result)
 {
     result.tv_sec = a.tv_sec - b.tv_sec;
     result.tv_nsec = a.tv_nsec - b.tv_nsec;
@@ -280,7 +280,7 @@ inline void timespec_sub(TimespecType const& a, TimespecType const& b, TimespecT
 }
 
 template<typename TimespecType>
-inline void timespec_add(TimespecType const& a, TimespecType const& b, TimespecType& result)
+ALWAYS_INLINE void timespec_add(TimespecType const& a, TimespecType const& b, TimespecType& result)
 {
     result.tv_sec = a.tv_sec + b.tv_sec;
     result.tv_nsec = a.tv_nsec + b.tv_nsec;
@@ -291,7 +291,7 @@ inline void timespec_add(TimespecType const& a, TimespecType const& b, TimespecT
 }
 
 template<typename TimespecType, typename TimevalType>
-inline void timespec_add_timeval(TimespecType const& a, TimevalType const& b, TimespecType& result)
+ALWAYS_INLINE void timespec_add_timeval(TimespecType const& a, TimevalType const& b, TimespecType& result)
 {
     result.tv_sec = a.tv_sec + b.tv_sec;
     result.tv_nsec = a.tv_nsec + b.tv_usec * 1000;
@@ -302,52 +302,52 @@ inline void timespec_add_timeval(TimespecType const& a, TimevalType const& b, Ti
 }
 
 template<typename TimevalType, typename TimespecType>
-inline void timeval_to_timespec(TimevalType const& tv, TimespecType& ts)
+ALWAYS_INLINE void timeval_to_timespec(TimevalType const& tv, TimespecType& ts)
 {
     ts.tv_sec = tv.tv_sec;
     ts.tv_nsec = tv.tv_usec * 1000;
 }
 
 template<typename TimespecType, typename TimevalType>
-inline void timespec_to_timeval(TimespecType const& ts, TimevalType& tv)
+ALWAYS_INLINE void timespec_to_timeval(TimespecType const& ts, TimevalType& tv)
 {
     tv.tv_sec = ts.tv_sec;
     tv.tv_usec = ts.tv_nsec / 1000;
 }
 
 template<TimeSpecType T>
-inline bool operator>=(const T& a, const T& b)
+ALWAYS_INLINE bool operator>=(const T& a, const T& b)
 {
     return a.tv_sec > b.tv_sec || (a.tv_sec == b.tv_sec && a.tv_nsec >= b.tv_nsec);
 }
 
 template<TimeSpecType T>
-inline bool operator>(const T& a, const T& b)
+ALWAYS_INLINE bool operator>(const T& a, const T& b)
 {
     return a.tv_sec > b.tv_sec || (a.tv_sec == b.tv_sec && a.tv_nsec > b.tv_nsec);
 }
 
 template<TimeSpecType T>
-inline bool operator<(const T& a, const T& b)
+ALWAYS_INLINE bool operator<(const T& a, const T& b)
 {
     return a.tv_sec < b.tv_sec || (a.tv_sec == b.tv_sec && a.tv_nsec < b.tv_nsec);
 }
 
 template<TimeSpecType T>
-inline bool operator<=(const T& a, const T& b)
+ALWAYS_INLINE bool operator<=(const T& a, const T& b)
 
 {
     return a.tv_sec < b.tv_sec || (a.tv_sec == b.tv_sec && a.tv_nsec <= b.tv_nsec);
 }
 
 template<TimeSpecType T>
-inline bool operator==(const T& a, const T& b)
+ALWAYS_INLINE bool operator==(const T& a, const T& b)
 {
     return a.tv_sec == b.tv_sec && a.tv_nsec == b.tv_nsec;
 }
 
 template<TimeSpecType T>
-inline bool operator!=(const T& a, const T& b)
+ALWAYS_INLINE bool operator!=(const T& a, const T& b)
 {
     return a.tv_sec != b.tv_sec || a.tv_nsec != b.tv_nsec;
 }

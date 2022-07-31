@@ -475,7 +475,7 @@ void out(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters con
 template<typename... Parameters>
 void outln(FILE* file, CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
-inline void outln(FILE* file) { fputc('\n', file); }
+ALWAYS_INLINE void outln(FILE* file) { fputc('\n', file); }
 
 template<typename... Parameters>
 void out(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
@@ -483,7 +483,7 @@ void out(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... param
 template<typename... Parameters>
 void outln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
-inline void outln() { outln(stdout); }
+ALWAYS_INLINE void outln() { outln(stdout); }
 
 #define outln_if(flag, fmt, ...)       \
     do {                               \
@@ -497,7 +497,7 @@ void warn(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... para
 template<typename... Parameters>
 void warnln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
-inline void warnln() { outln(stderr); }
+ALWAYS_INLINE void warnln() { outln(stderr); }
 
 #define warnln_if(flag, fmt, ...)       \
     do {                                \
@@ -510,7 +510,7 @@ void vdbgln(StringView fmtstr, TypeErasedFormatParams&);
 template<typename... Parameters>
 void dbgln(CheckedFormatString<Parameters...>&& fmtstr, Parameters const&... parameters);
 
-//inline void dbgln() { dbgln(""); }
+//ALWAYS_INLINE void dbgln() { dbgln(""); }
 
 void set_debug_enabled(bool);
 

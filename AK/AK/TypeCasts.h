@@ -13,16 +13,16 @@
 namespace AK {
 
 template<typename OutputType, typename InputType>
-inline bool is(InputType& input);
+ALWAYS_INLINE bool is(InputType& input);
 
 template<typename OutputType, typename InputType>
-inline bool is(InputType* input);
+ALWAYS_INLINE bool is(InputType* input);
 
 template<typename OutputType, typename InputType>
-inline CopyConst<InputType, OutputType>* verify_cast(InputType* input);
+ALWAYS_INLINE CopyConst<InputType, OutputType>* verify_cast(InputType* input);
 
 template<typename OutputType, typename InputType>
-inline CopyConst<InputType, OutputType>& verify_cast(InputType& input);
+ALWAYS_INLINE CopyConst<InputType, OutputType>& verify_cast(InputType& input);
 
 }
 

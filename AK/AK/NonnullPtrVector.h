@@ -35,31 +35,31 @@ public:
     using ReverseIterator = SimpleReverseIterator<NonnullPtrVector, T>;
     using ReverseConstIterator = SimpleReverseIterator<NonnullPtrVector const, T const>;
 
-    inline constexpr ConstIterator begin() const;
-    inline constexpr Iterator begin();
-    inline constexpr ReverseIterator rbegin();
-    inline constexpr ReverseConstIterator rbegin() const;
+    ALWAYS_INLINE constexpr ConstIterator begin() const;
+    ALWAYS_INLINE constexpr Iterator begin();
+    ALWAYS_INLINE constexpr ReverseIterator rbegin();
+    ALWAYS_INLINE constexpr ReverseConstIterator rbegin() const;
 
-    inline constexpr ConstIterator end() const;
-    inline constexpr Iterator end();
-    inline constexpr ReverseIterator rend();
-    inline constexpr ReverseConstIterator rend() const;
+    ALWAYS_INLINE constexpr ConstIterator end() const;
+    ALWAYS_INLINE constexpr Iterator end();
+    ALWAYS_INLINE constexpr ReverseIterator rend();
+    ALWAYS_INLINE constexpr ReverseConstIterator rend() const;
 
-    inline constexpr auto in_reverse();
+    ALWAYS_INLINE constexpr auto in_reverse();
 
     Optional<size_t> find_first_index(T const& value) const;
 
-    inline PtrType& ptr_at(size_t index);
-    inline PtrType const& ptr_at(size_t index) const { return Base::at(index); }
+    ALWAYS_INLINE PtrType& ptr_at(size_t index);
+    ALWAYS_INLINE PtrType const& ptr_at(size_t index) const { return Base::at(index); }
 
-    inline T& at(size_t index) { return *Base::at(index); }
-    inline const T& at(size_t index) const { return *Base::at(index); }
-    inline T& operator[](size_t index) { return at(index); }
-    inline const T& operator[](size_t index) const { return at(index); }
-    inline T& first() { return at(0); }
-    inline const T& first() const { return at(0); }
-    inline T& last() { return at(size() - 1); }
-    inline const T& last() const { return at(size() - 1); }
+    ALWAYS_INLINE T& at(size_t index) { return *Base::at(index); }
+    ALWAYS_INLINE const T& at(size_t index) const { return *Base::at(index); }
+    ALWAYS_INLINE T& operator[](size_t index) { return at(index); }
+    ALWAYS_INLINE const T& operator[](size_t index) const { return at(index); }
+    ALWAYS_INLINE T& first() { return at(0); }
+    ALWAYS_INLINE const T& first() const { return at(0); }
+    ALWAYS_INLINE T& last() { return at(size() - 1); }
+    ALWAYS_INLINE const T& last() const { return at(size() - 1); }
 
 private:
     // NOTE: You can't use resize() on a NonnullFooPtrVector since making the vector

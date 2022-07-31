@@ -13,23 +13,23 @@ namespace Detail {
 template<typename T>
 class Span {
 public:
-    inline constexpr Span() = default;
+    ALWAYS_INLINE constexpr Span() = default;
 
-    inline constexpr Span(T* values, size_t size)
+    ALWAYS_INLINE constexpr Span(T* values, size_t size)
         : m_values(values)
         , m_size(size)
     {
     }
 
     template<size_t size>
-    inline constexpr Span(T(&values)[size])
+    ALWAYS_INLINE constexpr Span(T(&values)[size])
         : m_values(values)
         , m_size(size)
     {
     }
 
     template<size_t size>
-    inline constexpr Span(Array<T, size>& array)
+    ALWAYS_INLINE constexpr Span(Array<T, size>& array)
         : m_values(array.data())
         , m_size(size)
     {
@@ -37,7 +37,7 @@ public:
 
     template<size_t size>
     requires(IsConst<T>)
-    inline constexpr Span(Array<T, size> const& array)
+    ALWAYS_INLINE constexpr Span(Array<T, size> const& array)
         : m_values(array.data())
         , m_size(size)
     {
@@ -51,14 +51,14 @@ protected:
 template<>
 class Span<u8> {
 public:
-    inline constexpr Span() = default;
+    ALWAYS_INLINE constexpr Span() = default;
 
-    inline constexpr Span(u8* values, size_t size)
+    ALWAYS_INLINE constexpr Span(u8* values, size_t size)
         : m_values(values)
         , m_size(size)
     {
     }
-    inline Span(void* values, size_t size)
+    ALWAYS_INLINE Span(void* values, size_t size)
         : m_values(reinterpret_cast<u8*>(values))
         , m_size(size)
     {
@@ -72,19 +72,19 @@ protected:
 template<>
 class Span<u8 const> {
 public:
-    inline constexpr Span() = default;
+    ALWAYS_INLINE constexpr Span() = default;
 
-    inline constexpr Span(u8 const* values, size_t size)
+    ALWAYS_INLINE constexpr Span(u8 const* values, size_t size)
         : m_values(values)
         , m_size(size)
     {
     }
-    inline Span(void const* values, size_t size)
+    ALWAYS_INLINE Span(void const* values, size_t size)
         : m_values(reinterpret_cast<u8 const*>(values))
         , m_size(size)
     {
     }
-    inline Span(char const* values, size_t size)
+    ALWAYS_INLINE Span(char const* values, size_t size)
         : m_values(reinterpret_cast<u8 const*>(values))
         , m_size(size)
     {
@@ -104,10 +104,10 @@ public:
 
     constexpr Span() = default;
 
-    inline constexpr T const* data() const { return this->m_values; }
-    inline constexpr T* data() { return this->m_values; }
+    ALWAYS_INLINE constexpr T const* data() const { return this->m_values; }
+    ALWAYS_INLINE constexpr T* data() { return this->m_values; }
 
-    inline constexpr T* offset_pointer(size_t offset);
+    ALWAYS_INLINE constexpr T* offset_pointer(size_t offset);
 
     using ConstIterator = SimpleIterator<Span const, T const>;
     using Iterator = SimpleIterator<Span, T>;
@@ -118,35 +118,35 @@ public:
     constexpr ConstIterator end() const { return ConstIterator::end(*this); }
     constexpr Iterator end() { return Iterator::end(*this); }
 
-    inline constexpr size_t size() const { return this->m_size; }
-    inline constexpr bool is_null() const { return this->m_values == nullptr; }
-    inline constexpr bool is_empty() const { return this->m_size == 0; }
+    ALWAYS_INLINE constexpr size_t size() const { return this->m_size; }
+    ALWAYS_INLINE constexpr bool is_null() const { return this->m_values == nullptr; }
+    ALWAYS_INLINE constexpr bool is_empty() const { return this->m_size == 0; }
 
-    inline constexpr Span slice(size_t start, size_t length) const;
-    inline constexpr Span slice(size_t start) const;
-    inline constexpr Span slice_from_end(size_t count) const;
+    ALWAYS_INLINE constexpr Span slice(size_t start, size_t length) const;
+    ALWAYS_INLINE constexpr Span slice(size_t start) const;
+    ALWAYS_INLINE constexpr Span slice_from_end(size_t count) const;
 
-    inline constexpr Span trim(size_t length) const;
+    ALWAYS_INLINE constexpr Span trim(size_t length) const;
 
-    inline constexpr T* offset(size_t start) const;
+    ALWAYS_INLINE constexpr T* offset(size_t start) const;
 
-    inline constexpr void overwrite(size_t offset, void const* data, size_t data_size);
+    ALWAYS_INLINE constexpr void overwrite(size_t offset, void const* data, size_t data_size);
 
-    inline constexpr size_t copy_to(Span<RemoveConst<T>> other) const;
+    ALWAYS_INLINE constexpr size_t copy_to(Span<RemoveConst<T>> other) const;
 
-    inline constexpr size_t copy_trimmed_to(Span<RemoveConst<T>> other) const;
+    ALWAYS_INLINE constexpr size_t copy_trimmed_to(Span<RemoveConst<T>> other) const;
 
-    inline constexpr size_t fill(T const& value);
+    ALWAYS_INLINE constexpr size_t fill(T const& value);
 
     bool constexpr contains_slow(T const& value) const;
 
     bool constexpr starts_with(Span<T const> other) const;
 
-    inline constexpr T& at(size_t index);
+    ALWAYS_INLINE constexpr T& at(size_t index);
 
-    inline constexpr T& last();
+    ALWAYS_INLINE constexpr T& last();
 
-    inline constexpr T& operator[](size_t index);
+    ALWAYS_INLINE constexpr T& operator[](size_t index);
 
     constexpr bool operator==(Span const& other) const;
 

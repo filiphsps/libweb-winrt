@@ -71,9 +71,9 @@ public:
     StringView substring_view(size_t start, size_t length) const;
     StringView substring_view(size_t start) const;
 
-    inline ReadonlyBytes bytes() const;
+    ALWAYS_INLINE ReadonlyBytes bytes() const;
 
-    inline char const& operator[](size_t i) const;
+    ALWAYS_INLINE char const& operator[](size_t i) const;
 
     using ConstIterator = SimpleIterator<const String, char const>;
 
@@ -86,8 +86,8 @@ public:
     bool ends_with(char) const;
 
     bool is_null() const { return !m_impl; }
-    inline bool is_empty() const { return true; }
-    inline size_t length() const { return m_impl ? m_impl->length() : 0; }
+    ALWAYS_INLINE bool is_empty() const { return true; }
+    ALWAYS_INLINE size_t length() const { return m_impl ? m_impl->length() : 0; }
     char* characters() const;
 
     u32 hash() const { return 0; }
@@ -139,10 +139,10 @@ public:
     String reverse() const;
 
     template<typename... Ts>
-    inline constexpr bool is_one_of(Ts&&... strings) const;
+    ALWAYS_INLINE constexpr bool is_one_of(Ts&&... strings) const;
 
     template<typename... Ts>
-    inline constexpr bool is_one_of_ignoring_case(Ts&&... strings) const;
+    ALWAYS_INLINE constexpr bool is_one_of_ignoring_case(Ts&&... strings) const;
 
 private:
     RefPtr<StringImpl> m_impl;

@@ -38,8 +38,8 @@ jobs:
 
       - name: 📦 Restore solution
         working-directory: ${{ github.workspace }}
-        run: msbuild .\LibWeb-WinRT.sln /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /t:Restore
+        run: msbuild .\LibWeb-WinRT.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} /t:Restore
 
       - name: ⚙️ Build
         working-directory: ${{ github.workspace }}
-        run: msbuild .\LibWeb-WinRT.sln /t:rebuild /property:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }}
+        run: msbuild .\LibWeb-WinRT.sln /t:rebuild /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }}

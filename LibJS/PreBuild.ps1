@@ -10,6 +10,7 @@ Write-Host " Done!"
 Write-Host "Starting serenity code patching..." -NoNewline
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\AbstractOperations.cpp).replace('new_target ?: js_undefined()', 'new_target ? new_target : js_undefined()') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\AbstractOperations.cpp
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp).replace('*desc->get ?: js_undefined()', '*desc->get ? *desc->get : js_undefined()') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp
+(Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp).replace('*desc->get ?: js_undefined()', '*desc->get ? *desc->get : js_undefined()') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp).replace('*desc->set ?: js_undefined()', '*desc->set ? *desc->set : js_undefined()') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\ObjectPrototype.cpp
 
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\FunctionObject.h).replace('{ VERIFY_NOT_REACHED(); }', '{ VERIFY_NOT_REACHED(); return {}; }') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\FunctionObject.h
@@ -33,9 +34,29 @@ Write-Host "Starting serenity code patching..." -NoNewline
 
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Bytecode\Register.h).replace('constexpr static u32 a', 'Register() {} constexpr static u32 a') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Bytecode\Register.h
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Reference.h).replace('Reference() = default;', 'Reference() {}') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Reference.h
-#(Get-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h).replace('RulePosition(Parser& parser', 'RulePosition() = default; RulePosition(Parser& parser') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h
 
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h).replace('requires(IsSame<ValueType, Empty>)', '') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h
 (Get-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h).replace('    : m_value(Empty {})', '') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Runtime\Completion.h
+
+# AST.cpp
+$ast_cpp = Get-Content -Path .\..\serenity\Userland\Libraries\LibJS\AST.cpp
+$ast_cpp[490] = '    VERIFY_NOT_REACHED(); return {};'
+$ast_cpp[1480] = '    VERIFY_NOT_REACHED(); return {};'
+$ast_cpp[1486] = '    VERIFY_NOT_REACHED(); return {};'
+$ast_cpp[1486] = '    VERIFY_NOT_REACHED(); return {};'
+$ast_cpp[2499] = '    VERIFY_NOT_REACHED(); return {};'
+$ast_cpp[2884] = '    VERIFY_NOT_REACHED(); return {};'
+$ast_cpp[2968] = '    VERIFY_NOT_REACHED(); return {};'
+Set-Content -Path .\..\serenity\Userland\Libraries\LibJS\AST.cpp -Value $ast_cpp
+
+# AST.h
+$ast_h = Get-Content -Path .\..\serenity\Userland\Libraries\LibJS\AST.h
+$ast_h[570] = '        VERIFY_NOT_REACHED(); return {};'
+Set-Content -Path .\..\serenity\Userland\Libraries\LibJS\AST.h -Value $ast_h
+
+# FIXME: These disable functionality
+(Get-Content .\..\serenity\Userland\Libraries\LibJS\AST.cpp).replace('initializer = make_handle', '//initializer = make_handle') | Set-Content .\..\serenity\Userland\Libraries\LibJS\AST.cpp
+(Get-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h).replace('AK_MAKE_NONCOPYABLE(RulePosition);', '') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h
+(Get-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h).replace('AK_MAKE_NONMOVABLE(RulePosition);', '') | Set-Content .\..\serenity\Userland\Libraries\LibJS\Parser.h
 
 Write-Host " Done!"

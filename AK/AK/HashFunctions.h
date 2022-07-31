@@ -33,4 +33,4 @@ constexpr unsigned u64_hash(u64 key)
 
 constexpr unsigned ptr_hash(FlatPtr ptr);
 
-inline unsigned ptr_hash(void const* ptr);
+ALWAYS_INLINE unsigned ptr_hash(void const* ptr);

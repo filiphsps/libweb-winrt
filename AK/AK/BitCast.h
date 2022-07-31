@@ -11,7 +11,7 @@
 namespace AK {
 
 template<typename T, typename U>
-inline T bit_cast(const U& a)
+ALWAYS_INLINE T bit_cast(const U& a)
 {
     return std::bit_cast<T>(a);
 }

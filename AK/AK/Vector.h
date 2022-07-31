@@ -88,19 +88,19 @@ requires(!IsRvalueReference<T>) class Vector {
         operator Span<StorageType const>() const { return span(); }
 
         bool is_empty() const { return size() == 0; }
-        inline size_t size() const { return m_size; }
+        ALWAYS_INLINE size_t size() const { return m_size; }
         size_t capacity() const { return m_capacity; }
 
-        inline StorageType* data();
+        ALWAYS_INLINE StorageType* data();
 
-        inline StorageType const* data() const;
+        ALWAYS_INLINE StorageType const* data() const;
 
-        inline VisibleType const& at(size_t i) const;
+        ALWAYS_INLINE VisibleType const& at(size_t i) const;
 
-        inline VisibleType& at(size_t i);
+        ALWAYS_INLINE VisibleType& at(size_t i);
 
-        inline VisibleType const& operator[](size_t i) const { return at(i); }
-        inline VisibleType& operator[](size_t i) { return at(i); }
+        ALWAYS_INLINE VisibleType const& operator[](size_t i) const { return at(i); }
+        ALWAYS_INLINE VisibleType& operator[](size_t i) { return at(i); }
 
         VisibleType const& first() const { return at(0); }
         VisibleType& first() { return at(0); }
@@ -135,16 +135,16 @@ requires(!IsRvalueReference<T>) class Vector {
 
         void extend(Vector const& other);
 
-        inline void append(T&& value);
+        ALWAYS_INLINE void append(T&& value);
 
-        inline void append(T const& value) requires(!contains_reference);
+        ALWAYS_INLINE void append(T const& value) requires(!contains_reference);
 
         void append(StorageType const* values, size_t count);
 
         template<typename U = T>
-        inline void unchecked_append(U&& value) requires(CanBePlacedInsideVector<U>);
+        ALWAYS_INLINE void unchecked_append(U&& value) requires(CanBePlacedInsideVector<U>);
 
-        inline void unchecked_append(StorageType const* values, size_t count);
+        ALWAYS_INLINE void unchecked_append(StorageType const* values, size_t count);
 
         template<class... Args>
         void empend(Args&&... args)/* requires(!contains_reference)*/;
@@ -177,7 +177,7 @@ requires(!IsRvalueReference<T>) class Vector {
         template<typename TUnaryPredicate>
         bool remove_all_matching(TUnaryPredicate const& predicate);
 
-        inline T take_last();
+        ALWAYS_INLINE T take_last();
 
         T take_first();
 
@@ -244,7 +244,7 @@ requires(!IsRvalueReference<T>) class Vector {
         ReverseIterator rend() { return ReverseIterator::rend(*this); }
         ReverseConstIterator rend() const { return ReverseConstIterator::rend(*this); }
 
-        inline constexpr auto in_reverse()
+        ALWAYS_INLINE constexpr auto in_reverse()
         {
             return ReverseWrapper::in_reverse(*this);
         }

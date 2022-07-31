@@ -12,12 +12,12 @@
 
 namespace AK {
 
-inline void fill_with_random(void* buffer, size_t length)
+ALWAYS_INLINE void fill_with_random(void* buffer, size_t length)
 {
 }
 
 template<typename T>
-inline T get_random()
+ALWAYS_INLINE T get_random()
 {
     T t;
     fill_with_random(&t, sizeof(T));

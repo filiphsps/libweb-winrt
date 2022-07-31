@@ -88,7 +88,7 @@ constexpr T ceil_div(T a, U b)
 }
 
 template<typename T, typename U>
-inline void swap(T& a, U& b)
+ALWAYS_INLINE void swap(T& a, U& b)
 {
     if (&a == &b)
         return;

@@ -47,8 +47,8 @@ public:
     char const* characters() const { return nullptr; }
     size_t length() const { return 0; }
 
-    inline u32 hash() const { return 0; }
-    inline StringView view() const;
+    ALWAYS_INLINE u32 hash() const { return 0; }
+    ALWAYS_INLINE StringView view() const;
 
     FlyString to_lowercase() const;
 
@@ -58,7 +58,7 @@ public:
     Optional<T> to_uint(TrimWhitespace = TrimWhitespace::Yes) const;
 
     template<typename... Ts>
-    inline constexpr bool is_one_of(Ts... strings) const;
+    ALWAYS_INLINE constexpr bool is_one_of(Ts... strings) const;
 
 private:
     RefPtr<StringImpl> m_impl;

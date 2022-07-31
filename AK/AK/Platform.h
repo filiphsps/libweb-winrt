@@ -1,6 +1,7 @@
 #pragma once
 
 #pragma warning(disable: 4146)
+#pragma warning(disable: 4390) // FIXME: Need to fix verify, then remove this
 #pragma warning(disable: 34716)
 
 #undef _USE_MATH_DEFINES
@@ -31,12 +32,12 @@
 #ifdef ALWAYS_INLINE
 #    undef ALWAYS_INLINE
 #endif
-#define ALWAYS_INLINE /*__attribute__((always_inline))*/ inline
+#define ALWAYS_INLINE __forceinline
 
 #ifdef NEVER_INLINE
 #    undef NEVER_INLINE
 #endif
-#define NEVER_INLINE //__attribute__((noinline))
+#define NEVER_INLINE __declspec(noinline)
 
 #ifdef FLATTEN
 #    undef FLATTEN
@@ -53,10 +54,15 @@
 #endif
 #define NO_SANITIZE_ADDRESS //__attribute__((no_sanitize_address))
 
+#ifdef NORETURN
+#    undef NORETURN
+#endif
+#define NORETURN __declspec(noreturn)
+
 #ifdef NAKED
 #    undef NAKED
 #endif
-#define NAKED //__attribute__((naked))
+#define NAKED __declspec(naked)
 
 #define ASAN_POISON_MEMORY_REGION(addr, size)
 #define ASAN_UNPOISON_MEMORY_REGION(addr, size)

@@ -11,7 +11,7 @@
 
 namespace AK {
 
-inline String demangle(StringView name);
+ALWAYS_INLINE String demangle(StringView name);
 
 }
 

@@ -20,21 +20,21 @@ namespace AK {
 
 class StringView {
 public:
-    inline constexpr StringView() = default;
-    inline constexpr StringView(char const* characters, size_t length)
+    ALWAYS_INLINE constexpr StringView() = default;
+    ALWAYS_INLINE constexpr StringView(char const* characters, size_t length)
         : m_characters(characters)
         , m_length(length)
     {
         if (!is_constant_evaluated())
             VERIFY(!Checked<uintptr_t>::addition_would_overflow((uintptr_t)characters, length));
     }
-    inline StringView(unsigned char const* characters, size_t length)
+    ALWAYS_INLINE StringView(unsigned char const* characters, size_t length)
         : m_characters((char const*)characters)
         , m_length(length)
     {
         //VERIFY(!Checked<uintptr_t>::addition_would_overflow((uintptr_t)characters, length));
     }
-    inline StringView(ReadonlyBytes bytes)
+    ALWAYS_INLINE StringView(ReadonlyBytes bytes)
         : m_characters(reinterpret_cast<char const*>(bytes.data()))
         , m_length(bytes.size())
     {
@@ -117,13 +117,13 @@ public:
     String to_string() const;
 
     template<typename... Ts>
-    inline constexpr bool is_one_of(Ts&&... strings) const
+    ALWAYS_INLINE constexpr bool is_one_of(Ts&&... strings) const
     {
         return (... || this->operator==(forward<Ts>(strings)));
     }
 
     template<typename... Ts>
-    inline constexpr bool is_one_of_ignoring_case(Ts&&... strings) const
+    ALWAYS_INLINE constexpr bool is_one_of_ignoring_case(Ts&&... strings) const
     {
         return (... ||
                 [this, &strings]() -> bool {
@@ -142,7 +142,7 @@ private:
 
 }
 
-inline constexpr AK::StringView operator"" sv(char const* cstring, size_t length)
+ALWAYS_INLINE constexpr AK::StringView operator"" sv(char const* cstring, size_t length)
 {
     return AK::StringView(cstring, length);
 }

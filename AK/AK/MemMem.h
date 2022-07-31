@@ -21,11 +21,11 @@ constexpr void const* bitap_bitwise(void const* haystack, size_t haystack_length
 }
 
 template<typename HaystackIterT>
-inline Optional<size_t> memmem(HaystackIterT const& haystack_begin, HaystackIterT const& haystack_end, Span<const u8> needle) requires(requires { (*haystack_begin).data(); (*haystack_begin).size(); });
+ALWAYS_INLINE Optional<size_t> memmem(HaystackIterT const& haystack_begin, HaystackIterT const& haystack_end, Span<const u8> needle) requires(requires { (*haystack_begin).data(); (*haystack_begin).size(); });
 
-inline Optional<size_t> memmem_optional(void const* haystack, size_t haystack_length, void const* needle, size_t needle_length);
+ALWAYS_INLINE Optional<size_t> memmem_optional(void const* haystack, size_t haystack_length, void const* needle, size_t needle_length);
 
-inline void const* memmem(void const* haystack, size_t haystack_length, void const* needle, size_t needle_length);
+ALWAYS_INLINE void const* memmem(void const* haystack, size_t haystack_length, void const* needle, size_t needle_length);
 
 }
 

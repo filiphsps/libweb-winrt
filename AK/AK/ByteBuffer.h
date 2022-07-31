@@ -66,9 +66,9 @@ public:
 
     void clear();
 
-    inline void resize(size_t new_size);
+    ALWAYS_INLINE void resize(size_t new_size);
 
-    inline void ensure_capacity(size_t new_capacity);
+    ALWAYS_INLINE void ensure_capacity(size_t new_capacity);
 
     ErrorOr<void> try_resize(size_t new_size);
 
@@ -102,7 +102,7 @@ public:
     operator Bytes() { return bytes(); }
     operator ReadonlyBytes() const { return bytes(); }
 
-    inline size_t capacity() const { return m_inline ? inline_capacity : m_outline_capacity; }
+    ALWAYS_INLINE size_t capacity() const { return m_inline ? inline_capacity : m_outline_capacity; }
 
 private:
     void move_from(ByteBuffer&& other);

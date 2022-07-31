@@ -189,13 +189,13 @@ private:
 };
 
 template<typename T, typename U>
-inline void swap(OwnPtr<T>& a, OwnPtr<U>& b)
+ALWAYS_INLINE void swap(OwnPtr<T>& a, OwnPtr<U>& b)
 {
     a.swap(b);
 }
 
 template<typename T>
-inline OwnPtr<T> adopt_own_if_nonnull(T* object)
+ALWAYS_INLINE OwnPtr<T> adopt_own_if_nonnull(T* object)
 {
     if (object)
         return OwnPtr<T>::lift(object);
@@ -203,7 +203,7 @@ inline OwnPtr<T> adopt_own_if_nonnull(T* object)
 }
 
 template<typename T>
-inline ErrorOr<NonnullOwnPtr<T>> adopt_nonnull_own_or_enomem(T* object)
+ALWAYS_INLINE ErrorOr<NonnullOwnPtr<T>> adopt_nonnull_own_or_enomem(T* object)
 {
     auto result = adopt_own_if_nonnull(object);
     if (!result)
@@ -212,14 +212,14 @@ inline ErrorOr<NonnullOwnPtr<T>> adopt_nonnull_own_or_enomem(T* object)
 }
 
 template<typename T, class... Args>
-    requires(IsConstructible<T, Args...>) inline ErrorOr<NonnullOwnPtr<T>> try_make(Args&&... args)
+    requires(IsConstructible<T, Args...>) ALWAYS_INLINE ErrorOr<NonnullOwnPtr<T>> try_make(Args&&... args)
 {
     return adopt_nonnull_own_or_enomem(new (nothrow) T(forward<Args>(args)...));
 }
 
 // FIXME: Remove once P0960R3 is available in Clang.
 template<typename T, class... Args>
-inline ErrorOr<NonnullOwnPtr<T>> try_make(Args&&... args)
+ALWAYS_INLINE ErrorOr<NonnullOwnPtr<T>> try_make(Args&&... args)
 
 {
     return adopt_nonnull_own_or_enomem(new (nothrow) T{ forward<Args>(args)... });

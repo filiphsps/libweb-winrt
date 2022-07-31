@@ -98,7 +98,7 @@ private:
 
 template<typename T>
 template<typename U>
-inline ErrorOr<WeakPtr<U>> Weakable<T>::try_make_weak_ptr() const
+ALWAYS_INLINE ErrorOr<WeakPtr<U>> Weakable<T>::try_make_weak_ptr() const
 {
     if (!m_link)
         m_link = TRY(adopt_nonnull_ref_or_enomem(new (nothrow) WeakLink(const_cast<T&>(static_cast<T const&>(*this)))));

@@ -20,7 +20,7 @@ template<FloatingPoint T>
 constexpr T Sqrt1_2 = 0.707106781186547524400844362104849039L;
 
 template<Integral I>
-inline I round_to(float value);
+ALWAYS_INLINE I round_to(float value);
 
 template<FloatingPoint T>
 constexpr T hypot(T x, T y);

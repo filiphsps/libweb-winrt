@@ -65,20 +65,20 @@ struct Variant : public std::variant<Ts...> {
     }
 
     template<typename... NewTs>
-    Variant<NewTs...> downcast()&&
-    {
+    Variant<NewTs...> downcast()&&;
+    /* {
         return std::visit([](auto& entry) -> Variant<NewTs...> {
             return Variant<NewTs...>(std::move(entry));
             }, *this);
-    }
+    }*/
 
     template<typename... NewTs>
-    Variant<NewTs...> downcast() const&
-    {
+    Variant<NewTs...> downcast() const&;
+    /* {
         return std::visit([](auto const& entry) -> Variant<NewTs...> {
             return entry;
             }, *this);
-    }
+    }*/
 };
 }
 

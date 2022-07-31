@@ -73,7 +73,7 @@ public:
 
     bool is_empty() const { return !head(); }
 
-    inline size_t size_slow() const;
+    ALWAYS_INLINE size_t size_slow() const;
 
     void clear();
 

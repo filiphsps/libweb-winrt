@@ -22,10 +22,10 @@ template<typename T>
 class RefPtr;
 
 template<typename T>
-inline void ref_if_not_null(T* ptr);
+ALWAYS_INLINE void ref_if_not_null(T* ptr);
 
 template<typename T>
-inline void unref_if_not_null(T* ptr);
+ALWAYS_INLINE void unref_if_not_null(T* ptr);
 
 template<typename T>
 class NonnullRefPtr {
@@ -41,49 +41,54 @@ public:
 
     enum AdoptTag { Adopt };
 
-    inline NonnullRefPtr(T const& object)
+    // FIXME: Don't do this
+    NonnullRefPtr()
+    {
+    }
+
+    ALWAYS_INLINE NonnullRefPtr(T const& object)
         : m_ptr(const_cast<T*>(&object))
     {
         m_ptr->ref();
     }
 
     template<typename U>
-    inline NonnullRefPtr(U const& object) requires(IsConvertible<U*, T*>)
+    ALWAYS_INLINE NonnullRefPtr(U const& object) requires(IsConvertible<U*, T*>)
         : m_ptr(const_cast<T*>(static_cast<T const*>(&object)))
     {
         m_ptr->ref();
     }
 
-    inline NonnullRefPtr(AdoptTag, T& object)
+    ALWAYS_INLINE NonnullRefPtr(AdoptTag, T& object)
         : m_ptr(&object)
     {
     }
 
-    inline NonnullRefPtr(NonnullRefPtr&& other)
+    ALWAYS_INLINE NonnullRefPtr(NonnullRefPtr&& other)
         : m_ptr(&other.leak_ref())
     {
     }
 
     template<typename U>
-    inline NonnullRefPtr(NonnullRefPtr<U>&& other) requires(IsConvertible<U*, T*>)
+    ALWAYS_INLINE NonnullRefPtr(NonnullRefPtr<U>&& other) requires(IsConvertible<U*, T*>)
         : m_ptr(static_cast<T*>(&other.leak_ref()))
     {
     }
 
-    inline NonnullRefPtr(NonnullRefPtr const& other)
+    ALWAYS_INLINE NonnullRefPtr(NonnullRefPtr const& other)
         : m_ptr(const_cast<T*>(other.ptr()))
     {
         m_ptr->ref();
     }
 
     template<typename U>
-    inline NonnullRefPtr(NonnullRefPtr<U> const& other) requires(IsConvertible<U*, T*>)
+    ALWAYS_INLINE NonnullRefPtr(NonnullRefPtr<U> const& other) requires(IsConvertible<U*, T*>)
         : m_ptr(const_cast<T*>(static_cast<T const*>(other.ptr())))
     {
         m_ptr->ref();
     }
 
-    inline ~NonnullRefPtr()
+    ALWAYS_INLINE ~NonnullRefPtr()
     {
         unref_if_not_null(m_ptr);
         m_ptr = nullptr;
@@ -116,7 +121,7 @@ public:
         return *this;
     }
 
-    inline NonnullRefPtr& operator=(NonnullRefPtr&& other)
+    ALWAYS_INLINE NonnullRefPtr& operator=(NonnullRefPtr&& other)
     {
         NonnullRefPtr tmp{ move(other) };
         swap(tmp);
@@ -138,54 +143,54 @@ public:
         return *this;
     }
 
-    inline T& leak_ref()
+    ALWAYS_INLINE T& leak_ref()
     {
         T* ptr = exchange(m_ptr, nullptr);
         VERIFY(ptr);
         return *ptr;
     }
 
-    inline T* ptr()
+    ALWAYS_INLINE T* ptr()
     {
         return as_nonnull_ptr();
     }
-    inline const T* ptr() const
-    {
-        return as_nonnull_ptr();
-    }
-
-    inline T* operator->()
-    {
-        return as_nonnull_ptr();
-    }
-    inline const T* operator->() const
+    ALWAYS_INLINE const T* ptr() const
     {
         return as_nonnull_ptr();
     }
 
-    inline T& operator*()
+    ALWAYS_INLINE T* operator->()
+    {
+        return as_nonnull_ptr();
+    }
+    ALWAYS_INLINE const T* operator->() const
+    {
+        return as_nonnull_ptr();
+    }
+
+    ALWAYS_INLINE T& operator*()
     {
         return *as_nonnull_ptr();
     }
-    inline const T& operator*() const
+    ALWAYS_INLINE const T& operator*() const
     {
         return *as_nonnull_ptr();
     }
 
-    inline operator T* ()
+    ALWAYS_INLINE operator T* ()
     {
         return as_nonnull_ptr();
     }
-    inline operator const T* () const
+    ALWAYS_INLINE operator const T* () const
     {
         return as_nonnull_ptr();
     }
 
-    inline operator T& ()
+    ALWAYS_INLINE operator T& ()
     {
         return *as_nonnull_ptr();
     }
-    inline operator const T& () const
+    ALWAYS_INLINE operator const T& () const
     {
         return *as_nonnull_ptr();
     }
@@ -211,9 +216,9 @@ public:
     bool operator!=(NonnullRefPtr& other) { return m_ptr != other.m_ptr; }
 
 private:
-    NonnullRefPtr() = delete;
+    //NonnullRefPtr() = delete;
 
-    inline T* as_nonnull_ptr() const
+    ALWAYS_INLINE T* as_nonnull_ptr() const
     {
         VERIFY(m_ptr);
         return m_ptr;
@@ -223,7 +228,7 @@ private:
 };
 
 template<typename T>
-inline NonnullRefPtr<T> adopt_ref(T& object)
+ALWAYS_INLINE NonnullRefPtr<T> adopt_ref(T& object)
 {
     return NonnullRefPtr<T>(NonnullRefPtr<T>::Adopt, object);
 }
@@ -237,20 +242,20 @@ struct Formatter<NonnullRefPtr<T>> : Formatter<const T*> {
 };
 
 template<typename T, typename U>
-inline void swap(NonnullRefPtr<T>& a, NonnullRefPtr<U>& b) requires(IsConvertible<U*, T*>)
+ALWAYS_INLINE void swap(NonnullRefPtr<T>& a, NonnullRefPtr<U>& b) requires(IsConvertible<U*, T*>)
 {
     a.swap(b);
 }
 
 template<typename T, class... Args>
-    requires(IsConstructible<T, Args...>) inline NonnullRefPtr<T> make_ref_counted(Args&&... args)
+    requires(IsConstructible<T, Args...>) ALWAYS_INLINE NonnullRefPtr<T> make_ref_counted(Args&&... args)
 {
     return NonnullRefPtr<T>(NonnullRefPtr<T>::Adopt, *new T(forward<Args>(args)...));
 }
 
 // FIXME: Remove once P0960R3 is available in Clang.
 template<typename T, class... Args>
-inline NonnullRefPtr<T> make_ref_counted(Args&&... args)
+ALWAYS_INLINE NonnullRefPtr<T> make_ref_counted(Args&&... args)
 {
     return NonnullRefPtr<T>(NonnullRefPtr<T>::Adopt, *new T{ forward<Args>(args)... });
 }

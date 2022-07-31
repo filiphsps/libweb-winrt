@@ -25,7 +25,7 @@ public:
     bool is_syscall() const { return m_syscall; }
 
     template<size_t N>
-    inline static Error from_string_literal(char const (&string_literal)[N]);
+    ALWAYS_INLINE static Error from_string_literal(char const (&string_literal)[N]);
 
     bool operator==(Error const& other) const
     {
@@ -65,7 +65,7 @@ public:
     using Variant<T, ErrorType>::Variant;
 
     template<typename U>
-    inline ErrorOr(U&& value) requires(!IsSame<RemoveCVReference<U>, ErrorOr<T>>)
+    ALWAYS_INLINE ErrorOr(U&& value) requires(!IsSame<RemoveCVReference<U>, ErrorOr<T>>)
         : Variant<T, ErrorType>(forward<U>(value))
     {
     }

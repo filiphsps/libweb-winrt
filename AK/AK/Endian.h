@@ -13,7 +13,7 @@
 namespace AK {
 
 template<typename T>
-inline constexpr T convert_between_host_and_little_endian(T value)
+ALWAYS_INLINE constexpr T convert_between_host_and_little_endian(T value)
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
     return value;
@@ -30,7 +30,7 @@ inline constexpr T convert_between_host_and_little_endian(T value)
 }
 
 template<typename T>
-inline constexpr T convert_between_host_and_big_endian(T value)
+ALWAYS_INLINE constexpr T convert_between_host_and_big_endian(T value)
 {
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
     if constexpr (sizeof(T) == 8)
@@ -47,7 +47,7 @@ inline constexpr T convert_between_host_and_big_endian(T value)
 }
 
 template<typename T>
-inline T convert_between_host_and_network_endian(T value)
+ALWAYS_INLINE T convert_between_host_and_network_endian(T value)
 {
     return convert_between_host_and_big_endian(value);
 }
