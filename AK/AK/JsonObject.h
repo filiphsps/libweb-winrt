@@ -68,18 +68,6 @@ private:
     OrderedHashMap<String, JsonValue> m_members;
 };
 
-template<typename Builder>
-inline void JsonObject::serialize(Builder& builder) const;
-
-template<typename Builder>
-inline typename Builder::OutputType JsonObject::serialized() const;
-
-template<typename Builder>
-inline void JsonValue::serialize(Builder& builder) const;
-
-template<typename Builder>
-inline typename Builder::OutputType JsonValue::serialized() const;
-
 }
 
 using AK::JsonObject;

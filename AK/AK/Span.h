@@ -152,6 +152,11 @@ public:
     constexpr operator Span<T const>() const;
 };
 
+/*template<typename T>
+struct Traits<Span<T>> : public GenericTraits<Span<T>> {
+    static unsigned hash(Span<T> const& span);
+};*/
+
 using ReadonlyBytes = Span<u8 const>;
 using Bytes = Span<u8>;
 

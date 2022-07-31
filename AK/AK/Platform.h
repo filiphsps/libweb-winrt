@@ -81,6 +81,7 @@
 #define __builtin_mul_overflow(a, b, c) (a *= b)
 #define ssize_t __int64
 #define suseconds_t long int
+#define pid_t int
 
 // gcc
 #define __attribute__(expression)

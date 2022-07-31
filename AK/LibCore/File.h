@@ -5,6 +5,18 @@
 
 namespace Core {
 
+// FIXME: this shouldn't be here
+enum class OpenMode {
+    NotOpen = 0,
+    ReadOnly = 1,
+    WriteOnly = 2,
+    ReadWrite = 3,
+    Append = 4,
+    Truncate = 8,
+    MustBeNew = 16,
+    KeepOnExec = 32,
+};
+
 class File final {
 public:
     bool is_directory() const { return false; }
