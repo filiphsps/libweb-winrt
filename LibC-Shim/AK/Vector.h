@@ -239,12 +239,27 @@ requires(!IsRvalueReference<T>) class Vector {
             VERIFY_NOT_REACHED();
         }
 
-        Vector& operator=(Vector&& other);
+        Vector& operator=(Vector&& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return *this;
+        }
 
-        Vector& operator=(Vector const& other);
+        Vector& operator=(Vector const& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return *this;
+        }
 
         template<size_t other_inline_capacity>
-        Vector& operator=(Vector<T, other_inline_capacity> const& other);
+        Vector& operator=(Vector<T, other_inline_capacity> const& other)
+        {
+            // FIXME: Impl this.
+            VERIFY_NOT_REACHED();
+            return *this;
+        }
 
         void clear()
         {
@@ -288,11 +303,33 @@ requires(!IsRvalueReference<T>) class Vector {
 
         ALWAYS_INLINE T take_last();
 
-        T take_first();
+        T take_first()
+        {
+            VERIFY(!is_empty());
+            auto value = move(raw_first());
+            remove(0);
+            if constexpr (contains_reference)
+                return *value;
+            else
+                return value;
+        }
 
-        T take(size_t index);
+        T take(size_t index)
+        {
+            auto value = move(raw_at(index));
+            remove(index);
+            if constexpr (contains_reference)
+                return *value;
+            else
+                return value;
+        }
 
-        T unstable_take(size_t index);
+        T unstable_take(size_t index)
+        {
+            VERIFY(index < m_size);
+            swap(raw_at(index), raw_at(m_size - 1));
+            return take_last();
+        }
 
         template<typename U = T>
         ErrorOr<void> try_insert(size_t index, U&& value) requires(CanBePlacedInsideVector<U>)

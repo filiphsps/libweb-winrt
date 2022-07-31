@@ -10,50 +10,99 @@ template<typename T, size_t Size>
 struct Array {
     using ValueType = T;
 
-    constexpr T* data();
+    [[nodiscard]] constexpr T const* data() const { return __data; }
+    [[nodiscard]] constexpr T* data() { return __data; }
 
-    constexpr size_t size();
+    [[nodiscard]] constexpr size_t size() const { return Size; }
 
-    constexpr Span<T> span();
+    [[nodiscard]] constexpr Span<T const> span() const { return { __data, Size }; }
+    [[nodiscard]] constexpr Span<T> span() { return { __data, Size }; }
 
-    constexpr T const& at(size_t index) const;
+    [[nodiscard]] constexpr T const& at(size_t index) const
+    {
+        VERIFY(index < size());
+        return __data[index];
+    }
+    [[nodiscard]] constexpr T& at(size_t index)
+    {
+        VERIFY(index < size());
+        return __data[index];
+    }
 
-    constexpr T const& first() const;
-    constexpr T const& last() const requires(Size > 0);
+    [[nodiscard]] constexpr T const& first() const { return at(0); }
+    [[nodiscard]] constexpr T& first() { return at(0); }
 
-    constexpr bool is_empty() const { return size() == 0; }
+    [[nodiscard]] constexpr T const& last() const requires(Size > 0) { return at(Size - 1); }
+    [[nodiscard]] constexpr T& last() requires(Size > 0) { return at(Size - 1); }
 
-    constexpr T const& operator[](size_t index) const;
+    [[nodiscard]] constexpr bool is_empty() const { return size() == 0; }
+
+    [[nodiscard]] constexpr T const& operator[](size_t index) const { return at(index); }
+    [[nodiscard]] constexpr T& operator[](size_t index) { return at(index); }
 
     template<typename T2, size_t Size2>
-    constexpr bool operator==(Array<T2, Size2> const& other);
+    [[nodiscard]] constexpr bool operator==(Array<T2, Size2> const& other) const { return span() == other.span(); }
 
     using ConstIterator = SimpleIterator<Array const, T const>;
     using Iterator = SimpleIterator<Array, T>;
 
-    constexpr ConstIterator begin() const { return ConstIterator::begin(*this); }
-    constexpr Iterator begin() { return Iterator::begin(*this); }
+    [[nodiscard]] constexpr ConstIterator begin() const { return ConstIterator::begin(*this); }
+    [[nodiscard]] constexpr Iterator begin() { return Iterator::begin(*this); }
 
-    constexpr ConstIterator end() const { return ConstIterator::end(*this); }
-    constexpr Iterator end() { return Iterator::end(*this); }
+    [[nodiscard]] constexpr ConstIterator end() const { return ConstIterator::end(*this); }
+    [[nodiscard]] constexpr Iterator end() { return Iterator::end(*this); }
 
-    constexpr operator Span<T const>() const;
+    [[nodiscard]] constexpr operator Span<T const>() const { return span(); }
+    [[nodiscard]] constexpr operator Span<T>() { return span(); }
+
+    constexpr size_t fill(T const& value)
+    {
+        for (size_t idx = 0; idx < Size; ++idx)
+            __data[idx] = value;
+
+        return Size;
+    }
+
+    [[nodiscard]] constexpr T max() const requires(requires(T x, T y) { x < y; })
+    {
+        static_assert(Size > 0, "No values to max() over");
+
+        T value = __data[0];
+        for (size_t i = 1; i < Size; ++i)
+            value = AK::max(__data[i], value);
+        return value;
+    }
+
+    [[nodiscard]] constexpr T min() const requires(requires(T x, T y) { x > y; })
+    {
+        static_assert(Size > 0, "No values to min() over");
+
+        T value = __data[0];
+        for (size_t i = 1; i < Size; ++i)
+            value = AK::min(__data[i], value);
+        return value;
+    }
 
     T __data[Size];
 };
 
 template<typename T, typename... Types>
-Array(T, Types...)->Array<T, sizeof...(Types) + 1>;
+Array(T, Types...) -> Array<T, sizeof...(Types) + 1>;
 
 namespace Detail {
-
 template<typename T, size_t... Is>
-constexpr auto integer_sequence_generate_array([[maybe_unused]] T const offset, IntegerSequence<T, Is...>)->Array<T, sizeof...(Is)>;
-
+constexpr auto integer_sequence_generate_array([[maybe_unused]] T const offset, IntegerSequence<T, Is...>) -> Array<T, sizeof...(Is)>
+{
+    return { { (offset + Is)... } };
+}
 }
 
 template<typename T, T N>
-constexpr static auto iota_array(T const offset = {});
+constexpr static auto iota_array(T const offset = {})
+{
+    static_assert(N >= T {}, "Negative sizes not allowed in iota_array()");
+    return Detail::integer_sequence_generate_array<T>(offset, MakeIntegerSequence<T, N>());
+}
 
 }
 

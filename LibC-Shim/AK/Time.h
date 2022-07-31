@@ -39,7 +39,15 @@ constexpr bool is_leap_year(int year)
 // The return value is 0-indexed, that is 0 is Sunday, 1 is Monday, etc.
 // Day may be negative or larger than the number of days
 // in the given month.
-unsigned day_of_week(int year, unsigned month, int day);
+unsigned day_of_week(int year, unsigned month, int day)
+{
+    VERIFY(month >= 1 && month <= 12);
+    constexpr Array seek_table = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
+    if (month < 3)
+        --year;
+
+    return (year + year / 4 - year / 100 + year / 400 + seek_table[month - 1] + day) % 7;
+}
 
 // Month and day start at 1. Month must be >= 1 and <= 12.
 // The return value is 0-indexed, that is Jan 1 is day 0.
